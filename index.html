@@ -168,6 +168,32 @@
     var AUTOHIDE = Boolean(0);
   </script>
   <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/34696067113?text=Hola%20Carlos,%20me%20interesa%20tu%20asesoría%20financiera" target="_blank" id="whatsapp-button" title="Escríbeme por WhatsApp">
+  <img src="https://icongr.am/fontawesome/whatsapp.svg?size=64&color=ffffff&bg=25d366" alt="WhatsApp" />
+
+</a>
+
+<style>
+  #whatsapp-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999;
+  }
+
+  #whatsapp-button img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+  }
+
+  #whatsapp-button:hover img {
+    transform: scale(1.1);
+  }
+</style>
 
 </body>
 </html>
