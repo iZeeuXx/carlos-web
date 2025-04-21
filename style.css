@@ -215,3 +215,50 @@ html {
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   margin-top: 20px;
 }
+ /* Botón flotante */
+  #whatsapp-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  #whatsapp-button img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  #whatsapp-button:hover img {
+    transform: scale(1.15);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Animación de entrada */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive para móviles */
+  @media (max-width: 480px) {
+    #whatsapp-button {
+      bottom: 20px;
+      right: 20px;
+    }
+
+    #whatsapp-button img {
+      width: 52px;
+      height: 52px;
+    }
+  }
+</style>
