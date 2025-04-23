@@ -317,4 +317,19 @@
     background: #f4f4f4;
     text-align: center;
   }
+  /* 1) Aumentamos el padding interno de los canvases */
+.section-compound .compound-charts canvas {
+    padding: 1.5rem !important;
+  }
+  
+  /* 2) Aseguramos que la altura no sea muy pequeña */
+  .section-compound .compound-charts {
+    min-height: 320px; 
+  }
+  
+  /* 3) Si tuvieras un contenedor .chart-container, un poco de margin */
+  .chart-container {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
   
