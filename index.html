@@ -119,11 +119,6 @@
       <h2>📬 Únete a mi Newsletter</h2>
       <p>Recibe consejos financieros, ideas de inversión y novedades exclusivas directamente en tu correo.</p>
       <!-- Bloque de formulario Brevo -->
-      <div id="brevo-form-container"></div>
-      <script id="brevo-sdk" src="https://cdn.brevo.com/js/sdk-loader.js"></script>
-      <script>
-        Brevo.init({ container: '#brevo-form-container', formId: YOUR_FORM_ID });
-      </script>
     </section>
 
     <section id="contacto">
@@ -194,6 +189,12 @@
     var AUTOHIDE = false;
   </script>
   <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+  <!-- Brevo Pop-up -->
+<script>
+  window.sib = { equeue: [], client_key: 'TU_CLIENT_KEY' };
+</script>
+<script async defer src="https://sibforms.com/forms/popup/TU_FORM_ID.js"></script>
+
 </body>
 
 </html>
