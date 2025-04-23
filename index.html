@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carlos • Asesoría Financiera</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="structure.css" />
   <!-- Chart.js (cargado una sola vez) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -685,15 +684,15 @@
 
         // ─── Doughnut Chart con % inside ───
 if (pieChart) {
-  pieChart.data.datasets[0].data = pieData;
+  pieChart.data.datasets[0].data = [P, totalDeps, totalInterest]; // asegúrate de recalcular
   pieChart.update();
 } else {
   pieChart = new Chart(pieCtx, {
     type: 'doughnut',
     data: {
-      labels: pieLabels,
+      labels: ['Balance inicial', 'Depósitos periódicos', 'Interés total'],
       datasets: [{
-        data: pieData,
+        data: [P, totalDeps, totalInterest],
         backgroundColor: [
           'rgba(94,184,255,0.8)',
           'rgba(255,111,97,0.8)',
@@ -701,24 +700,29 @@ if (pieChart) {
         ],
         borderColor: ['#fff','#fff','#fff'],
         borderWidth: 2,
-        cutout: '50%'
+        cutout: '60%'           // un poco más de agujero
       }]
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: 20 }, // separa del borde
       plugins: {
         legend: { position: 'bottom' },
-        datalabels: {
-          color: '#fff',
-          formatter: (value, ctx) => {
-            const sum = ctx.chart.data.datasets[0].data.reduce((a,b)=>a+b,0);
-            return (value / sum * 100).toFixed(1) + '%';
-          }
-        },
-        tooltip: {
+        tooltip: { 
           callbacks: {
             label: ctx => `${ctx.label}: ${ctx.parsed} €`
           }
+        },
+        datalabels: {
+          color: '#fff',
+          font: { weight: 'bold', size: 14 },
+          formatter: (value, ctx) => {
+            const sum = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+            return (value / sum * 100).toFixed(1) + '%';
+          },
+          anchor: 'center',
+          clamp: true
         }
       }
     },
@@ -726,76 +730,32 @@ if (pieChart) {
   });
 }
 
+
 // ─── Line/Area Chart para evolución ───
 if (barChart) {
-  barChart.data.labels   = labels;
-  barChart.data.datasets = [
-    {
-      label: 'Balance total',
-      data: balanceArr,
-      fill: true,
-      backgroundColor: 'rgba(94,184,255,0.3)',
-      borderColor: 'rgba(94,184,255,1)',
-      tension: 0.4,
-      pointRadius: 3
-    },
-    {
-      label: 'Depósitos periódicos',
-      data: depositsArr,
-      fill: false,
-      borderColor: 'rgba(255,111,97,1)',
-      tension: 0.3
-    },
-    {
-      label: 'Interés generado',
-      data: interestArr,
-      fill: false,
-      borderColor: 'rgba(255,189,46,1)',
-      borderDash: [5,5],
-      tension: 0.3
-    }
-  ];
+  // actualiza sólo las series
+  barChart.data.labels = labels;
+  barChart.data.datasets = [ /* tus 3 datasets */ ];
   barChart.update();
 } else {
   barChart = new Chart(barCtx, {
     type: 'line',
     data: {
       labels,
-      datasets: [
-        {
-          label: 'Balance total',
-          data: balanceArr,
-          fill: true,
-          backgroundColor: 'rgba(94,184,255,0.3)',
-          borderColor: 'rgba(94,184,255,1)',
-          tension: 0.4,
-          pointRadius: 3
-        },
-        {
-          label: 'Depósitos periódicos',
-          data: depositsArr,
-          fill: false,
-          borderColor: 'rgba(255,111,97,1)',
-          tension: 0.3
-        },
-        {
-          label: 'Interés generado',
-          data: interestArr,
-          fill: false,
-          borderColor: 'rgba(255,189,46,1)',
-          borderDash: [5,5],
-          tension: 0.3
-        }
-      ]
+      datasets: [ /* tus 3 datasets, igual que antes */ ]
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: { position: 'top' },
         tooltip: {
           callbacks: {
             label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()} €`
           }
+        },
+        datalabels: {
+          display: false   // desactivamos datalabels aquí
         }
       },
       scales: {
@@ -811,6 +771,7 @@ if (barChart) {
     plugins: [ChartDataLabels]
   });
 }
+
 
     
         // Tabla
@@ -834,5 +795,8 @@ if (barChart) {
     });
     </script>
       
+</body>
+</html>
+
 </body>
 </html>
