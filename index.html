@@ -591,9 +591,8 @@
       document.addEventListener('DOMContentLoaded', () => showStep(0));
     })();
     </script>
-  <script>
+<script>
     document.addEventListener('DOMContentLoaded', () => {
-      const modeEl    = document.getElementById('calc-mode');
       const initEl    = document.getElementById('initialBalance');
       const depAmtEl  = document.getElementById('depositAmount');
       const depFreqEl = document.getElementById('depositFreq');
@@ -609,194 +608,145 @@
       const tableBody = document.querySelector('#resultTable tbody');
       let pieChart, barChart;
     
-      // Actualiza el label del slider
-      durEl.addEventListener('input', ()=> durVal.textContent = durEl.value);
+      // Slider label
+      durEl.addEventListener('input', () => durVal.textContent = durEl.value);
     
-      btn.addEventListener('click', ()=>{
-        // Leer valores
-        const P   = +initEl.value;
-        const C   = +depAmtEl.value;
-        const freq= depFreqEl.value;         // 'monthly' o 'yearly'
-        const atStart = depTimeEl.value==='start';
-        const r   = +rateEl.value/100;
-        const yrs = +durEl.value;
-        const nPeriods = (freq==='monthly'? yrs*12 : yrs);
-        const periodRate = freq==='monthly'? r/12 : r;
+      btn.addEventListener('click', () => {
+        // 1) Leer inputs
+        const P       = +initEl.value;
+        const C       = +depAmtEl.value;
+        const freq    = depFreqEl.value;           // 'monthly' o 'yearly'
+        const atStart = depTimeEl.value === 'start';
+        const r       = +rateEl.value / 100;
+        const yrs     = +durEl.value;
+        const periodRate = freq === 'monthly' ? r/12 : r;
     
-        // Calcula balances año a año
-        let balance = P;
-        let totalDeps = 0;
-        const labels = [];
-        const depositsArr = [];
-        const interestArr = [];
-        const balanceArr  = [];
+        // 2) Calcular arrays por año
+        let balance = P, totalDeps = 0, totalInt = 0;
+        const labels = [], depsArr = [], intArr = [], balArr = [];
     
-        for(let y=1; y<=yrs; y++){
-          let yearDep = 0, yearInt = 0;
-          if(freq==='monthly'){
-            for(let m=1; m<=12; m++){
-              if(atStart){
-                balance += C;
-                yearDep += C;
-              }
-              const interest = balance * periodRate;
-              yearInt += interest;
-              balance += interest;
-              if(!atStart){
-                balance += C;
-                yearDep += C;
-              }
+        for (let y = 1; y <= yrs; y++) {
+          let yearDeps = 0, yearInt = 0;
+          if (freq === 'monthly') {
+            for (let m = 1; m <= 12; m++) {
+              if (atStart) { balance += C; yearDeps += C; }
+              const intr = balance * periodRate;
+              yearInt += intr; balance += intr;
+              if (!atStart) { balance += C; yearDeps += C; }
             }
           } else {
-            if(atStart){
-              balance += C;
-              yearDep += C;
-            }
-            const interest = balance * periodRate;
-            yearInt += interest;
-            balance += interest;
-            if(!atStart){
-              balance += C;
-              yearDep += C;
-            }
+            if (atStart) { balance += C; yearDeps += C; }
+            const intr = balance * periodRate;
+            yearInt += intr; balance += intr;
+            if (!atStart) { balance += C; yearDeps += C; }
           }
-          totalDeps += yearDep;
+          totalDeps += yearDeps;
+          totalInt  += yearInt;
           labels.push(`Año ${y}`);
-          depositsArr.push(yearDep);
-          interestArr.push(yearInt);
-          balanceArr.push(balance);
+          depsArr.push(yearDeps);
+          intArr.push(yearInt);
+          balArr.push(+balance.toFixed(2));
         }
     
-        // Resultado texto
-        if(modeEl.value==='savings'){
-          resultTxt.textContent = 
-            `Puedes ahorrar ${balance.toLocaleString()} € con ${C.toLocaleString()} € mensuales durante ${yrs} años`;
+        // Texto de resultado
+        resultTxt.textContent =
+          `Puedes ahorrar ${balance.toLocaleString()} € con ${C.toLocaleString()} € ${
+            freq === 'monthly' ? 'mensuales' : 'anuales'
+          } durante ${yrs} años`;
+    
+        // 3) Datos para el doughnut
+        const pieData   = [P, totalDeps, totalInt];
+        const pieLabels = ['Balance inicial','Depósitos periódicos','Interés total'];
+    
+        // ─── Doughnut Chart ───
+        if (pieChart) {
+          pieChart.data.datasets[0].data = pieData;
+          pieChart.update();
         } else {
-          resultTxt.textContent =
-            `Tu inversión inicial de ${P.toLocaleString()} € crecerá hasta ${balance.toLocaleString()} € en ${yrs} años`;
+          pieChart = new Chart(pieCtx, {
+            type: 'doughnut',
+            data: { labels: pieLabels, datasets: [{
+              data: pieData,
+              backgroundColor: ['#5EB8FF','#FF6F61','#FFBD2E'],
+              borderColor: ['#fff','#fff','#fff'],
+              borderWidth: 2,
+              cutout: '60%'
+            }]},
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              layout: { padding:20 },
+              plugins: {
+                legend: { position:'bottom' },
+                tooltip: { callbacks: { label: ctx => `${ctx.label}: ${ctx.parsed} €` }},
+                datalabels: {
+                  color:'#fff',
+                  font:{ size:14, weight:'bold' },
+                  formatter:(v,ctx)=>{
+                    const sum = ctx.chart.data.datasets[0].data.reduce((a,b)=>a+b,0);
+                    return (v/sum*100).toFixed(1)+'%';
+                  },
+                  anchor:'center',
+                  clamp:true
+                }
+              }
+            },
+            plugins:[ChartDataLabels]
+          });
         }
     
-// …dentro de tu listener de “Calcular”, tras haber calculado pieData, pieLabels, labels, depositsArr, interestArr, balanceArr…
-
-        // Definición de datos para el pie
-        const pieLabels = ['Balance inicial', 'Depósitos periódicos', 'Interés total'];
-        const pieData = [P, totalDeps, balance - P - totalDeps];
-
-        // ─── Doughnut Chart con % inside ───
-if (pieChart) {
-  pieChart.data.datasets[0].data = [P, totalDeps, totalInterest]; // asegúrate de recalcular
-  pieChart.update();
-} else {
-  pieChart = new Chart(pieCtx, {
-    type: 'doughnut',
-    data: {
-      labels: ['Balance inicial', 'Depósitos periódicos', 'Interés total'],
-      datasets: [{
-        data: [P, totalDeps, totalInterest],
-        backgroundColor: [
-          'rgba(94,184,255,0.8)',
-          'rgba(255,111,97,0.8)',
-          'rgba(255,189,46,0.8)'
-        ],
-        borderColor: ['#fff','#fff','#fff'],
-        borderWidth: 2,
-        cutout: '60%'           // un poco más de agujero
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      layout: { padding: 20 }, // separa del borde
-      plugins: {
-        legend: { position: 'bottom' },
-        tooltip: { 
-          callbacks: {
-            label: ctx => `${ctx.label}: ${ctx.parsed} €`
-          }
-        },
-        datalabels: {
-          color: '#fff',
-          font: { weight: 'bold', size: 14 },
-          formatter: (value, ctx) => {
-            const sum = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
-            return (value / sum * 100).toFixed(1) + '%';
-          },
-          anchor: 'center',
-          clamp: true
-        }
-      }
-    },
-    plugins: [ChartDataLabels]
-  });
-}
-
-
-// ─── Line/Area Chart para evolución ───
-if (barChart) {
-  // actualiza sólo las series
-  barChart.data.labels = labels;
-  barChart.data.datasets = [ /* tus 3 datasets */ ];
-  barChart.update();
-} else {
-  barChart = new Chart(barCtx, {
-    type: 'line',
-    data: {
-      labels,
-      datasets: [ /* tus 3 datasets, igual que antes */ ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { position: 'top' },
-        tooltip: {
-          callbacks: {
-            label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()} €`
-          }
-        },
-        datalabels: {
-          display: false   // desactivamos datalabels aquí
-        }
-      },
-      scales: {
-        x: {
-          title: { display: true, text: 'Año' }
-        },
-        y: {
-          beginAtZero: true,
-          ticks: { callback: v => v.toLocaleString() }
-        }
-      }
-    },
-    plugins: [ChartDataLabels]
-  });
-}
-
-
+        // ─── Line Chart ───
+        const barDatasets = [
+          { label:'Balance total', data:balArr, fill:true, backgroundColor:'rgba(94,184,255,0.3)', borderColor:'#5EB8FF', tension:0.4, pointRadius:3 },
+          { label:'Depósitos periódicos', data:depsArr, fill:false, borderColor:'#FF6F61', tension:0.3 },
+          { label:'Interés generado', data:intArr, fill:false, borderColor:'#FFBD2E', borderDash:[5,5], tension:0.3 }
+        ];
     
-        // Tabla
+        if (barChart) {
+          barChart.data.labels   = labels;
+          barChart.data.datasets = barDatasets;
+          barChart.update();
+        } else {
+          barChart = new Chart(barCtx, {
+            type: 'line',
+            data: { labels, datasets: barDatasets },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: { title:{ display:true, text:'Año' } },
+                y: { beginAtZero:true, ticks:{ callback: v=>v.toLocaleString() } }
+              },
+              plugins: {
+                legend:{ position:'top' },
+                tooltip:{ callbacks:{ label: ctx=>`${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()} €` }}
+              }
+            },
+            plugins:[ChartDataLabels]
+          });
+        }
+    
+        // ─── Tabla ───
         tableBody.innerHTML = '';
-        for(let i=0;i<yrs;i++){
+        depsArr.forEach((d,i) => {
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td>${i+1}</td>
-            <td>${depositsArr[i].toLocaleString()}</td>
-            <td>${(P + depositsArr.slice(0,i+1).reduce((a,b)=>a+b,0)).toLocaleString()}</td>
-            <td>${interestArr[i].toLocaleString()}</td>
-            <td>${balanceArr[i].toLocaleString()}</td>
+            <td>${d.toLocaleString()}</td>
+            <td>${(P + depsArr.slice(0,i+1).reduce((a,b)=>a+b,0)).toLocaleString()}</td>
+            <td>${intArr[i].toLocaleString()}</td>
+            <td>${balArr[i].toLocaleString()}</td>
           `;
           tableBody.appendChild(tr);
-        }
+        });
     
-        // Mostrar sección
+        // Mostrar sección y hacer scroll
         resultDiv.style.display = 'block';
         resultDiv.scrollIntoView({behavior:'smooth'});
       });
     });
     </script>
+    
       
-</body>
-</html>
-
 </body>
 </html>
