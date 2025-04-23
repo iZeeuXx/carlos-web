@@ -1,200 +1,834 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Título -->
   <title>Carlos • Asesoría Financiera</title>
+  <link rel="stylesheet" href="structure.css" />
+  <!-- Chart.js (cargado una sola vez) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
-  <!-- DESCRIPCIÓN para Google -->
-  <meta name="description"
-        content="Asesoría financiera personalizada en ETFs, acciones y real estate. Educación financiera para lograr libertad económica." />
-
-  <!-- Open Graph (Facebook, LinkedIn…) -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="Carlos • Asesoría Financiera" />
-  <meta property="og:description" content="Asesoría financiera personalizada en ETFs, acciones y real estate." />
-  <!-- Reemplaza con la URL de tu imagen de previsualización -->
-  <meta property="og:image"       content="https://tudominio.com/og-image.jpg" />
-  <meta property="og:url"         content="https://carlosinc.netlify.app/" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Carlos • Asesoría Financiera" />
-  <meta name="twitter:description" content="Asesoría financiera personalizada en ETFs, acciones y real estate." />
-  <meta name="twitter:image"       content="https://tudominio.com/og-image.jpg" />
-
-  <!-- Estilos principales -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Estilos Brevo (fuentes) -->
-  <style>
-    @font-face {
-      font-display: block;
-      font-family: Roboto;
-      src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"),
-           url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
-    }
-    @font-face {
-      font-display: fallback;
-      font-family: Roboto;
-      font-weight: 600;
-      src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"),
-           url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff");
-    }
-    @font-face {
-      font-display: fallback;
-      font-family: Roboto;
-      font-weight: 700;
-      src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"),
-           url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff");
-    }
-  </style>
-  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 </head>
-
 <body>
-  <!-- Encabezado -->
+
+  <!-- HEADER + NAV -->
   <header role="banner">
-    <h1>Carlos • Asesoría Financiera</h1>
-    <nav role="navigation" aria-label="Menú principal">
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#quien-soy">Quién Soy</a></li>
-        <li><a href="#casos-exito">Casos de Éxito</a></li>
-        <li><a href="#asesorias">Asesorías</a></li>
-        <li><a href="#newsletter">Newsletter</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1 class="logo">Carlos • Asesoría Financiera</h1>
+      <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+      <nav role="navigation" aria-label="Menú principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#quien-soy">Quién Soy</a></li>
+          <li><a href="#casos-exito">Casos de Éxito</a></li>
+          <li><a href="#asesorias">Asesorías</a></li>
+          <li><a href="#modelos">Modelos</a></li>
+          <li><a href="#test-perfil">Test Perfil</a></li>
+          <li><a href="#simulador">Simulador</a></li>
+          <li><a href="#aportaciones">Aportaciones</a></li>
+          <li><a href="#proteccion">Protección</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- Contenido principal -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main>
+    <!-- Inicio -->
     <section id="inicio" class="hero">
-      <h2>Bienvenido</h2>
-      <p>Asesoría financiera personalizada para todo tipo de personas, especialmente quienes más lo necesitan.</p>
+      <div class="hero-content container">
+        <h2>Bienvenido a tu libertad financiera</h2>
+        <p>Asesoría personalizada en ETFs, acciones y real estate para que tomes el control de tu dinero.</p>
+        <a href="#newsletter" class="btn-primary">Suscríbete al Newsletter</a>
+      </div>
     </section>
 
-    <section id="quien-soy">
-      <h2>¿Quién Soy?</h2>
-      <p>Soy Carlos, gestor patrimonial con experiencia en inversión en ETFs, acciones, real estate y formación de particulares. Creo en la educación financiera como herramienta de libertad.</p>
-    </section>
-
-    <section id="casos-exito">
-      <h2>Casos de Éxito</h2>
-      <p>Conoce ejemplos reales de personas que han mejorado su vida financiera gracias a una buena estrategia de inversión y acompañamiento.</p>
-      <div class="casos-grid">
-        <div class="caso">
-          <h4>Laura G.</h4>
-          <p>“Gracias a la asesoría, logré ahorrar 200€ al mes y empecé a invertir en ETFs. Ahora tengo más tranquilidad y objetivos reales.”</p>
+    <!-- Quién Soy -->
+    <section id="quien-soy" class="section section-quien-soy">
+      <div class="container qs-grid">
+        <div class="qs-text">
+          <h2>¿Quién Soy?</h2>
+          <p>Hola, soy <strong>Carlos</strong>, gestor patrimonial con más de 10 años de experiencia en inversión en ETFs, acciones y real estate. Mi misión es enseñarte a gestionar tu dinero de forma inteligente y adaptada a tu perfil.</p>
+          <p>Creo firmemente en la educación financiera como herramienta de libertad, por eso acompaño a mis clientes en cada paso de su viaje inversor.</p>
+          <a href="#asesorias" class="btn-primary">Conoce mis asesorías</a>
         </div>
-        <div class="caso">
-          <h4>Pedro M.</h4>
-          <p>“Pasé de no entender nada de inversiones a gestionar mi capital con confianza. Carlos me dio las herramientas justas y claras.”</p>
-        </div>
-        <div class="caso">
-          <h4>Ana y Jorge</h4>
-          <p>“Como familia con ingresos bajos, no pensábamos que podíamos invertir. Ahora tenemos un fondo común que crece cada mes.”</p>
+        <div class="qs-img">
+          <img src="https://via.placeholder.com/400x400?text=Carlos" alt="Carlos, asesor financiero" />
         </div>
       </div>
     </section>
 
-    <section id="asesorias">
-      <h2>Asesorías & Gestión de Inversiones</h2>
-      <p>Ofrezco asesoría estratégica a inversores particulares, con o sin experiencia.</p>
-      <h3>💡 Suscripción mensual especial</h3>
-      <p>Servicio adaptado para personas que ganan menos de 1500 € o no tienen formación financiera. Accede a asesoramiento real por una cuota asequible.</p>
-      <div class="suscripcion-box">
-        <p><strong>¿Ingresas menos de 1500 €/mes?</strong> Únete a mi asesoría accesible por solo <span style="color:#e76f51;">9 €/mes</span>.</p>
-        <button onclick="alert('¡Gracias por tu interés! Pronto podrás contratar este servicio desde la web. Por ahora, contáctame.')">
-          Quiero más información
-        </button>
+    <!-- Casos de Éxito -->
+    <section id="casos-exito" class="section section-casos-exito">
+      <div class="container">
+        <h2>Casos de Éxito</h2>
+        <div class="casos-grid">
+          <div class="caso-card">
+            <img src="https://via.placeholder.com/80?text=LG" alt="Laura G." />
+            <h4>Laura G.</h4>
+            <p>“Gracias a la asesoría, logré ahorrar 200€ al mes y empecé a invertir en ETFs. Ahora tengo más tranquilidad y objetivos reales.”</p>
+          </div>
+          <div class="caso-card">
+            <img src="https://via.placeholder.com/80?text=PM" alt="Pedro M." />
+            <h4>Pedro M.</h4>
+            <p>“Pasé de no entender nada de inversiones a gestionar mi capital con confianza. Carlos me dio las herramientas justas y claras.”</p>
+          </div>
+          <div class="caso-card">
+            <img src="https://via.placeholder.com/80?text=AJ" alt="Ana y Jorge" />
+            <h4>Ana y Jorge</h4>
+            <p>“Como familia con ingresos bajos, no pensábamos que podíamos invertir. Ahora tenemos un fondo común que crece cada mes.”</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="newsletter" class="newsletter-section">
-      <h2>📬 Únete a mi Newsletter</h2>
-      <p>Recibe consejos financieros, ideas de inversión y novedades exclusivas directamente en tu correo.</p>
-      <!-- Bloque de formulario Brevo -->
+    <!-- Asesorías -->
+    <section id="asesorias" class="section section-asesorias">
+      <div class="container asesorias-grid">
+        <div class="asesorias-text">
+          <h2>Asesorías & Gestión de Inversiones</h2>
+          <p>Ofrezco asesoría estratégica a inversores particulares, con o sin experiencia. Te acompaño en cada paso para diseñar una cartera adaptada a tus objetivos y tu nivel de riesgo.</p>
+          <h3>💡 Suscripción mensual especial</h3>
+          <p>Servicio dedicado a quienes ingresan menos de 1500 €/mes o no tienen formación financiera. Accede a asesoramiento real por una cuota asequible.</p>
+          <div class="suscripcion-box">
+            <p><strong>¿Ingresas menos de 1500 €/mes?</strong> Únete a mi asesoría accesible por solo <span class="highlight">9 €/mes</span>.</p>
+            <a href="#contacto" class="btn-primary">Más información</a>
+          </div>
+        </div>
+        <div class="asesorias-img">
+          <img src="https://via.placeholder.com/400x300?text=Asesorías" alt="Asesorías financieras" />
+        </div>
+      </div>
     </section>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <form action="https://formspree.io/f/xoveobaz" method="POST">
-        <label for="nombre">Tu nombre</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+    <!-- Modelos de Inversión -->
+    <section id="modelos" class="section section-modelos">
+      <div class="container">
+        <h2>Modelos de Inversión</h2>
+        <div class="modelos-cards">
+          <div class="modelo-card">
+            <img src="https://via.placeholder.com/80?text=ETFs" alt="Gestión de ETFs" />
+            <h4>Gestión de ETFs</h4>
+            <p>Diversifica tu cartera con fondos cotizados de bajo coste y expónte a mercados globales.</p>
+          </div>
+          <div class="modelo-card">
+            <img src="https://via.placeholder.com/80?text=Acciones" alt="Inversión en Acciones" />
+            <h4>Inversión en Acciones</h4>
+            <p>Selecciona empresas de calidad para beneficiarte de su crecimiento a largo plazo.</p>
+          </div>
+          <div class="modelo-card">
+            <img src="https://via.placeholder.com/80?text=Real+Estate" alt="Real Estate" />
+            <h4>Real Estate</h4>
+            <p>Accede al sector inmobiliario a través de REITs y plataformas de crowdlending.</p>
+          </div>
+          <div class="modelo-card">
+            <img src="https://via.placeholder.com/80?text=Ahorro" alt="Planes de Ahorro" />
+            <h4>Planes de Ahorro</h4>
+            <p>Construye tu colchón financiero con planes de jubilación y productos de ahorro programado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <label for="email">Tu email</label>
-        <input type="email" id="email" name="email" placeholder="Tu email" required />
-
-        <label for="mensaje">Tu mensaje</label>
-        <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" required></textarea>
-
-        <button type="submit" id="boton-enviar">Enviar</button>
+    <!-- Test de Perfil Inversor (INLINE) -->
+    <section id="test-perfil" class="section section-test">
+    <div class="container">
+      <h2>Test de Perfil Inversor</h2>
+      <!-- Contador de pasos -->
+      <div id="step-counter" class="step-counter">1 de 10</div>
+  
+      <form id="test-form">
+        <!-- Paso 1 -->
+        <div class="step active">
+          <p>1. ¿Cuál es tu objetivo principal?</p>
+          <label><input type="radio" name="q1" value="1" required> Seguridad</label>
+          <label><input type="radio" name="q1" value="3"> Ingresos</label>
+          <label><input type="radio" name="q1" value="5"> Crecimiento</label>
+        </div>
+        <!-- Paso 2 -->
+        <div class="step">
+          <p>2. ¿Horizonte de inversión?</p>
+          <label><input type="radio" name="q2" value="1" required> &lt; 1 año</label>
+          <label><input type="radio" name="q2" value="3"> 1–5 años</label>
+          <label><input type="radio" name="q2" value="5"> &gt; 5 años</label>
+        </div>
+        <!-- Paso 3 -->
+        <div class="step">
+          <p>3. Reacción ante -10% de caída:</p>
+          <label><input type="radio" name="q3" value="1" required> Vendo todo</label>
+          <label><input type="radio" name="q3" value="3"> Espero</label>
+          <label><input type="radio" name="q3" value="5"> Compro más</label>
+        </div>
+        <!-- Paso 4 -->
+        <div class="step">
+          <p>4. % de patrimonio a invertir:</p>
+          <label><input type="radio" name="q4" value="1" required> &lt; 20%</label>
+          <label><input type="radio" name="q4" value="3"> 20–50%</label>
+          <label><input type="radio" name="q4" value="5"> &gt; 50%</label>
+        </div>
+        <!-- Paso 5 -->
+        <div class="step">
+          <p>5. Nivel de conocimientos:</p>
+          <label><input type="radio" name="q5" value="1" required> Básicos</label>
+          <label><input type="radio" name="q5" value="3"> Intermedios</label>
+          <label><input type="radio" name="q5" value="5"> Avanzados</label>
+        </div>
+        <!-- Paso 6 -->
+        <div class="step">
+          <p>6. ¿Necesitas liquidez frecuente?</p>
+          <label><input type="radio" name="q6" value="1" required> Sí</label>
+          <label><input type="radio" name="q6" value="3"> A veces</label>
+          <label><input type="radio" name="q6" value="5"> No</label>
+        </div>
+        <!-- Paso 7 -->
+        <div class="step">
+          <p>7. ¿Con qué frecuencia revisarás tus inversiones?</p>
+          <label><input type="radio" name="q7" value="1" required> Diario</label>
+          <label><input type="radio" name="q7" value="3"> Mensual</label>
+          <label><input type="radio" name="q7" value="5"> Anual</label>
+        </div>
+        <!-- Paso 8 -->
+        <div class="step">
+          <p>8. ¿Comprendes bien el interés compuesto?</p>
+          <label><input type="radio" name="q8" value="1" required> No</label>
+          <label><input type="radio" name="q8" value="3"> Algo</label>
+          <label><input type="radio" name="q8" value="5"> Sí</label>
+        </div>
+        <!-- Paso 9 -->
+        <div class="step">
+          <p>9. ¿Has invertido antes?</p>
+          <label><input type="radio" name="q9" value="1" required> Nunca</label>
+          <label><input type="radio" name="q9" value="3"> Pocas veces</label>
+          <label><input type="radio" name="q9" value="5"> Con frecuencia</label>
+        </div>
+        <!-- Paso 10 -->
+        <div class="step">
+          <p>10. ¿Te afectan las noticias de mercado?</p>
+          <label><input type="radio" name="q10" value="1" required> Mucho</label>
+          <label><input type="radio" name="q10" value="3"> Algo</label>
+          <label><input type="radio" name="q10" value="5"> Casi nada</label>
+        </div>
+  
+        <div class="buttons">
+          <button type="button" id="prev-btn" class="btn-primary" disabled>Anterior</button>
+          <button type="button" id="next-btn" class="btn-primary">Siguiente</button>
+        </div>
       </form>
-      <p id="mensaje-confirmacion"
-         style="display:none; color:green; margin-top: 15px;"
-         aria-live="polite">
-        ✅ ¡Gracias por tu mensaje! Te responderé lo antes posible.
-      </p>
+  
+      <div id="test-result" class="test-result" style="display:none;">
+        <h3>Tu perfil de riesgo es: <span id="perfil-texto"></span></h3>
+        <p id="perfil-desc"></p>
+        <p>Rendimiento anual estimado: <strong id="perfil-return"></strong></p>
+      </div>
+    </div>
+    </section>
+  
+<!-- Calculadora de Interés Compuesto -->
+<section id="compound-calc" class="section section-compound">
+    <div class="container">
+      <h2>Calculadora de Interés Compuesto</h2>
+  
+      <!-- Inputs inline -->
+      <div class="compound-inputs">
+        <select id="calc-mode">
+          <option value="savings">¿Cuánto puedo ahorrar?</option>
+          <option value="growth">¿Cuánto tendrá mi inversión?</option>
+        </select>
+  
+        <label>
+          Balance inicial (€)
+          <input type="number" id="initialBalance" value="25000" min="0">
+        </label>
+  
+        <label>
+          Depósito periódico (€)
+          <div class="inline-group">
+            <input type="number" id="depositAmount" value="200" min="0">
+            <select id="depositFreq">
+              <option value="monthly">Mensual</option>
+              <option value="yearly">Anual</option>
+            </select>
+          </div>
+        </label>
+  
+        <label>
+          Timing de depósito
+          <select id="depositTiming">
+            <option value="start">Al inicio del periodo</option>
+            <option value="end">Al final del periodo</option>
+          </select>
+        </label>
+  
+        <label>
+          Tasa anual (%)
+          <input type="number" id="annualRate" value="6" step="0.1" min="0">
+        </label>
+  
+        <label>
+          Duración (<span id="durationValue">10</span> años)
+          <input type="range" id="duration" min="1" max="50" value="10">
+        </label>
+  
+        <button id="calcButton" class="btn-primary">Calcular</button>
+      </div>
+  
+      <!-- Resultado oculto hasta calcular -->
+      <div id="compoundResult" class="compound-result" style="display:none;">
+        <h3 id="resultText"></h3>
+        <div class="compound-charts">
+          <canvas id="pieChart"></canvas>
+          <canvas id="barChart"></canvas>
+        </div>
+        <div class="compound-table">
+          <table id="resultTable">
+            <thead>
+              <tr>
+                <th>Año</th>
+                <th>Depósitos periódicos</th>
+                <th>Depósitos totales</th>
+                <th>Interés total</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+    <!-- Protección Patrimonial -->
+    <section id="proteccion" class="section">
+      <div class="container">
+        <h2>Protección Patrimonial</h2>
+        <p>Plan de jubilación, diversificación y objetivos.</p>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="newsletter" class="section">
+      <div class="container">
+        <h2>Newsletter</h2>
+        <p>Únete para recibir contenidos exclusivos.</p>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section">
+      <div class="container">
+        <h2>Contacto</h2>
+        <p>Formulario y datos de contacto.</p>
+      </div>
     </section>
   </main>
 
-  <!-- Pie de página -->
+  <!-- FOOTER -->
   <footer role="contentinfo">
-    <p>&copy; 2025 Carlos Asesor Financiero. Todos los derechos reservados.</p>
+    <div class="container">
+      <p>&copy; 2025 Carlos Asesor Financiero. Todos los derechos reservados.</p>
+    </div>
   </footer>
 
-  <!-- JS Formulario de contacto -->
+  <!-- Scripts generales -->
   <script>
-    const form = document.querySelector("form");
-    const mensaje = document.getElementById("mensaje-confirmacion");
+    // Toggle menú móvil
+    document.querySelector('.nav-toggle').onclick = () => {
+      document.querySelector('nav ul').classList.toggle('show');
+    };
+  </script>
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const datos = new FormData(form);
-
-      fetch(form.action, {
-        method: form.method,
-        body: datos,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          form.reset();
-          mensaje.style.display = "block";
-          document.getElementById("boton-enviar").innerText = "Enviado ✅";
+  <!-- Test de Perfil Inline -->
+  <script>
+    (function(){
+      const steps       = Array.from(document.querySelectorAll('#test-perfil .step'));
+      const prevBtn     = document.getElementById('prev-btn');
+      const nextBtn     = document.getElementById('next-btn');
+      const form        = document.getElementById('test-form');
+      const result      = document.getElementById('test-result');
+      const txt         = document.getElementById('perfil-texto');
+      const desc        = document.getElementById('perfil-desc');
+      const retElem     = document.getElementById('perfil-return');
+      const counterElem = document.getElementById('step-counter');
+      const total       = steps.length;
+      let current       = 0;
+    
+      // Map de perfiles a rangos y tasas
+      const map = {
+        'Conservador': { range:'4–5%',   rate:4.5 },
+        'Moderado':    { range:'7–8%',   rate:7.5 },
+        'Agresivo':    { range:'10–12%', rate:11  }
+      };
+    
+      function showStep(i) {
+        steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
+        prevBtn.disabled          = i === 0;
+        nextBtn.textContent       = i === total - 1 ? 'Terminar' : 'Siguiente';
+        counterElem.textContent   = `${i+1} de ${total}`;
+      }
+    
+      prevBtn.addEventListener('click', () => {
+        if (current > 0) showStep(--current);
+      });
+    
+      nextBtn.addEventListener('click', () => {
+        const checked = [...steps[current].querySelectorAll('input')].some(i => i.checked);
+        if (!checked) return alert('Selecciona una opción');
+        if (current < total - 1) {
+          showStep(++current);
+        } else {
+          // calculamos perfil
+          const score = [...new FormData(form).values()]
+                          .reduce((sum,v)=>sum+parseInt(v,10),0);
+          let perfil;
+          if (score <= 20)      perfil = 'Conservador';
+          else if (score <= 35) perfil = 'Moderado';
+          else                  perfil = 'Agresivo';
+    
+          // llenamos resultado
+          const info = map[perfil];
+          txt.textContent    = perfil;
+          desc.textContent   = info.range==='4–5%' 
+                              ? 'Buscas seguridad.' 
+                              : (perfil==='Moderado'
+                                  ? 'Aceptas volatilidad.' 
+                                  : 'Asumes riesgo.');
+          retElem.textContent = info.range;
+          result.style.display = 'block';
+          form.style.display   = 'none';
+    
+          // prefill simuladores
+          const simRate = document.getElementById('tasa');
+          if (simRate) simRate.value = info.rate;
+          const simRateM = document.getElementById('tasa_m');
+          if (simRateM) simRateM.value = info.rate;
+    
+          // hacemos scroll al simulador
+          document.getElementById('simulador').scrollIntoView({ behavior:'smooth' });
         }
       });
-    });
+    
+      document.addEventListener('DOMContentLoaded', () => showStep(0));
+    })();
   </script>
-
-  <!-- JS de Brevo (mensajes y localización) -->
+    
+  <!-- Simulador de Interés Compuesto -->
   <script>
-    window.REQUIRED_CODE_ERROR_MESSAGE = 'Elija un código de país';
-    window.LOCALE = 'es';
-    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "La información que ha proporcionado no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
-    window.REQUIRED_ERROR_MESSAGE = "Este campo no puede quedarse vacío.";
-    window.GENERIC_INVALID_MESSAGE = "La información que ha proporcionado no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
-    window.translation = {
-      common: {
-        selectedList: '{quantity} lista seleccionada',
-        selectedLists: '{quantity} listas seleccionadas',
-        selectedOption: '{quantity} seleccionado',
-        selectedOptions: '{quantity} seleccionados'
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('simulador-form');
+    const ctx  = document.getElementById('simulador-chart').getContext('2d');
+    let chart  = null;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const P     = parseFloat(form.principal.value);
+      const rA    = parseFloat(form.tasa.value) / 100;
+      const n     = parseInt(form.años.value, 10);
+      const i     = parseFloat(form.inflacion.value) / 100;
+      const t     = parseFloat(form.impuestos.value) / 100;
+      const rNetA = rA * (1 - t);
+
+      const labels           = [];
+      const nominalData      = [];
+      const realData         = [];
+      const afterTaxData     = [];
+      const realAfterTaxData = [];
+
+      for (let year = 0; year <= n; year++) {
+        labels.push(`Año ${year}`);
+        const Vn  = P * Math.pow(1 + rA, year);
+        nominalData.push(+Vn.toFixed(2));
+        realData.push(+(Vn / Math.pow(1 + i, year)).toFixed(2));
+        const Vat = P * Math.pow(1 + rNetA, year);
+        afterTaxData.push(+Vat.toFixed(2));
+        realAfterTaxData.push(+(Vat / Math.pow(1 + i, year)).toFixed(2));
       }
-    };
-    var AUTOHIDE = false;
+
+      const datasets = [
+        { label: 'Nominal',             data: nominalData,      fill: false, tension: 0.3 },
+        { label: 'Real (inflación)',    data: realData,         fill: false, tension: 0.3 },
+        { label: 'Neto tras impuestos', data: afterTaxData,     fill: false, tension: 0.3 },
+        { label: 'Real neto (inf+imp)', data: realAfterTaxData, fill: false, tension: 0.3 }
+      ];
+
+      if (chart) {
+        chart.data.labels   = labels;
+        chart.data.datasets = datasets;
+        chart.update();
+      } else {
+        chart = new Chart(ctx, {
+          type: 'line',
+          data: { labels, datasets },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+          }
+        });
+      }
+    });
+  });
   </script>
-  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-  <!-- Brevo Pop-up -->
-<script>
-  window.sib = { equeue: [], client_key: 'TU_CLIENT_KEY' };
-</script>
-<script async defer src="https://sibforms.com/forms/popup/TU_FORM_ID.js"></script>
 
+  <!-- Simulador con Aportaciones Mensuales -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const formM = document.getElementById('aportaciones-form');
+    const ctxM  = document.getElementById('aportaciones-chart').getContext('2d');
+    let chartM  = null;
+
+    formM.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const P      = parseFloat(formM.principal.value);
+      const rA     = parseFloat(formM.tasa.value) / 100;
+      const years  = parseInt(formM.años.value, 10);
+      const C      = parseFloat(formM.mensual.value);
+      const i      = parseFloat(formM.inflacion.value) / 100;
+      const t      = parseFloat(formM.impuestos.value) / 100;
+      const rM     = rA / 12;
+      const rNetA  = rA * (1 - t);
+      const rNetM  = rNetA / 12;
+
+      const labels       = [];
+      const nominal      = [];
+      const real         = [];
+      const afterTax     = [];
+      const realAfterTax = [];
+
+      for (let y = 0; y <= years; y++) {
+        const months = y * 12;
+        labels.push(`Año ${y}`);
+
+        const VnP = P * Math.pow(1 + rA, y);
+        const VnC = months > 0
+          ? C * ((Math.pow(1 + rM, months) - 1) / rM)
+          : 0;
+        const Vnom = VnP + VnC;
+        nominal.push(+Vnom.toFixed(2));
+        real.push(+(Vnom / Math.pow(1 + i, y)).toFixed(2));
+
+        const VtP = P * Math.pow(1 + rNetA, y);
+        const VtC = months > 0
+          ? C * ((Math.pow(1 + rNetM, months) - 1) / rNetM)
+          : 0;
+        const Vtax = VtP + VtC;
+        afterTax.push(+Vtax.toFixed(2));
+        realAfterTax.push(+(Vtax / Math.pow(1 + i, y)).toFixed(2));
+      }
+
+      const datasetsM = [
+        { label: 'Nominal',             data: nominal,      fill: false, tension: 0.3 },
+        { label: 'Real (inflación)',    data: real,         fill: false, tension: 0.3 },
+        { label: 'Neto impuestos',      data: afterTax,     fill: false, tension: 0.3 },
+        { label: 'Real neto (inf+imp)', data: realAfterTax, fill: false, tension: 0.3 }
+      ];
+
+      if (chartM) {
+        chartM.data.labels   = labels;
+        chartM.data.datasets = datasetsM;
+        chartM.update();
+      } else {
+        chartM = new Chart(ctxM, {
+          type: 'line',
+          data: { labels, datasets: datasetsM },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+          }
+        });
+      }
+    });
+  });
+  </script>
+  <script>
+    (function(){
+      const steps       = Array.from(document.querySelectorAll('#test-perfil .step'));
+      const prevBtn     = document.getElementById('prev-btn');
+      const nextBtn     = document.getElementById('next-btn');
+      const form        = document.getElementById('test-form');
+      const result      = document.getElementById('test-result');
+      const txt         = document.getElementById('perfil-texto');
+      const desc        = document.getElementById('perfil-desc');
+      const counterElem = document.getElementById('step-counter');
+      const total       = steps.length;
+      let current       = 0;
+    
+      function showStep(i) {
+        steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
+        prevBtn.disabled = i === 0;
+        nextBtn.textContent = i === total - 1 ? 'Terminar' : 'Siguiente';
+        counterElem.textContent = `${i+1} de ${total}`;
+      }
+    
+      prevBtn.addEventListener('click', () => {
+        if (current > 0) showStep(--current);
+      });
+    
+      nextBtn.addEventListener('click', () => {
+        const checked = [...steps[current].querySelectorAll('input')].some(i => i.checked);
+        if (!checked) return alert('Selecciona una opción');
+        if (current < total - 1) {
+          showStep(++current);
+        } else {
+          // Calcular perfil
+          const score = [...new FormData(form).values()]
+                          .reduce((sum,v)=>sum+parseInt(v,10), 0);
+          let perfil, pd;
+          if (score <= 20)      [perfil,pd]=['Conservador','Buscas seguridad.'];
+          else if (score <= 35) [perfil,pd]=['Moderado','Aceptas volatilidad.'];
+          else                  [perfil,pd]=['Agresivo','Asumes riesgo.'];
+          txt.textContent    = perfil;
+          desc.textContent   = pd;
+          result.style.display = 'block';
+          form.style.display   = 'none';
+        }
+      });
+    
+      document.addEventListener('DOMContentLoaded', () => showStep(0));
+    })();
+    </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modeEl    = document.getElementById('calc-mode');
+      const initEl    = document.getElementById('initialBalance');
+      const depAmtEl  = document.getElementById('depositAmount');
+      const depFreqEl = document.getElementById('depositFreq');
+      const depTimeEl = document.getElementById('depositTiming');
+      const rateEl    = document.getElementById('annualRate');
+      const durEl     = document.getElementById('duration');
+      const durVal    = document.getElementById('durationValue');
+      const btn       = document.getElementById('calcButton');
+      const resultDiv = document.getElementById('compoundResult');
+      const resultTxt = document.getElementById('resultText');
+      const pieCtx    = document.getElementById('pieChart').getContext('2d');
+      const barCtx    = document.getElementById('barChart').getContext('2d');
+      const tableBody = document.querySelector('#resultTable tbody');
+      let pieChart, barChart;
+    
+      // Actualiza el label del slider
+      durEl.addEventListener('input', ()=> durVal.textContent = durEl.value);
+    
+      btn.addEventListener('click', ()=>{
+        // Leer valores
+        const P   = +initEl.value;
+        const C   = +depAmtEl.value;
+        const freq= depFreqEl.value;         // 'monthly' o 'yearly'
+        const atStart = depTimeEl.value==='start';
+        const r   = +rateEl.value/100;
+        const yrs = +durEl.value;
+        const nPeriods = (freq==='monthly'? yrs*12 : yrs);
+        const periodRate = freq==='monthly'? r/12 : r;
+    
+        // Calcula balances año a año
+        let balance = P;
+        let totalDeps = 0;
+        const labels = [];
+        const depositsArr = [];
+        const interestArr = [];
+        const balanceArr  = [];
+    
+        for(let y=1; y<=yrs; y++){
+          let yearDep = 0, yearInt = 0;
+          if(freq==='monthly'){
+            for(let m=1; m<=12; m++){
+              if(atStart){
+                balance += C;
+                yearDep += C;
+              }
+              const interest = balance * periodRate;
+              yearInt += interest;
+              balance += interest;
+              if(!atStart){
+                balance += C;
+                yearDep += C;
+              }
+            }
+          } else {
+            if(atStart){
+              balance += C;
+              yearDep += C;
+            }
+            const interest = balance * periodRate;
+            yearInt += interest;
+            balance += interest;
+            if(!atStart){
+              balance += C;
+              yearDep += C;
+            }
+          }
+          totalDeps += yearDep;
+          labels.push(`Año ${y}`);
+          depositsArr.push(yearDep);
+          interestArr.push(yearInt);
+          balanceArr.push(balance);
+        }
+    
+        // Resultado texto
+        if(modeEl.value==='savings'){
+          resultTxt.textContent = 
+            `Puedes ahorrar ${balance.toLocaleString()} € con ${C.toLocaleString()} € mensuales durante ${yrs} años`;
+        } else {
+          resultTxt.textContent =
+            `Tu inversión inicial de ${P.toLocaleString()} € crecerá hasta ${balance.toLocaleString()} € en ${yrs} años`;
+        }
+    
+// …dentro de tu listener de “Calcular”, tras haber calculado pieData, pieLabels, labels, depositsArr, interestArr, balanceArr…
+
+// ─── Doughnut Chart con % inside ───
+if (pieChart) {
+  pieChart.data.datasets[0].data = pieData;
+  pieChart.update();
+} else {
+  pieChart = new Chart(pieCtx, {
+    type: 'doughnut',
+    data: {
+      labels: pieLabels,
+      datasets: [{
+        data: pieData,
+        backgroundColor: [
+          'rgba(94,184,255,0.8)',
+          'rgba(255,111,97,0.8)',
+          'rgba(255,189,46,0.8)'
+        ],
+        borderColor: ['#fff','#fff','#fff'],
+        borderWidth: 2,
+        cutout: '50%'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom' },
+        datalabels: {
+          color: '#fff',
+          formatter: (value, ctx) => {
+            const sum = ctx.chart.data.datasets[0].data.reduce((a,b)=>a+b,0);
+            return (value / sum * 100).toFixed(1) + '%';
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.label}: ${ctx.parsed} €`
+          }
+        }
+      }
+    },
+    plugins: [ChartDataLabels]
+  });
+}
+
+// ─── Line/Area Chart para evolución ───
+if (barChart) {
+  barChart.data.labels   = labels;
+  barChart.data.datasets = [
+    {
+      label: 'Balance total',
+      data: balanceArr,
+      fill: true,
+      backgroundColor: 'rgba(94,184,255,0.3)',
+      borderColor: 'rgba(94,184,255,1)',
+      tension: 0.4,
+      pointRadius: 3
+    },
+    {
+      label: 'Depósitos periódicos',
+      data: depositsArr,
+      fill: false,
+      borderColor: 'rgba(255,111,97,1)',
+      tension: 0.3
+    },
+    {
+      label: 'Interés generado',
+      data: interestArr,
+      fill: false,
+      borderColor: 'rgba(255,189,46,1)',
+      borderDash: [5,5],
+      tension: 0.3
+    }
+  ];
+  barChart.update();
+} else {
+  barChart = new Chart(barCtx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Balance total',
+          data: balanceArr,
+          fill: true,
+          backgroundColor: 'rgba(94,184,255,0.3)',
+          borderColor: 'rgba(94,184,255,1)',
+          tension: 0.4,
+          pointRadius: 3
+        },
+        {
+          label: 'Depósitos periódicos',
+          data: depositsArr,
+          fill: false,
+          borderColor: 'rgba(255,111,97,1)',
+          tension: 0.3
+        },
+        {
+          label: 'Interés generado',
+          data: interestArr,
+          fill: false,
+          borderColor: 'rgba(255,189,46,1)',
+          borderDash: [5,5],
+          tension: 0.3
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()} €`
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Año' }
+        },
+        y: {
+          beginAtZero: true,
+          ticks: { callback: v => v.toLocaleString() }
+        }
+      }
+    },
+    plugins: [ChartDataLabels]
+  });
+}
+
+    
+        // Tabla
+        tableBody.innerHTML = '';
+        for(let i=0;i<yrs;i++){
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${i+1}</td>
+            <td>${depositsArr[i].toLocaleString()}</td>
+            <td>${(P + depositsArr.slice(0,i+1).reduce((a,b)=>a+b,0)).toLocaleString()}</td>
+            <td>${interestArr[i].toLocaleString()}</td>
+            <td>${balanceArr[i].toLocaleString()}</td>
+          `;
+          tableBody.appendChild(tr);
+        }
+    
+        // Mostrar sección
+        resultDiv.style.display = 'block';
+        resultDiv.scrollIntoView({behavior:'smooth'});
+      });
+    });
+    </script>
+      
 </body>
-
 </html>
