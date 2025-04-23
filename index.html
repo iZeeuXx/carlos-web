@@ -1,63 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carlos Asesor Financiero</title>
-    <link rel="stylesheet" href="style.css" />
 
-    <!-- Brevo Tracker -->
-    <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
-    <script>
-      window.Brevo = window.Brevo || [];
-      Brevo.push([
-        "init",
-        {
-          client_key: "fwz4s5clsmrs01aqj8086mm0"
-        }
-      ]);
-    </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Estilos Brevo -->
-    <style>
-      @font-face {
-        font-display: block;
-        font-family: Roboto;
-        src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"),
-             url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
-      }
-      @font-face {
-        font-display: fallback;
-        font-family: Roboto;
-        font-weight: 600;
-        src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"),
-             url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff");
-      }
-      @font-face {
-        font-display: fallback;
-        font-family: Roboto;
-        font-weight: 700;
-        src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"),
-             url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff");
-      }
-    </style>
-    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-  </head>
-  <body>
-    <header>
-      <h1>Carlos • Asesoría Financiera</h1>
-      <nav>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#quien-soy">Quién Soy</a></li>
-          <li><a href="#casos-exito">Casos de Éxito</a></li>
-          <li><a href="#asesorias">Asesorías</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
+  <!-- Título -->
+  <title>Carlos • Asesoría Financiera</title>
 
+  <!-- DESCRIPCIÓN para Google -->
+  <meta name="description"
+        content="Asesoría financiera personalizada en ETFs, acciones y real estate. Educación financiera para lograr libertad económica." />
+
+  <!-- Open Graph (Facebook, LinkedIn…) -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Carlos • Asesoría Financiera" />
+  <meta property="og:description" content="Asesoría financiera personalizada en ETFs, acciones y real estate." />
+  <!-- Reemplaza con la URL de tu imagen de previsualización -->
+  <meta property="og:image"       content="https://tudominio.com/og-image.jpg" />
+  <meta property="og:url"         content="https://carlosinc.netlify.app/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Carlos • Asesoría Financiera" />
+  <meta name="twitter:description" content="Asesoría financiera personalizada en ETFs, acciones y real estate." />
+  <meta name="twitter:image"       content="https://tudominio.com/og-image.jpg" />
+
+  <!-- Estilos principales -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Estilos Brevo (fuentes) -->
+  <style>
+    @font-face {
+      font-display: block;
+      font-family: Roboto;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"),
+           url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
+    }
+    @font-face {
+      font-display: fallback;
+      font-family: Roboto;
+      font-weight: 600;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"),
+           url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff");
+    }
+    @font-face {
+      font-display: fallback;
+      font-family: Roboto;
+      font-weight: 700;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"),
+           url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff");
+    }
+  </style>
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+</head>
+
+<body>
+  <!-- Encabezado -->
+  <header role="banner">
+    <h1>Carlos • Asesoría Financiera</h1>
+    <nav role="navigation" aria-label="Menú principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#quien-soy">Quién Soy</a></li>
+        <li><a href="#casos-exito">Casos de Éxito</a></li>
+        <li><a href="#asesorias">Asesorías</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
     <section id="inicio" class="hero">
       <h2>Bienvenido</h2>
       <p>Asesoría financiera personalizada para todo tipo de personas, especialmente quienes más lo necesitan.</p>
@@ -103,86 +118,82 @@
     <section id="newsletter" class="newsletter-section">
       <h2>📬 Únete a mi Newsletter</h2>
       <p>Recibe consejos financieros, ideas de inversión y novedades exclusivas directamente en tu correo.</p>
+      <!-- Bloque de formulario Brevo -->
+      <div id="brevo-form-container"></div>
+      <script id="brevo-sdk" src="https://cdn.brevo.com/js/sdk-loader.js"></script>
+      <script>
+        Brevo.init({ container: '#brevo-form-container', formId: YOUR_FORM_ID });
+      </script>
     </section>
 
     <section id="contacto">
       <h2>Contacto</h2>
       <form action="https://formspree.io/f/xoveobaz" method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-        <input type="email" name="email" placeholder="Tu email" required />
-        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+        <label for="nombre">Tu nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+
+        <label for="email">Tu email</label>
+        <input type="email" id="email" name="email" placeholder="Tu email" required />
+
+        <label for="mensaje">Tu mensaje</label>
+        <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" required></textarea>
+
         <button type="submit" id="boton-enviar">Enviar</button>
       </form>
-      <p id="mensaje-confirmacion" style="display:none; color:green; margin-top: 15px;">
+      <p id="mensaje-confirmacion"
+         style="display:none; color:green; margin-top: 15px;"
+         aria-live="polite">
         ✅ ¡Gracias por tu mensaje! Te responderé lo antes posible.
       </p>
     </section>
+  </main>
 
-    <footer>
-      <p>&copy; 2025 Carlos Asesor Financiero. Todos los derechos reservados.</p>
-    </footer>
+  <!-- Pie de página -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Carlos Asesor Financiero. Todos los derechos reservados.</p>
+  </footer>
 
-    <script>
-      const form = document.querySelector("form");
-      const mensaje = document.getElementById("mensaje-confirmacion");
-      form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        const datos = new FormData(form);
-        fetch(form.action, {
-          method: form.method,
-          body: datos,
-          headers: { 'Accept': 'application/json' }
-        }).then(response => {
-          if (response.ok) {
-            form.reset();
-            mensaje.style.display = "block";
-            document.getElementById("boton-enviar").innerText = "Enviado ✅";
-          }
-        });
-      });
-    </script>
+  <!-- JS Formulario de contacto -->
+  <script>
+    const form = document.querySelector("form");
+    const mensaje = document.getElementById("mensaje-confirmacion");
 
-    <!-- JS de Brevo -->
-    <script>
-      window.REQUIRED_CODE_ERROR_MESSAGE = 'Elija un código de país';
-      window.LOCALE = 'es';
-      window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "La información que ha proporcionado no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
-      window.REQUIRED_ERROR_MESSAGE = "Este campo no puede quedarse vacío. ";
-      window.GENERIC_INVALID_MESSAGE = "La información que ha proporcionado no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
-      window.translation = {
-        common: {
-          selectedList: '{quantity} lista seleccionada',
-          selectedLists: '{quantity} listas seleccionadas',
-          selectedOption: '{quantity} seleccionado',
-          selectedOptions: '{quantity} seleccionados'
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const datos = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: datos,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          mensaje.style.display = "block";
+          document.getElementById("boton-enviar").innerText = "Enviado ✅";
         }
-      };
-      var AUTOHIDE = Boolean(0);
-    </script>
-    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+      });
+    });
+  </script>
 
-    <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/34696067113?text=Hola%20Carlos,%20me%20interesa%20tu%20asesoría%20financiera" target="_blank" id="whatsapp-button" title="Escríbeme por WhatsApp">
-      <img src="https://icongr.am/fontawesome/whatsapp.svg?size=64&color=ffffff&bg=25d366" alt="WhatsApp" />
-    </a>
+  <!-- JS de Brevo (mensajes y localización) -->
+  <script>
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Elija un código de país';
+    window.LOCALE = 'es';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "La información que ha proporcionado no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
+    window.REQUIRED_ERROR_MESSAGE = "Este campo no puede quedarse vacío.";
+    window.GENERIC_INVALID_MESSAGE = "La información que ha proporcionado no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
+    window.translation = {
+      common: {
+        selectedList: '{quantity} lista seleccionada',
+        selectedLists: '{quantity} listas seleccionadas',
+        selectedOption: '{quantity} seleccionado',
+        selectedOptions: '{quantity} seleccionados'
+      }
+    };
+    var AUTOHIDE = false;
+  </script>
+  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+</body>
 
-    <style>
-      #whatsapp-button {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        z-index: 999;
-      }
-      #whatsapp-button img {
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s ease;
-      }
-      #whatsapp-button:hover img {
-        transform: scale(1.1);
-      }
-    </style>
-  </body>
 </html>
