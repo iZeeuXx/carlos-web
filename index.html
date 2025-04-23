@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="structure.css" />
   <!-- Chart.js (cargado una sola vez) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
 </head>
@@ -679,7 +678,11 @@
     
 // …dentro de tu listener de “Calcular”, tras haber calculado pieData, pieLabels, labels, depositsArr, interestArr, balanceArr…
 
-// ─── Doughnut Chart con % inside ───
+        // Definición de datos para el pie
+        const pieLabels = ['Balance inicial', 'Depósitos periódicos', 'Interés total'];
+        const pieData = [P, totalDeps, balance - P - totalDeps];
+
+        // ─── Doughnut Chart con % inside ───
 if (pieChart) {
   pieChart.data.datasets[0].data = pieData;
   pieChart.update();
