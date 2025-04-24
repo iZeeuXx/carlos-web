@@ -4,16 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carlos • Asesoría Financiera</title>
-
-<script>
-  const formatter = new Intl.NumberFormat('es-ES', {
-    style: 'currency',
-    currency: 'EUR',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
-</script>
-
   <link rel="stylesheet" href="style.css" >
   <!-- Chart.js (cargado una sola vez) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -48,39 +38,397 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main>
     <!-- Inicio -->
-    
+    <section id="inicio" class="hero">
+      <div class="hero-content container">
+        <h2>Bienvenido a tu libertad financiera</h2>
+        <p>Asesoría personalizada en ETFs, acciones y real estate para que tomes el control de tu dinero.</p>
+        <a href="#newsletter" class="btn-primary">Suscríbete al Newsletter</a>
+      </div>
+    </section>
+
+    <!-- Quién Soy -->
+    <section id="quien-soy" class="section section-quien-soy">
+      <div class="container qs-grid">
+        <div class="qs-text">
+          <h2>¿Quién Soy?</h2>
+          <p>Hola, soy <strong>Carlos</strong>, gestor patrimonial con más de 10 años de experiencia en inversión en ETFs, acciones y real estate. Mi misión es enseñarte a gestionar tu dinero de forma inteligente y adaptada a tu perfil.</p>
+          <p>Creo firmemente en la educación financiera como herramienta de libertad, por eso acompaño a mis clientes en cada paso de su viaje inversor.</p>
+          <a href="#asesorias" class="btn-primary">Conoce mis asesorías</a>
+        </div>
+        <div class="qs-img">
+          <img src="https://via.placeholder.com/400x400?text=Carlos" alt="Carlos, asesor financiero" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Casos de Éxito -->
+    <section id="casos-exito" class="section section-casos-exito">
+      <div class="container">
+        <h2>Casos de Éxito</h2>
+        <div class="casos-grid">
+          <div class="caso-card">
+            <img src="https://via.placeholder.com/80?text=LG" alt="Laura G." />
+            <h4>Laura G.</h4>
+            <p>“Gracias a la asesoría, logré ahorrar 200€ al mes y empecé a invertir en ETFs. Ahora tengo más tranquilidad y objetivos reales.”</p>
+          </div>
+          <div class="caso-card">
+            <img src="https://via.placeholder.com/80?text=PM" alt="Pedro M." />
+            <h4>Pedro M.</h4>
+            <p>“Pasé de no entender nada de inversiones a gestionar mi capital con confianza. Carlos me dio las herramientas justas y claras.”</p>
+          </div>
+          <div class="caso-card">
+            <img src="https://via.placeholder.com/80?text=AJ" alt="Ana y Jorge" />
+            <h4>Ana y Jorge</h4>
+            <p>“Como familia con ingresos bajos, no pensábamos que podíamos invertir. Ahora tenemos un fondo común que crece cada mes.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Asesorías -->
+    <section id="asesorias" class="section section-asesorias">
+      <div class="container asesorias-grid">
+        <div class="asesorias-text">
+          <h2>Asesorías & Gestión de Inversiones</h2>
+          <p>Ofrezco asesoría estratégica a inversores particulares, con o sin experiencia. Te acompaño en cada paso para diseñar una cartera adaptada a tus objetivos y tu nivel de riesgo.</p>
+          <h3>💡 Suscripción mensual especial</h3>
+          <p>Servicio dedicado a quienes ingresan menos de 1500 €/mes o no tienen formación financiera. Accede a asesoramiento real por una cuota asequible.</p>
+          <div class="suscripcion-box">
+            <p><strong>¿Ingresas menos de 1500 €/mes?</strong> Únete a mi asesoría accesible por solo <span class="highlight">9 €/mes</span>.</p>
+            <a href="#contacto" class="btn-primary">Más información</a>
+          </div>
+        </div>
+        <div class="asesorias-img">
+          <img src="https://via.placeholder.com/400x300?text=Asesorías" alt="Asesorías financieras" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Modelos de Inversión -->
+    <section id="modelos" class="section section-modelos">
+      <div class="container">
+        <h2>Modelos de Inversión</h2>
+        <div class="modelos-cards">
+          <div class="modelo-card">
+            <img src="https://via.placeholder.com/80?text=ETFs" alt="Gestión de ETFs" />
+            <h4>Gestión de ETFs</h4>
+            <p>Diversifica tu cartera con fondos cotizados de bajo coste y expónte a mercados globales.</p>
+          </div>
+          <div class="modelo-card">
+            <img src="https://via.placeholder.com/80?text=Acciones" alt="Inversión en Acciones" />
+            <h4>Inversión en Acciones</h4>
+            <p>Selecciona empresas de calidad para beneficiarte de su crecimiento a largo plazo.</p>
+          </div>
+          <div class="modelo-card">
+            <img src="https://via.placeholder.com/80?text=Real+Estate" alt="Real Estate" />
+            <h4>Real Estate</h4>
+            <p>Accede al sector inmobiliario a través de REITs y plataformas de crowdlending.</p>
+          </div>
+          <div class="modelo-card">
+            <img src="https://via.placeholder.com/80?text=Ahorro" alt="Planes de Ahorro" />
+            <h4>Planes de Ahorro</h4>
+            <p>Construye tu colchón financiero con planes de jubilación y productos de ahorro programado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Test de Perfil Inversor (INLINE) -->
+    <section id="test-perfil" class="section section-test">
+    <div class="container">
+      <h2>Test de Perfil Inversor</h2>
+      <!-- Contador de pasos -->
+      <div id="step-counter" class="step-counter">1 de 10</div>
+  
+      <form id="test-form">
+        <!-- Paso 1 -->
+        <div class="step active">
+          <p>1. ¿Cuál es tu objetivo principal?</p>
+          <label><input type="radio" name="q1" value="1" required> Seguridad</label>
+          <label><input type="radio" name="q1" value="3"> Ingresos</label>
+          <label><input type="radio" name="q1" value="5"> Crecimiento</label>
+        </div>
+        <!-- Paso 2 -->
+        <div class="step">
+          <p>2. ¿Horizonte de inversión?</p>
+          <label><input type="radio" name="q2" value="1" required> &lt; 1 año</label>
+          <label><input type="radio" name="q2" value="3"> 1–5 años</label>
+          <label><input type="radio" name="q2" value="5"> &gt; 5 años</label>
+        </div>
+        <!-- Paso 3 -->
+        <div class="step">
+          <p>3. Reacción ante -10% de caída:</p>
+          <label><input type="radio" name="q3" value="1" required> Vendo todo</label>
+          <label><input type="radio" name="q3" value="3"> Espero</label>
+          <label><input type="radio" name="q3" value="5"> Compro más</label>
+        </div>
+        <!-- Paso 4 -->
+        <div class="step">
+          <p>4. % de patrimonio a invertir:</p>
+          <label><input type="radio" name="q4" value="1" required> &lt; 20%</label>
+          <label><input type="radio" name="q4" value="3"> 20–50%</label>
+          <label><input type="radio" name="q4" value="5"> &gt; 50%</label>
+        </div>
+        <!-- Paso 5 -->
+        <div class="step">
+          <p>5. Nivel de conocimientos:</p>
+          <label><input type="radio" name="q5" value="1" required> Básicos</label>
+          <label><input type="radio" name="q5" value="3"> Intermedios</label>
+          <label><input type="radio" name="q5" value="5"> Avanzados</label>
+        </div>
+        <!-- Paso 6 -->
+        <div class="step">
+          <p>6. ¿Necesitas liquidez frecuente?</p>
+          <label><input type="radio" name="q6" value="1" required> Sí</label>
+          <label><input type="radio" name="q6" value="3"> A veces</label>
+          <label><input type="radio" name="q6" value="5"> No</label>
+        </div>
+        <!-- Paso 7 -->
+        <div class="step">
+          <p>7. ¿Con qué frecuencia revisarás tus inversiones?</p>
+          <label><input type="radio" name="q7" value="1" required> Diario</label>
+          <label><input type="radio" name="q7" value="3"> Mensual</label>
+          <label><input type="radio" name="q7" value="5"> Anual</label>
+        </div>
+        <!-- Paso 8 -->
+        <div class="step">
+          <p>8. ¿Comprendes bien el interés compuesto?</p>
+          <label><input type="radio" name="q8" value="1" required> No</label>
+          <label><input type="radio" name="q8" value="3"> Algo</label>
+          <label><input type="radio" name="q8" value="5"> Sí</label>
+        </div>
+        <!-- Paso 9 -->
+        <div class="step">
+          <p>9. ¿Has invertido antes?</p>
+          <label><input type="radio" name="q9" value="1" required> Nunca</label>
+          <label><input type="radio" name="q9" value="3"> Pocas veces</label>
+          <label><input type="radio" name="q9" value="5"> Con frecuencia</label>
+        </div>
+        <!-- Paso 10 -->
+        <div class="step">
+          <p>10. ¿Te afectan las noticias de mercado?</p>
+          <label><input type="radio" name="q10" value="1" required> Mucho</label>
+          <label><input type="radio" name="q10" value="3"> Algo</label>
+          <label><input type="radio" name="q10" value="5"> Casi nada</label>
+        </div>
+  
+        <div class="buttons">
+          <button type="button" id="prev-btn" class="btn-primary" disabled>Anterior</button>
+          <button type="button" id="next-btn" class="btn-primary">Siguiente</button>
+        </div>
+      </form>
+  
+      <div id="test-result" class="test-result" style="display:none;">
+        <h3>Tu perfil de riesgo es: <span id="perfil-texto"></span></h3>
+        <p id="perfil-desc"></p>
+        <p>Rendimiento anual estimado: <strong id="perfil-return"></strong></p>
+      </div>
+    </div>
+    </section>
+  
+<!-- Calculadora de Interés Compuesto -->
+<section id="compound-calc" class="section section-compound">
+    <div class="container">
+      <h2>Calculadora de Interés Compuesto</h2>
+  
+      <!-- Inputs inline -->
+      <div class="compound-inputs">
+        <select id="calc-mode">
+          <option value="savings">¿Cuánto puedo ahorrar?</option>
+          <option value="growth">¿Cuánto tendrá mi inversión?</option>
+        </select>
+  
+        <label>
+          Balance inicial (€)
+          <input type="number" id="initialBalance" value="25000" min="0">
+        </label>
+  
+        <label>
+          Depósito periódico (€)
+          <div class="inline-group">
+            <input type="number" id="depositAmount" value="200" min="0">
+            <select id="depositFreq">
+              <option value="monthly">Mensual</option>
+              <option value="yearly">Anual</option>
+            </select>
+          </div>
+        </label>
+  
+        <label>
+          Timing de depósito
+          <select id="depositTiming">
+            <option value="start">Al inicio del periodo</option>
+            <option value="end">Al final del periodo</option>
+          </select>
+        </label>
+  
+        <label>
+          Tasa anual (%)
+          <input type="number" id="annualRate" value="6" step="0.1" min="0">
+        </label>
+  
+        <label>
+          Duración (<span id="durationValue">10</span> años)
+          <input type="range" id="duration" min="1" max="50" value="10">
+        </label>
+  
+        <button id="calcButton" class="btn-primary">Calcular</button>
+      </div>
+  
+      <!-- Resultado oculto hasta calcular -->
+      <div id="compoundResult" class="compound-result" style="display:none;">
+        <h3 id="resultText"></h3>
+        <div class="compound-charts">
+          <canvas id="pieChart"></canvas>
+          <canvas id="barChart"></canvas>
+        </div>
+        <div class="compound-table">
+          <table id="resultTable">
+            <thead>
+              <tr>
+                <th>Año</th>
+                <th>Depósitos periódicos</th>
+                <th>Depósitos totales</th>
+                <th>Interés total</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
   
 
     <!-- Protección Patrimonial -->
-    
+    <section id="proteccion" class="section">
+      <div class="container">
+        <h2>Protección Patrimonial</h2>
+        <p>Plan de jubilación, diversificación y objetivos.</p>
+      </div>
+    </section>
 
+    <!-- Newsletter -->
+    <section id="newsletter" class="section">
+      <div class="container">
+        <h2>Newsletter</h2>
+        <p>Únete para recibir contenidos exclusivos.</p>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section">
+      <div class="container">
+        <h2>Contacto</h2>
+        <p>Formulario y datos de contacto.</p>
+      </div>
+    </section>
+  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Interés Compuesto</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f6f1;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #e76f51;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    canvas {
+      margin-top: 2rem;
+      background: #fff;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 style="color: #e76f51;">Calculadora de Interés Compuesto</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+      <div style="flex: 1 1 200px;">
+        <label>Balance inicial (€)</label>
+        <input id="balance" type="number" value="25000">
+      </div>
+      <div style="flex: 1 1 200px;">
+        <label>Depósito periódico (€)</label>
+        <input id="deposit" type="number" value="200">
+      </div>
+      <div style="flex: 1 1 200px;">
+        <label>Frecuencia</label>
+        <select id="frequency">
+          <option value="12">Mensual</option>
+          <option value="4">Trimestral</option>
+          <option value="1">Anual</option>
+        </select>
+      </div>
+      <div style="flex: 1 1 200px;">
+        <label>Tasa anual (%)</label>
+        <input id="rate" type="number" value="6">
+      </div>
+    </div>
+    <div style="margin: 1rem 0;">
+      <label>Duración (años): <span id="years-value">10</span></label>
+      <input id="years" type="range" min="1" max="30" value="10" />
+    </div>
+    <button id="calcularBtn">Calcular</button>
+    <div class="result" id="result" style="margin-top: 1.5rem; font-weight: bold;"></div>
+    <canvas id="chart"></canvas>
+  </div>
 
 <script>
-const formatter = new Intl.NumberFormat('es-ES', {
-  style: 'currency',
-  currency: 'EUR',
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2
+function formatear(valor) {
+  return valor.toLocaleString('es-ES', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }) + ' €';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('years').addEventListener('input', e => {
+    document.getElementById('years-value').textContent = e.target.value;
+  });
+  document.getElementById('calcularBtn').addEventListener('click', calcular);
 });
 
 function calcular() {
-  const balanceInput = document.getElementById('balance').value;
-  const depositInput = document.getElementById('deposit').value;
-  const rateInput = document.getElementById('rate').value;
-
-  if (!balanceInput || !depositInput || !rateInput) {
-    alert("Por favor, completa todos los campos antes de calcular.");
-    return;
-  }
-
-  const balanceInicial = parseFloat(balanceInput);
-  const deposito = parseFloat(depositInput);
+  const balanceInicial = parseFloat(document.getElementById('balance').value);
+  const deposito = parseFloat(document.getElementById('deposit').value);
   const frecuencia = parseInt(document.getElementById('frequency').value);
-  const tasaAnual = parseFloat(rateInput) / 100;
+  const tasaAnual = parseFloat(document.getElementById('rate').value) / 100;
   const anios = parseInt(document.getElementById('years').value);
 
-  if (isNaN(balanceInicial) || isNaN(deposito) || isNaN(tasaAnual) || isNaN(anios)) {
-    alert("Hay un error con los valores introducidos.");
+  if (isNaN(balanceInicial) || isNaN(deposito) || isNaN(frecuencia) || isNaN(tasaAnual) || isNaN(anios)) {
+    alert('Por favor, rellena todos los campos correctamente.');
     return;
   }
 
@@ -97,8 +445,8 @@ function calcular() {
     dataInteres.push(balanceTotal - balanceInicial - deposito * frecuencia * i);
   }
 
-  const final = isFinite(balanceTotal) ? formatter.format(balanceTotal) : balanceTotal.toFixed(2) + " €";
-  document.getElementById('result').innerText = `Puedes ahorrar ${final} con ${formatter.format(deposito)} durante ${anios} años.`;
+  document.getElementById('result').innerText =
+    `Puedes ahorrar ${formatear(balanceTotal)} con ${formatear(deposito)} durante ${anios} años.`;
 
   mostrarGrafica(dataTotal, dataDeposito, dataInteres, anios);
 }
@@ -140,7 +488,7 @@ function mostrarGrafica(total, depositos, interes, anios) {
       plugins: {
         tooltip: {
           callbacks: {
-            label: (context) => formatter.format(context.raw)
+            label: (context) => formatear(context.raw)
           }
         },
         legend: {
@@ -150,163 +498,16 @@ function mostrarGrafica(total, depositos, interes, anios) {
       scales: {
         y: {
           ticks: {
-            callback: (val) => formatter.format(val)
+            callback: (val) => formatear(val)
           }
         }
       }
     }
   });
 }
-
-document.getElementById('years').addEventListener('input', e => {
-  document.getElementById('years-value').textContent = e.target.value;
-});
 </script>
-
-
-
-<section id="simulador" style="margin: 2rem auto; max-width: 900px; padding: 2rem; background: #fff; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); font-family: 'Inter', sans-serif;">
-  <h2 style="color: #e76f51;">Calculadora de Interés Compuesto</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-    <div style="flex: 1 1 200px;">
-      <label>Balance inicial (€)</label>
-      <input id="balance" type="number" value="25000" style="width: 100%; padding: 0.5rem; border-radius: 8px;">
-    </div>
-    <div style="flex: 1 1 200px;">
-      <label>Depósito periódico (€)</label>
-      <input id="deposit" type="number" value="200" style="width: 100%; padding: 0.5rem; border-radius: 8px;">
-    </div>
-    <div style="flex: 1 1 200px;">
-      <label>Frecuencia</label>
-      <select id="frequency" style="width: 100%; padding: 0.5rem; border-radius: 8px;">
-        <option value="12">Mensual</option>
-        <option value="4">Trimestral</option>
-        <option value="1">Anual</option>
-      </select>
-    </div>
-    <div style="flex: 1 1 200px;">
-      <label>Tasa anual (%)</label>
-      <input id="rate" type="number" value="6" style="width: 100%; padding: 0.5rem; border-radius: 8px;">
-    </div>
-  </div>
-  <div style="margin-bottom: 1rem;">
-    <label>Duración (años): <span id="years-value">10</span></label>
-    <input id="years" type="range" min="1" max="30" value="10" style="width: 100%;">
-  </div>
-  <button onclick="calcular()" style="padding: 0.75rem 1.5rem; background: #e76f51; color: white; border: none; border-radius: 8px;">Calcular</button>
-  <div class="result" id="result" style="margin-top: 1.5rem; font-weight: bold;"></div>
-  <canvas id="chart" style="margin-top: 2rem;"></canvas>
-</section>
-
-
-<script>
-const formatter = new Intl.NumberFormat('es-ES', {
-  style: 'currency',
-  currency: 'EUR',
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2
-});
-
-function calcular() {
-  const balanceInput = document.getElementById('balance').value;
-  const depositInput = document.getElementById('deposit').value;
-  const rateInput = document.getElementById('rate').value;
-
-  if (!balanceInput || !depositInput || !rateInput) {
-    alert("Por favor, completa todos los campos antes de calcular.");
-    return;
-  }
-
-  const balanceInicial = parseFloat(balanceInput);
-  const deposito = parseFloat(depositInput);
-  const frecuencia = parseInt(document.getElementById('frequency').value);
-  const tasaAnual = parseFloat(rateInput) / 100;
-  const anios = parseInt(document.getElementById('years').value);
-
-  if (isNaN(balanceInicial) || isNaN(deposito) || isNaN(tasaAnual) || isNaN(anios)) {
-    alert("Hay un error con los valores introducidos.");
-    return;
-  }
-
-  let balanceTotal = balanceInicial;
-  const dataTotal = [], dataDeposito = [], dataInteres = [];
-
-  for (let i = 1; i <= anios; i++) {
-    for (let j = 0; j < frecuencia; j++) {
-      balanceTotal += deposito;
-      balanceTotal *= (1 + tasaAnual / frecuencia);
-    }
-    dataTotal.push(balanceTotal);
-    dataDeposito.push(deposito * frecuencia * i);
-    dataInteres.push(balanceTotal - balanceInicial - deposito * frecuencia * i);
-  }
-
-  const final = isFinite(balanceTotal) ? formatter.format(balanceTotal) : balanceTotal.toFixed(2) + " €";
-  document.getElementById('result').innerText = `Puedes ahorrar ${final} con ${formatter.format(deposito)} durante ${anios} años.`;
-
-  mostrarGrafica(dataTotal, dataDeposito, dataInteres, anios);
-}
-
-function mostrarGrafica(total, depositos, interes, anios) {
-  const ctx = document.getElementById('chart').getContext('2d');
-  if (window.chart) window.chart.destroy();
-  window.chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: Array.from({ length: anios }, (_, i) => `Año ${i + 1}`),
-      datasets: [
-        {
-          label: 'Balance total',
-          data: total,
-          fill: true,
-          backgroundColor: 'rgba(33, 150, 243, 0.2)',
-          borderColor: '#2196f3',
-          tension: 0.3
-        },
-        {
-          label: 'Depósitos periódicos',
-          data: depositos,
-          borderColor: '#ff9800',
-          tension: 0.3,
-          borderDash: [5, 5]
-        },
-        {
-          label: 'Interés generado',
-          data: interes,
-          borderColor: '#4caf50',
-          tension: 0.3,
-          borderDash: [2, 2]
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        tooltip: {
-          callbacks: {
-            label: (context) => formatter.format(context.raw)
-          }
-        },
-        legend: {
-          position: 'top'
-        }
-      },
-      scales: {
-        y: {
-          ticks: {
-            callback: (val) => formatter.format(val)
-          }
-        }
-      }
-    }
-  });
-}
-
-document.getElementById('years').addEventListener('input', e => {
-  document.getElementById('years-value').textContent = e.target.value;
-});
-</script>
-
+</body>
+</html>
 
 </main>
 
