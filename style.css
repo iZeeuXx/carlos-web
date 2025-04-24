@@ -1,347 +1,361 @@
 /* Variables globales */
 :root {
-    --primary: #e76f51;
-    --dark: #333;
-    --light: #fff;
-    --bg: #fdfaf6;
-  }
-  
-  /* Reset y básicos */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--bg);
-    color: var(--dark);
-    line-height: 1.6;
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  
-  /* HEADER + NAV */
-  header {
-    background: var(--light);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
-  }
-  .logo {
-    font-size: 1.2rem;
-    color: var(--dark);
-  }
+  --primary: #e76f51;
+  --dark: #333;
+  --light: #fff;
+  --bg: #fdfaf6;
+}
+
+/* Reset y básicos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* HEADER + NAV */
+header {
+  background: var(--light);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.logo {
+  font-size: 1.2rem;
+  color: var(--dark);
+}
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  padding: 0.5rem;
+  transition: color 0.2s;
+}
+nav a:hover,
+nav a:focus {
+  color: var(--primary);
+}
+
+/* Responsive NAV */
+@media (max-width: 768px) {
   .nav-toggle {
-    display: none;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1rem;
-  }
-  nav a {
-    text-decoration: none;
-    color: var(--dark);
-    padding: 0.5rem;
-    transition: color 0.2s;
-  }
-  nav a:hover,
-  nav a:focus {
-    color: var(--primary);
-  }
-  
-  /* Responsive NAV */
-  @media (max-width: 768px) {
-    .nav-toggle {
-      display: block;
-    }
-    nav ul {
-      display: none;
-      flex-direction: column;
-      background: var(--light);
-      position: absolute;
-      top: 100%;
-      right: 0;
-      width: 200px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    nav ul.show {
-      display: flex;
-    }
-    nav li {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-  }
-  
-  /* HERO */
-  .hero {
-    background: url('https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-    color: #fff;
-    padding: 100px 0;
-    position: relative;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-  }
-  .hero-content {
-    position: relative;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .hero-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  .hero-content p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-  .btn-primary {
-    display: inline-block;
-    background: var(--primary);
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
-  }
-  .btn-primary:hover,
-  .btn-primary:focus {
-    background: #d65a3e;
-  }
-  
-  /* Secciones genéricas */
-  .section {
-    padding: 4rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-  .section h2 {
-    margin-bottom: 1rem;
-    color: var(--primary);
-  }
-  
-  /* “Quién Soy” */
-  .section-quien-soy .qs-grid {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-  .section-quien-soy .qs-text {
-    flex: 1;
-  }
-  .section-quien-soy .qs-img {
-    flex: 1;
-    text-align: center;
-  }
-  .section-quien-soy .qs-img img {
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  @media (max-width: 768px) {
-    .section-quien-soy .qs-grid {
-      flex-direction: column-reverse;
-      text-align: center;
-    }
-  }
-  
-  /* Casos de Éxito */
-  .section-casos-exito .casos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  .caso-card {
-    background: var(--light);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  .caso-card img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-  }
-  
-  /* Asesorías */
-  .section-asesorias .asesorias-grid {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  .section-asesorias .asesorias-text {
-    flex: 1;
-  }
-  .section-asesorias .asesorias-img {
-    flex: 1;
-    text-align: center;
-  }
-  .section-asesorias .asesorias-img img {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  .section-asesorias .suscripcion-box {
-    background: #fff3e0;
-    border-left: 5px solid var(--primary);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-top: 1.5rem;
-  }
-  
-  /* Modelos de Inversión */
-  .section-modelos .modelos-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  .modelo-card {
-    background: var(--light);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s;
-  }
-  .modelo-card:hover {
-    transform: translateY(-5px);
-  }
-  .modelo-card img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1rem;
-  }
-  
-  /* Test de Perfil (pasos) */
-  .step-counter {
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  .section-test .step {
-    display: none;
-  }
-  .section-test .step.active {
     display: block;
   }
-  .section-test .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 0.8rem;
-    margin-top: 1.5rem;
-  }
-  .section-test .buttons button {
-    padding: 0.6rem 1.2rem;
-  }
-  
-  /* Calculadora de Interés Compuesto */
-  .section-compound .compound-inputs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: flex-end;
-    margin-bottom: 2rem;
-  }
-  .section-compound .compound-inputs label,
-  .section-compound .compound-inputs select {
-    display: flex;
+  nav ul {
+    display: none;
     flex-direction: column;
-    font-size: 0.9rem;
+    background: var(--light);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  .section-compound .compound-inputs .inline-group {
+  nav ul.show {
     display: flex;
-    gap: 0.5rem;
   }
-  .section-compound #duration {
-    width: 150px;
+  nav li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  .section-compound #calcButton {
-    align-self: flex-start;
-    margin-top: 1.3rem;
-  }
-  .section-compound .compound-charts {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-  .section-compound .compound-charts canvas {
-    flex: 1;
-    max-width: 45%;
-    height: 300px !important;
-    background: #fafafa;
-    border-radius: 8px;
-    padding: 1rem;
-  }
-  .section-compound .compound-table {
-    overflow-x: auto;
-  }
-  .section-compound table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .section-compound th,
-  .section-compound td {
-    padding: 0.6rem;
-    border: 1px solid #ddd;
-    text-align: right;
-  }
-  .section-compound th {
-    background: #f4f4f4;
+}
+
+/* HERO */
+.hero {
+  background: url('https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+  color: #fff;
+  padding: 100px 0;
+  position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #d65a3e;
+}
+
+/* Secciones genéricas */
+.section {
+  padding: 4rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.section h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+/* “Quién Soy” */
+.section-quien-soy .qs-grid {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.section-quien-soy .qs-text {
+  flex: 1;
+}
+.section-quien-soy .qs-img {
+  flex: 1;
+  text-align: center;
+}
+.section-quien-soy .qs-img img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 768px) {
+  .section-quien-soy .qs-grid {
+    flex-direction: column-reverse;
     text-align: center;
   }
-  /* 1) Aumentamos el padding interno de los canvases */
+}
+
+/* Casos de Éxito */
+.section-casos-exito .casos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.caso-card {
+  background: var(--light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.caso-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* Asesorías */
+.section-asesorias .asesorias-grid {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.section-asesorias .asesorias-text {
+  flex: 1;
+}
+.section-asesorias .asesorias-img {
+  flex: 1;
+  text-align: center;
+}
+.section-asesorias .asesorias-img img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.section-asesorias .suscripcion-box {
+  background: #fff3e0;
+  border-left: 5px solid var(--primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+/* Modelos de Inversión */
+.section-modelos .modelos-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.modelo-card {
+  background: var(--light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+.modelo-card:hover {
+  transform: translateY(-5px);
+}
+.modelo-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+/* Test de Perfil (pasos) */
+.step-counter {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.section-test .step {
+  display: none;
+}
+.section-test .step.active {
+  display: block;
+}
+.section-test .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+.section-test .buttons button {
+  padding: 0.6rem 1.2rem;
+}
+
+/* Calculadora de Interés Compuesto */
+.section-compound .compound-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+.section-compound .compound-inputs label,
+.section-compound .compound-inputs select {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+.section-compound .compound-inputs .inline-group {
+  display: flex;
+  gap: 0.5rem;
+}
+.section-compound #duration {
+  width: 150px;
+}
+.section-compound #calcButton {
+  align-self: flex-start;
+  margin-top: 1.3rem;
+}
+.section-compound .compound-charts {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
 .section-compound .compound-charts canvas {
-    padding: 1.5rem !important;
-  }
-  
-  /* 2) Aseguramos que la altura no sea muy pequeña */
-  .section-compound .compound-charts {
-    min-height: 320px; 
-  }
-  
-  /* 3) Si tuvieras un contenedor .chart-container, un poco de margin */
-  .chart-container {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-  }
-  /* Espacio interior en los canvases */
+  flex: 1;
+  max-width: 45%;
+  height: 300px !important;
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.section-compound .compound-table {
+  overflow-x: auto;
+}
+.section-compound table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.section-compound th,
+.section-compound td {
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  text-align: right;
+}
+.section-compound th {
+  background: #f4f4f4;
+  text-align: center;
+}
+/* 1) Aumentamos el padding interno de los canvases */
 .section-compound .compound-charts canvas {
   padding: 1.5rem !important;
 }
+
+/* 2) Aseguramos que la altura no sea muy pequeña */
+.section-compound .compound-charts {
+  min-height: 320px; 
+}
+
+/* 3) Si tuvieras un contenedor .chart-container, un poco de margin */
+.chart-container {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+/* Espacio interior en los canvases */
+.section-compound .compound-charts canvas {
+padding: 1.5rem !important;
+}
 /* Altura mínima para que no se colapse */
 .section-compound .compound-charts {
-  min-height: 320px;
+min-height: 320px;
 }
 /* Margen extra alrededor de gráficos */
 .chart-container,
 .section-compound .compound-charts {
-  margin: 1.5rem 0;
+margin: 1.5rem 0;
+}
+
+
+/* Centrado estético del Test de Perfil Inversor */
+.centered-test {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.centered-test .step-counter,
+.centered-test .step {
+width: 100%;
+max-width: 600px;
 }
