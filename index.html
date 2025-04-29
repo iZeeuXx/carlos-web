@@ -1,22 +1,22 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Carlos • Asesoría Financiera</title>
-  <link rel="stylesheet" href="style.css" >
-  <!-- Chart.js (cargado una sola vez) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <link rel="stylesheet" href="style.css" />
 
+  <!-- Librerías externas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
 <body>
 
-  <!-- HEADER + NAV -->
+  <!-- HEADER Y MENÚ DE NAVEGACIÓN -->
   <header role="banner">
     <div class="container">
       <h1 class="logo">Carlos • Asesoría Financiera</h1>
-      <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+      <button class="nav-toggle" aria-label="Abrir menú móvil">☰</button>
       <nav role="navigation" aria-label="Menú principal">
         <ul>
           <li><a href="#inicio">Inicio</a></li>
@@ -37,16 +37,17 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main>
-    <!-- Inicio -->
+
+    <!-- HERO SECTION -->
     <section id="inicio" class="hero">
-      <div class="hero-content container">
+      <div class="container hero-content">
         <h2>Bienvenido a tu libertad financiera</h2>
         <p>Asesoría personalizada en ETFs, acciones y real estate para que tomes el control de tu dinero.</p>
         <a href="#newsletter" class="btn-primary">Suscríbete al Newsletter</a>
       </div>
     </section>
 
-    <!-- Quién Soy -->
+    <!-- QUIÉN SOY -->
     <section id="quien-soy" class="section section-quien-soy">
       <div class="container qs-grid">
         <div class="qs-text">
@@ -61,7 +62,7 @@
       </div>
     </section>
 
-    <!-- Casos de Éxito -->
+    <!-- CASOS DE ÉXITO -->
     <section id="casos-exito" class="section section-casos-exito">
       <div class="container">
         <h2>Casos de Éxito</h2>
@@ -85,7 +86,7 @@
       </div>
     </section>
 
-    <!-- Asesorías -->
+    <!-- ASESORÍAS -->
     <section id="asesorias" class="section section-asesorias">
       <div class="container asesorias-grid">
         <div class="asesorias-text">
@@ -104,7 +105,7 @@
       </div>
     </section>
 
-    <!-- Modelos de Inversión -->
+    <!-- MODELOS DE INVERSIÓN -->
     <section id="modelos" class="section section-modelos">
       <div class="container">
         <h2>Modelos de Inversión</h2>
@@ -133,175 +134,166 @@
       </div>
     </section>
 
-    <!-- Test de Perfil Inversor (INLINE) -->
-    <section id="test-perfil" class="section section-test">
-    <div class="container">
-      <h2>Test de Perfil Inversor</h2>
-      <!-- Contador de pasos -->
-      <div id="step-counter" class="step-counter">1 de 10</div>
-  
-      <form id="test-form">
-        <!-- Paso 1 -->
+<!-- Test de Perfil -->
+<section id="test-perfil" class="section section-test">
+  <div class="container test-wrapper">
+    <h2>Test de Perfil Inversor</h2>
+    <div id="step-counter" class="step-counter">1 de 10</div>
+    <form id="test-form">
+      <!-- Contenido centrado -->
+      <div class="centered-content">
+        <!-- Pregunta 1 -->
         <div class="step active">
           <p>1. ¿Cuál es tu objetivo principal?</p>
           <label><input type="radio" name="q1" value="1" required> Seguridad</label>
           <label><input type="radio" name="q1" value="3"> Ingresos</label>
           <label><input type="radio" name="q1" value="5"> Crecimiento</label>
         </div>
-        <!-- Paso 2 -->
+        <!-- Pregunta 2 -->
         <div class="step">
           <p>2. ¿Horizonte de inversión?</p>
-          <label><input type="radio" name="q2" value="1" required> &lt; 1 año</label>
+          <label><input type="radio" name="q2" value="1" required> < 1 año</label>
           <label><input type="radio" name="q2" value="3"> 1–5 años</label>
-          <label><input type="radio" name="q2" value="5"> &gt; 5 años</label>
+          <label><input type="radio" name="q2" value="5"> > 5 años</label>
         </div>
-        <!-- Paso 3 -->
+        <!-- Pregunta 3 -->
         <div class="step">
           <p>3. Reacción ante -10% de caída:</p>
           <label><input type="radio" name="q3" value="1" required> Vendo todo</label>
           <label><input type="radio" name="q3" value="3"> Espero</label>
           <label><input type="radio" name="q3" value="5"> Compro más</label>
         </div>
-        <!-- Paso 4 -->
+        <!-- Pregunta 4 -->
         <div class="step">
           <p>4. % de patrimonio a invertir:</p>
-          <label><input type="radio" name="q4" value="1" required> &lt; 20%</label>
+          <label><input type="radio" name="q4" value="1" required> < 20%</label>
           <label><input type="radio" name="q4" value="3"> 20–50%</label>
-          <label><input type="radio" name="q4" value="5"> &gt; 50%</label>
+          <label><input type="radio" name="q4" value="5"> > 50%</label>
         </div>
-        <!-- Paso 5 -->
+        <!-- Pregunta 5 -->
         <div class="step">
           <p>5. Nivel de conocimientos:</p>
           <label><input type="radio" name="q5" value="1" required> Básicos</label>
           <label><input type="radio" name="q5" value="3"> Intermedios</label>
           <label><input type="radio" name="q5" value="5"> Avanzados</label>
         </div>
-        <!-- Paso 6 -->
+        <!-- Pregunta 6 -->
         <div class="step">
           <p>6. ¿Necesitas liquidez frecuente?</p>
           <label><input type="radio" name="q6" value="1" required> Sí</label>
           <label><input type="radio" name="q6" value="3"> A veces</label>
           <label><input type="radio" name="q6" value="5"> No</label>
         </div>
-        <!-- Paso 7 -->
+        <!-- Pregunta 7 -->
         <div class="step">
           <p>7. ¿Con qué frecuencia revisarás tus inversiones?</p>
           <label><input type="radio" name="q7" value="1" required> Diario</label>
           <label><input type="radio" name="q7" value="3"> Mensual</label>
           <label><input type="radio" name="q7" value="5"> Anual</label>
         </div>
-        <!-- Paso 8 -->
+        <!-- Pregunta 8 -->
         <div class="step">
           <p>8. ¿Comprendes bien el interés compuesto?</p>
           <label><input type="radio" name="q8" value="1" required> No</label>
           <label><input type="radio" name="q8" value="3"> Algo</label>
           <label><input type="radio" name="q8" value="5"> Sí</label>
         </div>
-        <!-- Paso 9 -->
+        <!-- Pregunta 9 -->
         <div class="step">
           <p>9. ¿Has invertido antes?</p>
           <label><input type="radio" name="q9" value="1" required> Nunca</label>
           <label><input type="radio" name="q9" value="3"> Pocas veces</label>
           <label><input type="radio" name="q9" value="5"> Con frecuencia</label>
         </div>
-        <!-- Paso 10 -->
+        <!-- Pregunta 10 -->
         <div class="step">
           <p>10. ¿Te afectan las noticias de mercado?</p>
           <label><input type="radio" name="q10" value="1" required> Mucho</label>
           <label><input type="radio" name="q10" value="3"> Algo</label>
           <label><input type="radio" name="q10" value="5"> Casi nada</label>
         </div>
-  
-        <div class="buttons">
-          <button type="button" id="prev-btn" class="btn-primary" disabled>Anterior</button>
-          <button type="button" id="next-btn" class="btn-primary">Siguiente</button>
-        </div>
-      </form>
-  
-      <div id="test-result" class="test-result" style="display:none;">
-        <h3>Tu perfil de riesgo es: <span id="perfil-texto"></span></h3>
-        <p id="perfil-desc"></p>
-        <p>Rendimiento anual estimado: <strong id="perfil-return"></strong></p>
       </div>
+      <!-- Botones -->
+      <div class="buttons">
+        <button type="button" id="prev-btn" class="btn-primary" disabled>Anterior</button>
+        <button type="button" id="next-btn" class="btn-primary">Siguiente</button>
+      </div>
+    </form>
+    <!-- Resultado -->
+    <div id="test-result" class="test-result" style="display:none;">
+      <h3>Tu perfil de riesgo es: <span id="perfil-texto"></span></h3>
+      <p id="perfil-desc"></p>
+      <p>Rendimiento anual estimado: <strong id="perfil-return"></strong></p>
     </div>
-    </section>
-  
-<!-- Calculadora de Interés Compuesto -->
-<section id="compound-calc" class="section section-compound">
-    <div class="container">
-      <h2>Calculadora de Interés Compuesto</h2>
-  
-      <!-- Inputs inline -->
-      <div class="compound-inputs">
-        <select id="calc-mode">
-          <option value="savings">¿Cuánto puedo ahorrar?</option>
-          <option value="growth">¿Cuánto tendrá mi inversión?</option>
-        </select>
-  
-        <label>
-          Balance inicial (€)
-          <input type="number" id="initialBalance" value="25000" min="0">
-        </label>
-  
-        <label>
-          Depósito periódico (€)
-          <div class="inline-group">
-            <input type="number" id="depositAmount" value="200" min="0">
-            <select id="depositFreq">
-              <option value="monthly">Mensual</option>
-              <option value="yearly">Anual</option>
-            </select>
-          </div>
-        </label>
-  
-        <label>
-          Timing de depósito
-          <select id="depositTiming">
-            <option value="start">Al inicio del periodo</option>
-            <option value="end">Al final del periodo</option>
-          </select>
-        </label>
-  
-        <label>
-          Tasa anual (%)
-          <input type="number" id="annualRate" value="6" step="0.1" min="0">
-        </label>
-  
-        <label>
-          Duración (<span id="durationValue">10</span> años)
-          <input type="range" id="duration" min="1" max="50" value="10">
-        </label>
-  
-        <button id="calcButton" class="btn-primary">Calcular</button>
-      </div>
-  
-      <!-- Resultado oculto hasta calcular -->
-      <div id="compoundResult" class="compound-result" style="display:none;">
-        <h3 id="resultText"></h3>
-        <div class="compound-charts">
-          <canvas id="pieChart"></canvas>
-          <canvas id="barChart"></canvas>
-        </div>
-        <div class="compound-table">
-          <table id="resultTable">
-            <thead>
-              <tr>
-                <th>Año</th>
-                <th>Depósitos periódicos</th>
-                <th>Depósitos totales</th>
-                <th>Interés total</th>
-                <th>Balance</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-  
+  </div>
+</section>
 
-    <!-- Protección Patrimonial -->
+    <!-- CALCADORA DE INTERÉS COMPUESTO -->
+    <section id="simulador" class="section section-compound">
+      <div class="container">
+        <h2>Calculadora de Interés Compuesto</h2>
+        <div class="compound-inputs">
+          <select id="calc-mode">
+            <option value="savings">¿Cuánto puedo ahorrar?</option>
+            <option value="growth">¿Cuánto tendrá mi inversión?</option>
+          </select>
+          <label>
+            Balance inicial (€)
+            <input type="number" id="initialBalance" value="25000" min="0">
+          </label>
+          <label>
+            Depósito periódico (€)
+            <div class="inline-group">
+              <input type="number" id="depositAmount" value="200" min="0">
+              <select id="depositFreq">
+                <option value="monthly">Mensual</option>
+                <option value="yearly">Anual</option>
+              </select>
+            </div>
+          </label>
+          <label>
+            Timing de depósito
+            <select id="depositTiming">
+              <option value="start">Al inicio del periodo</option>
+              <option value="end">Al final del periodo</option>
+            </select>
+          </label>
+          <label>
+            Tasa anual (%)
+            <input type="number" id="annualRate" value="6" step="0.1" min="0">
+          </label>
+          <label>
+            Duración (<span id="durationValue">10</span> años)
+            <input type="range" id="duration" min="1" max="50" value="10">
+          </label>
+          <button id="calcButton" class="btn-primary">Calcular</button>
+        </div>
+
+        <div id="compoundResult" class="compound-result" style="display:none;">
+          <h3 id="resultText"></h3>
+          <div class="compound-charts">
+            <canvas id="pieChart"></canvas>
+            <canvas id="barChart"></canvas>
+          </div>
+          <div class="compound-table">
+            <table id="resultTable">
+              <thead>
+                <tr>
+                  <th>Año</th>
+                  <th>Depósitos periódicos</th>
+                  <th>Depósitos totales</th>
+                  <th>Interés total</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROTECCIÓN PATRIMONIAL -->
     <section id="proteccion" class="section">
       <div class="container">
         <h2>Protección Patrimonial</h2>
@@ -309,7 +301,7 @@
       </div>
     </section>
 
-    <!-- Newsletter -->
+    <!-- NEWSLETTER -->
     <section id="newsletter" class="section">
       <div class="container">
         <h2>Newsletter</h2>
@@ -317,13 +309,15 @@
       </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- CONTACTO -->
     <section id="contacto" class="section">
       <div class="container">
         <h2>Contacto</h2>
         <p>Formulario y datos de contacto.</p>
       </div>
     </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer role="contentinfo">
@@ -332,265 +326,95 @@
     </div>
   </footer>
 
-  <!-- Scripts generales -->
+  <!-- SCRIPTS -->
   <script>
-    // Toggle menú móvil
+    // Menú responsive
     document.querySelector('.nav-toggle').onclick = () => {
       document.querySelector('nav ul').classList.toggle('show');
     };
   </script>
 
-  <!-- Test de Perfil Inline -->
+  <!-- Test de Perfil -->
   <script>
-    (function(){
-      const steps       = Array.from(document.querySelectorAll('#test-perfil .step'));
-      const prevBtn     = document.getElementById('prev-btn');
-      const nextBtn     = document.getElementById('next-btn');
-      const form        = document.getElementById('test-form');
-      const result      = document.getElementById('test-result');
-      const txt         = document.getElementById('perfil-texto');
-      const desc        = document.getElementById('perfil-desc');
-      const retElem     = document.getElementById('perfil-return');
-      const counterElem = document.getElementById('step-counter');
-      const total       = steps.length;
-      let current       = 0;
-    
-      // Map de perfiles a rangos y tasas
-      const map = {
-        'Conservador': { range:'4–5%',   rate:4.5 },
-        'Moderado':    { range:'7–8%',   rate:7.5 },
-        'Agresivo':    { range:'10–12%', rate:11  }
-      };
-    
-      function showStep(i) {
-        steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
-        prevBtn.disabled          = i === 0;
-        nextBtn.textContent       = i === total - 1 ? 'Terminar' : 'Siguiente';
-        counterElem.textContent   = `${i+1} de ${total}`;
-      }
-    
-      prevBtn.addEventListener('click', () => {
-        if (current > 0) showStep(--current);
-      });
-    
-      nextBtn.addEventListener('click', () => {
-        const checked = [...steps[current].querySelectorAll('input')].some(i => i.checked);
-        if (!checked) return alert('Selecciona una opción');
-        if (current < total - 1) {
-          showStep(++current);
-        } else {
-          // calculamos perfil
-          const score = [...new FormData(form).values()]
-                          .reduce((sum,v)=>sum+parseInt(v,10),0);
-          let perfil;
-          if (score <= 20)      perfil = 'Conservador';
-          else if (score <= 35) perfil = 'Moderado';
-          else                  perfil = 'Agresivo';
-    
-          // llenamos resultado
-          const info = map[perfil];
-          txt.textContent    = perfil;
-          desc.textContent   = info.range==='4–5%' 
-                              ? 'Buscas seguridad.' 
-                              : (perfil==='Moderado'
-                                  ? 'Aceptas volatilidad.' 
-                                  : 'Asumes riesgo.');
-          retElem.textContent = info.range;
-          result.style.display = 'block';
-          form.style.display   = 'none';
-    
-          // prefill simuladores
-          const simRate = document.getElementById('tasa');
-          if (simRate) simRate.value = info.rate;
-          const simRateM = document.getElementById('tasa_m');
-          if (simRateM) simRateM.value = info.rate;
-    
-          // hacemos scroll al simulador
-          document.getElementById('simulador').scrollIntoView({ behavior:'smooth' });
-        }
-      });
-    
-      document.addEventListener('DOMContentLoaded', () => showStep(0));
-    })();
-  </script>
-    
-  <!-- Simulador de Interés Compuesto -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('simulador-form');
-    const ctx  = document.getElementById('simulador-chart').getContext('2d');
-    let chart  = null;
+(function () {
+  const steps       = Array.from(document.querySelectorAll('#test-perfil .step'));
+  const prevBtn     = document.getElementById('prev-btn');
+  const nextBtn     = document.getElementById('next-btn');
+  const form        = document.getElementById('test-form');
+  const result      = document.getElementById('test-result');
+  const txt         = document.getElementById('perfil-texto');
+  const desc        = document.getElementById('perfil-desc');
+  const retElem     = document.getElementById('perfil-return'); // Ganancia anual
+  const counterElem = document.getElementById('step-counter');
+  const total       = steps.length;
+  let current       = 0;
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const P     = parseFloat(form.principal.value);
-      const rA    = parseFloat(form.tasa.value) / 100;
-      const n     = parseInt(form.años.value, 10);
-      const i     = parseFloat(form.inflacion.value) / 100;
-      const t     = parseFloat(form.impuestos.value) / 100;
-      const rNetA = rA * (1 - t);
+  // Mapa de perfiles con su descripción y tasa de retorno
+  const perfilInfo = {
+    'Conservador': { desc: 'Buscas seguridad.', return: '5%' },
+    'Moderado':    { desc: 'Aceptas volatilidad.', return: '7%' },
+    'Agresivo':    { desc: 'Asumes riesgo.', return: '10%' }
+  };
 
-      const labels           = [];
-      const nominalData      = [];
-      const realData         = [];
-      const afterTaxData     = [];
-      const realAfterTaxData = [];
+  // Mostrar paso actual
+  function showStep(i) {
+    steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    prevBtn.disabled          = i === 0;
+    nextBtn.textContent       = i === total - 1 ? 'Terminar' : 'Siguiente';
+    counterElem.textContent   = `${i + 1} de ${total}`;
+  }
 
-      for (let year = 0; year <= n; year++) {
-        labels.push(`Año ${year}`);
-        const Vn  = P * Math.pow(1 + rA, year);
-        nominalData.push(+Vn.toFixed(2));
-        realData.push(+(Vn / Math.pow(1 + i, year)).toFixed(2));
-        const Vat = P * Math.pow(1 + rNetA, year);
-        afterTaxData.push(+Vat.toFixed(2));
-        realAfterTaxData.push(+(Vat / Math.pow(1 + i, year)).toFixed(2));
-      }
-
-      const datasets = [
-        { label: 'Nominal',             data: nominalData,      fill: false, tension: 0.3 },
-        { label: 'Real (inflación)',    data: realData,         fill: false, tension: 0.3 },
-        { label: 'Neto tras impuestos', data: afterTaxData,     fill: false, tension: 0.3 },
-        { label: 'Real neto (inf+imp)', data: realAfterTaxData, fill: false, tension: 0.3 }
-      ];
-
-      if (chart) {
-        chart.data.labels   = labels;
-        chart.data.datasets = datasets;
-        chart.update();
-      } else {
-        chart = new Chart(ctx, {
-          type: 'line',
-          data: { labels, datasets },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: { y: { beginAtZero: true } }
-          }
-        });
-      }
-    });
+  // Botón "Anterior"
+  prevBtn.addEventListener('click', () => {
+    if (current > 0) showStep(--current);
   });
-  </script>
 
-  <!-- Simulador con Aportaciones Mensuales -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const formM = document.getElementById('aportaciones-form');
-    const ctxM  = document.getElementById('aportaciones-chart').getContext('2d');
-    let chartM  = null;
+  // Botón "Siguiente"
+  nextBtn.addEventListener('click', () => {
+    // Validación: ¿se ha marcado alguna opción?
+    const checked = [...steps[current].querySelectorAll('input')].some(i => i.checked);
+    if (!checked) return alert('Por favor, selecciona una opción.');
 
-    formM.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const P      = parseFloat(formM.principal.value);
-      const rA     = parseFloat(formM.tasa.value) / 100;
-      const years  = parseInt(formM.años.value, 10);
-      const C      = parseFloat(formM.mensual.value);
-      const i      = parseFloat(formM.inflacion.value) / 100;
-      const t      = parseFloat(formM.impuestos.value) / 100;
-      const rM     = rA / 12;
-      const rNetA  = rA * (1 - t);
-      const rNetM  = rNetA / 12;
+    // Si no es última pregunta, avanzamos
+    if (current < total - 1) {
+      showStep(++current);
+    } else {
+      // Calcular puntuación total
+      const score = [...new FormData(form).values()]
+                  .reduce((sum, v) => sum + parseInt(v, 10), 0);
 
-      const labels       = [];
-      const nominal      = [];
-      const real         = [];
-      const afterTax     = [];
-      const realAfterTax = [];
-
-      for (let y = 0; y <= years; y++) {
-        const months = y * 12;
-        labels.push(`Año ${y}`);
-
-        const VnP = P * Math.pow(1 + rA, y);
-        const VnC = months > 0
-          ? C * ((Math.pow(1 + rM, months) - 1) / rM)
-          : 0;
-        const Vnom = VnP + VnC;
-        nominal.push(+Vnom.toFixed(2));
-        real.push(+(Vnom / Math.pow(1 + i, y)).toFixed(2));
-
-        const VtP = P * Math.pow(1 + rNetA, y);
-        const VtC = months > 0
-          ? C * ((Math.pow(1 + rNetM, months) - 1) / rNetM)
-          : 0;
-        const Vtax = VtP + VtC;
-        afterTax.push(+Vtax.toFixed(2));
-        realAfterTax.push(+(Vtax / Math.pow(1 + i, y)).toFixed(2));
-      }
-
-      const datasetsM = [
-        { label: 'Nominal',             data: nominal,      fill: false, tension: 0.3 },
-        { label: 'Real (inflación)',    data: real,         fill: false, tension: 0.3 },
-        { label: 'Neto impuestos',      data: afterTax,     fill: false, tension: 0.3 },
-        { label: 'Real neto (inf+imp)', data: realAfterTax, fill: false, tension: 0.3 }
-      ];
-
-      if (chartM) {
-        chartM.data.labels   = labels;
-        chartM.data.datasets = datasetsM;
-        chartM.update();
+      // Determinar el perfil
+      let perfil;
+      if (score <= 20) {
+        perfil = 'Conservador';
+      } else if (score <= 35) {
+        perfil = 'Moderado';
       } else {
-        chartM = new Chart(ctxM, {
-          type: 'line',
-          data: { labels, datasets: datasetsM },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: { y: { beginAtZero: true } }
-          }
-        });
+        perfil = 'Agresivo';
       }
-    });
+
+      // Rellenar resultado
+      txt.textContent    = perfil;
+      desc.textContent   = perfilInfo[perfil].desc;
+      retElem.textContent = `${perfilInfo[perfil].return}`;
+
+      // Mostrar resultado
+      result.style.display = 'block';
+      form.style.display   = 'none';
+
+      // Opcional: scroll automático al resultado
+      result.scrollIntoView({ behavior: 'smooth' });
+    }
   });
+
+  // Mostrar el primer paso al cargar la página
+  document.addEventListener('DOMContentLoaded', () => showStep(0));
+})();
+
   </script>
+
+  <!-- Calculadora de Interés Compuesto -->
   <script>
-    (function(){
-      const steps       = Array.from(document.querySelectorAll('#test-perfil .step'));
-      const prevBtn     = document.getElementById('prev-btn');
-      const nextBtn     = document.getElementById('next-btn');
-      const form        = document.getElementById('test-form');
-      const result      = document.getElementById('test-result');
-      const txt         = document.getElementById('perfil-texto');
-      const desc        = document.getElementById('perfil-desc');
-      const counterElem = document.getElementById('step-counter');
-      const total       = steps.length;
-      let current       = 0;
-    
-      function showStep(i) {
-        steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
-        prevBtn.disabled = i === 0;
-        nextBtn.textContent = i === total - 1 ? 'Terminar' : 'Siguiente';
-        counterElem.textContent = `${i+1} de ${total}`;
-      }
-    
-      prevBtn.addEventListener('click', () => {
-        if (current > 0) showStep(--current);
-      });
-    
-      nextBtn.addEventListener('click', () => {
-        const checked = [...steps[current].querySelectorAll('input')].some(i => i.checked);
-        if (!checked) return alert('Selecciona una opción');
-        if (current < total - 1) {
-          showStep(++current);
-        } else {
-          // Calcular perfil
-          const score = [...new FormData(form).values()]
-                          .reduce((sum,v)=>sum+parseInt(v,10), 0);
-          let perfil, pd;
-          if (score <= 20)      [perfil,pd]=['Conservador','Buscas seguridad.'];
-          else if (score <= 35) [perfil,pd]=['Moderado','Aceptas volatilidad.'];
-          else                  [perfil,pd]=['Agresivo','Asumes riesgo.'];
-          txt.textContent    = perfil;
-          desc.textContent   = pd;
-          result.style.display = 'block';
-          form.style.display   = 'none';
-        }
-      });
-    
-      document.addEventListener('DOMContentLoaded', () => showStep(0));
-    })();
-    </script>
-<script>
     document.addEventListener('DOMContentLoaded', () => {
       const initEl    = document.getElementById('initialBalance');
       const depAmtEl  = document.getElementById('depositAmount');
@@ -605,25 +429,21 @@
       const pieCtx    = document.getElementById('pieChart').getContext('2d');
       const barCtx    = document.getElementById('barChart').getContext('2d');
       const tableBody = document.querySelector('#resultTable tbody');
-      let pieChart, barChart;
-    
-      // Slider label
+
       durEl.addEventListener('input', () => durVal.textContent = durEl.value);
-    
+
       btn.addEventListener('click', () => {
-        // 1) Leer inputs
         const P       = +initEl.value;
         const C       = +depAmtEl.value;
-        const freq    = depFreqEl.value;           // 'monthly' o 'yearly'
+        const freq    = depFreqEl.value;
         const atStart = depTimeEl.value === 'start';
         const r       = +rateEl.value / 100;
         const yrs     = +durEl.value;
         const periodRate = freq === 'monthly' ? r/12 : r;
-    
-        // 2) Calcular arrays por año
+
         let balance = P, totalDeps = 0, totalInt = 0;
         const labels = [], depsArr = [], intArr = [], balArr = [];
-    
+
         for (let y = 1; y <= yrs; y++) {
           let yearDeps = 0, yearInt = 0;
           if (freq === 'monthly') {
@@ -646,19 +466,16 @@
           intArr.push(yearInt);
           balArr.push(+balance.toFixed(2));
         }
-    
-        // Texto de resultado
+
         resultTxt.textContent =
           `Puedes ahorrar ${balance.toLocaleString()} € con ${C.toLocaleString()} € ${
             freq === 'monthly' ? 'mensuales' : 'anuales'
           } durante ${yrs} años`;
-    
-        // 3) Datos para el doughnut
+
         const pieData   = [P, totalDeps, totalInt];
         const pieLabels = ['Balance inicial','Depósitos periódicos','Interés total'];
-    
-        // ─── Doughnut Chart ───
-        if (pieChart) {
+
+        if (pieChart.data?.datasets) {
           pieChart.data.datasets[0].data = pieData;
           pieChart.update();
         } else {
@@ -672,9 +489,6 @@
               cutout: '60%'
             }]},
             options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              layout: { padding:20 },
               plugins: {
                 legend: { position:'bottom' },
                 tooltip: { callbacks: { label: ctx => `${ctx.label}: ${ctx.parsed} €` }},
@@ -693,15 +507,14 @@
             plugins:[ChartDataLabels]
           });
         }
-    
-        // ─── Line Chart ───
+
         const barDatasets = [
           { label:'Balance total', data:balArr, fill:true, backgroundColor:'rgba(94,184,255,0.3)', borderColor:'#5EB8FF', tension:0.4, pointRadius:3 },
           { label:'Depósitos periódicos', data:depsArr, fill:false, borderColor:'#FF6F61', tension:0.3 },
           { label:'Interés generado', data:intArr, fill:false, borderColor:'#FFBD2E', borderDash:[5,5], tension:0.3 }
         ];
-    
-        if (barChart) {
+
+        if (barChart.data?.datasets) {
           barChart.data.labels   = labels;
           barChart.data.datasets = barDatasets;
           barChart.update();
@@ -724,8 +537,7 @@
             plugins:[ChartDataLabels]
           });
         }
-    
-        // ─── Tabla ───
+
         tableBody.innerHTML = '';
         depsArr.forEach((d,i) => {
           const tr = document.createElement('tr');
@@ -738,14 +550,11 @@
           `;
           tableBody.appendChild(tr);
         });
-    
-        // Mostrar sección y hacer scroll
+
         resultDiv.style.display = 'block';
         resultDiv.scrollIntoView({behavior:'smooth'});
       });
     });
-    </script>
-    
-      
+  </script>
 </body>
 </html>
