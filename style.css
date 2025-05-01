@@ -400,86 +400,127 @@
     margin-top: 2rem;
   }
 
-/* ==============================
-   Calculadora de Interés Compuesto
-   ============================== */
+/* --- Calculadora de Interés Compuesto --- */
+.calculator-container {
+  max-width: 600px;
+  margin: auto;
+}
 
-   .section-compound {
-    text-align: center;
-  }
-  
-  .input-group {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .input-group label {
-    font-weight: bold;
-  }
-  
-  .input-group input,
-  .input-group select {
-    padding: 0.8rem;
-    border-radius: var(--radius);
-    border: 1px solid var(--gray);
-    background-color: var(--light);
-    font-size: 1rem;
-    width: 100%;
-    max-width: 200px; /* Ancho máximo para campos */
-    box-shadow: var(--shadow);
-  }
-  
-  #duration {
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  #calcButton {
-    padding: 0.8rem 1.8rem;
-    border-radius: var(--radius);
-    background-color: var(--primary);
-    color: var(--light);
-    font-weight: bold;
-    transition: var(--transition);
-  }
-  
-  #calcButton:hover {
-    background-color: #0f7be6;
-  }
-  
-  .compound-result {
-    margin-top: 2rem;
-  }
-  
-  .compound-charts canvas {
-    flex: 1;
-    min-width: 300px;
-    max-width: 450px;
-    height: 300px !important;
-    background: var(--light);
-    border-radius: var(--radius);
-    padding: 1rem;
-  }
-  
-  .compound-table table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-  }
-  
-  .compound-table th,
-  .compound-table td {
-    padding: 0.8rem;
-    border: 1px solid var(--gray);
-    text-align: right;
-  }
-  
-  .compound-table th {
-    background: var(--light);
-    text-align: center;
-  }
+.input-group {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input-group label {
+  font-weight: bold;
+}
+
+.input-group input {
+  padding: 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray);
+  background-color: var(--light);
+  font-size: 1rem;
+  width: 100%;
+  max-width: 200px; /* Ancho máximo para campos */
+  box-shadow: var(--shadow);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--light);
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius);
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background-color: #0f7be6;
+}
+
+.btn-secondary,
+.btn-info {
+  background-color: var(--light);
+  color: var(--dark);
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius);
+  font-weight: bold;
+  transition: var(--transition);
+  border: 1px solid var(--gray);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.btn-info:hover {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+#results {
+  text-align: center;
+}
+
+#results p {
+  margin-bottom: 0.5rem;
+}
+
+/* Fila horizontal de inputs */
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Ajustes para mantener diseño responsivo */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 180px;
+}
+
+.input-group input {
+  padding: 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray);
+  background-color: var(--light);
+  font-size: 1rem;
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+
+
+/* --- Tabla dividida en dos columnas --- */
+.table-dual-column {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.table-dual-column table {
+  flex: 1;
+  min-width: 300px;
+}
+
+
+
   
   /* ==============================
      Secciones Genéricas
