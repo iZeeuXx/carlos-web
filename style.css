@@ -433,157 +433,176 @@ section[id] {
     Calculadora de Interés Compuesto 
     ============================== */ 
 
-.calculator-container {
-  max-width: 600px;
-  margin: auto;
+    .section-compound {
+      padding: 2rem 1rem;
+    }
+    
+    .simulador-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .input-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 200px;
+      flex: 1;
+    }
+    
+    .input-group label {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+    
+    .input-group input {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn-primary, .btn-secondary, .btn-info {
+      padding: 0.7rem 1.4rem;
+      font-weight: bold;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .btn-primary {
+      background: #007bff;
+      color: #fff;
+    }
+    .btn-secondary {
+      background: #f1f1f1;
+    }
+    .btn-info {
+      background: #2ecc71;
+      color: #fff;
+    }
+    
+    .btn-primary:hover {
+      background: #005dc3;
+    }
+    .btn-secondary:hover {
+      background: #ddd;
+    }
+    .btn-info:hover {
+      background: #27ae60;
+    }
+    
+    .result-box {
+      display: none;
+      margin-bottom: 2rem;
+    }
+    
+    .result-box.show {
+      display: block;
+    }
+    
+    .resultados-grid {
+      display: none;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .resultados-grid.show {
+      display: flex;
+    }
+    
+    .left-box, .right-box {
+      flex: 1 1 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .chart-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .square-chart {
+      width: 300px;
+      height: 300px;
+      margin: auto;
+    }
+    
+    .bar-chart {
+      padding: 1rem;
+      width: 100%;
+      background: #fff;
+    }
+    
+    .table-wrapper {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .table th, .table td {
+      padding: 0.75rem;
+      border: 1px solid #eee;
+      text-align: center;
+    }
+    
+    @media (max-width: 900px) {
+      .resultados-grid {
+        flex-direction: column;
+      }
+    
+      .square-chart {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+#results,
+#resultadosGrid {
+  display: none;
 }
 
-.input-group {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+#results.show {
+  display: block;
 }
 
-.input-group label {
-  font-weight: bold;
-}
-
-.input-group input {
-  padding: 0.8rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--gray);
-  background-color: var(--light);
-  font-size: 1rem;
-  width: 100%;
-  max-width: 200px; /* Ancho máximo para campos */
-  box-shadow: var(--shadow);
-}
-
-.button-group {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.btn-primary {
-  background-color: var(--primary);
-  color: var(--light);
-  padding: 0.8rem 1.8rem;
-  border-radius: var(--radius);
-  font-weight: bold;
-  transition: var(--transition);
-}
-
-.btn-primary:hover {
-  background-color: #0f7be6;
-}
-
-.btn-secondary,
-.btn-info {
-  background-color: var(--light);
-  color: var(--dark);
-  padding: 0.8rem 1.8rem;
-  border-radius: var(--radius);
-  font-weight: bold;
-  transition: var(--transition);
-  border: 1px solid var(--gray);
-}
-
-.btn-secondary:hover {
-  background-color: var(--secondary);
-  border-color: var(--secondary);
-}
-
-.btn-info:hover {
-  background-color: #2ecc71;
-  border-color: #2ecc71;
-}
-
-#results {
-  text-align: center;
-}
-
-#results p {
-  margin-bottom: 0.5rem;
-}
-
-/* Fila horizontal de inputs */
-.input-row {
+#resultadosGrid.show {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* Ajustes para mantener diseño responsivo */
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  min-width: 180px;
-}
-
-.input-group input {
-  padding: 0.8rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--gray);
-  background-color: var(--light);
-  font-size: 1rem;
-  width: 100%;
-  box-shadow: var(--shadow);
-}
-
-
-.table-dual-column {
-  display: flex;
   justify-content: center;
-  flex-wrap: nowrap;
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  margin-top: 2rem;
 }
 
-.table-wrapper {
-  flex: 1 1 50%;
-  max-width: 50%;
-}
-
-.table-wrapper table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-@media (max-width: 768px) {
-  .table-dual-column {
-    flex-wrap: wrap;
-  }
-
-  .table-wrapper {
-    max-width: 100%;
-    flex: 1 1 100%;
-  }
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
  
   /* ==============================
@@ -938,4 +957,136 @@ section[id] {
 
 .d-none {
   display: none;
+}
+
+#envio-email button {
+  margin-bottom: 1.5rem;
+}
+
+/* === CONTENEDOR GENERAL DE RESULTADOS === */
+.resultados-grid {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.resultados-grid.show {
+  display: flex;
+}
+
+/* === GRÁFICOS HORIZONTALES === */
+.graficos-box {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.grafico {
+  flex: 1 1 400px;
+  max-width: 500px;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* === TABLAS EN DOS COLUMNAS === */
+.tablas-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+}
+.tabla {
+  flex: 1 1 400px;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+.square-chart canvas {
+  height: 300px !important;
+}
+
+
+/* Caja base de gráfico */
+.grafico {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* 🎯 Gráfico de tarta: 400x400px fijo */
+.graficos-box {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* PIE CHART BOX */
+.grafico-tarta {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* BAR CHART BOX */
+.grafico-barras {
+  width: 600px;
+  height: 400px;
+  padding: 1rem;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CANVAS CONFIG */
+.grafico canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* LEYENDA PERSONALIZADA */
+.leyenda-pie {
+  margin-top: 0.5rem;
 }
