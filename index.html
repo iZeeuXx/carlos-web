@@ -14,9 +14,11 @@
 <body>
 
   <!-- HEADER Y MENÚ DE NAVEGACIÓN -->
-  <header role="banner">
-    <div class="container">
-      <h1 class="logo">Carlos • Asesoría Financiera</h1>
+  <header role="banner" class="header-elevado">
+    <div class="container header-content">
+      <div class="logo-area">
+        <h1 class="logo">Carlos<span> • Asesoría Financiera</span></h1>
+      </div>
       <button class="nav-toggle" aria-label="Abrir menú móvil">☰</button>
       <nav role="navigation" aria-label="Menú principal">
         <ul>
@@ -27,7 +29,6 @@
           <li><a href="#modelos">Modelos</a></li>
           <li><a href="#test-perfil">Test Perfil</a></li>
           <li><a href="#simulador">Simulador</a></li>
-          <li><a href="#aportaciones">Aportaciones</a></li>
           <li><a href="#proteccion">Protección</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
           <li><a href="#contacto">Contacto</a></li>
@@ -35,6 +36,7 @@
       </nav>
     </div>
   </header>
+  
 
   <!-- CONTENIDO PRINCIPAL -->
   <main>
@@ -135,8 +137,8 @@
       </div>
     </section>
 
-<!-- Test de Perfil -->
-<section id="test-perfil" class="section section-test">
+    <!-- TEST DE INVERSION -->
+    <section id="test-perfil" class="section section-test">
   <div class="container test-wrapper">
     <h2>Test de Perfil Inversor</h2>
     <div id="step-counter" class="step-counter">1 de 10</div>
@@ -227,59 +229,66 @@
       <p>Rendimiento anual estimado: <strong id="perfil-return"></strong></p>
     </div>
   </div>
-</section>
+    </section>
 
     <!-- CALCADORA DE INTERÉS COMPUESTO -->
-    <section id="simulador" class="section section-compound">
-      <div class="calculator-container">
-        <h2>Calculadora de Interés Compuesto</h2>
-        <form id="calculatorForm">
-          <div class="input-row">
-            <div class="input-group">
-              <label for="initialAmount">Capital Inicial</label>
-              <input type="number" step="0.01" id="initialAmount" value="1000" required>
-            </div>
-            <div class="input-group">
-              <label for="periodicDeposit">Aportación Mensual</label>
-              <input type="number" step="0.01" id="periodicDeposit" value="200" required>
-            </div>
-            <div class="input-group">
-              <label for="interestRate">Tasa Anual (%)</label>
-              <input type="number" step="0.01" id="interestRate" value="5" required>
-            </div>
-            <div class="input-group">
-              <label for="years">Duración (años)</label>
-              <input type="number" id="years" value="20" required>
-            </div>
-          </div>
-        
-          <div class="button-group">
-            <button type="submit" class="btn-primary">Calcular</button>
-            <button type="button" class="btn-secondary" onclick="exportPDF()">Exportar a PDF</button>
-            <button type="button" class="btn-info" onclick="toggleDarkMode()">Modo Oscuro</button>
-          </div>
-        </form>
-        
-        <div id="results" class="mt-4 d-none">
-            <h3>Resultado Final</h3>
-            <p><strong>Total Acumulado:</strong> <span id="totalSaved"></span></p>
-            <p><strong>Total Aportado:</strong> <span id="totalDeposited"></span></p>
-            <p><strong>Intereses Ganados:</strong> <span id="totalInterest"></span></p>        </div>
-    </div>
-
-    <!-- Gráficos en la misma línea -->
-    <div class="charts-container">
-        <div class="chart-box">
-            <canvas id="pieChart" width="300" height="300"></canvas>
+<!-- CALCULADORA DE INTERÉS COMPUESTO -->
+<section id="simulador" class="section section-compound">
+  <div class="calculator-container">
+    <h2>Calculadora de Interés Compuesto</h2>
+    <form id="calculatorForm">
+      <div class="input-row">
+        <div class="input-group">
+          <label for="initialAmount">Capital Inicial</label>
+          <input type="number" step="0.01" id="initialAmount" value="1000" required>
         </div>
-        <div class="chart-box">
-            <canvas id="lineChart" width="300" height="300"></canvas>
+        <div class="input-group">
+          <label for="periodicDeposit">Aportación Mensual</label>
+          <input type="number" step="0.01" id="periodicDeposit" value="200" required>
         </div>
-    </div>
+        <div class="input-group">
+          <label for="interestRate">Tasa Anual (%)</label>
+          <input type="number" step="0.01" id="interestRate" value="5" required>
+        </div>
+        <div class="input-group">
+          <label for="years">Duración (años)</label>
+          <input type="number" id="years" value="20" required>
+        </div>
+      </div>
 
-    <!-- Tabla de ganancias anuales -->
-<!-- Tabla de ganancias anuales dividida -->
-<div class="table-dual-column">
+      <div class="button-group">
+        <button type="submit" class="btn-primary">Calcular</button>
+        <button type="button" class="btn-secondary" onclick="exportPDF()">Exportar a PDF</button>
+        <button type="button" class="btn-info" onclick="toggleDarkMode()">Modo Oscuro</button>
+      </div>
+    </form>
+
+    <!-- Resultado numérico -->
+<!-- Resultado numérico -->
+<div id="results" class="mt-4 d-none">
+  <h3>Resultado Final</h3>
+  <p><strong>Total Acumulado:</strong> <span id="totalSaved"></span></p>
+  <p><strong>Total Aportado:</strong> <span id="totalDeposited"></span></p>
+  <p><strong>Intereses Ganados:</strong> <span id="totalInterest"></span></p>
+
+  <!-- Botón para cerrar -->
+  <div class="text-center mt-4">
+    <button type="button" class="btn-secondary" id="cerrarCalculoBtn">Cerrar cálculo</button>
+  </div>
+</div>
+
+<!-- Gráficos ocultos al inicio -->
+<div class="charts-container d-none">
+  <div class="chart-box">
+    <canvas id="pieChart" width="300" height="300"></canvas>
+  </div>
+  <div class="chart-box">
+    <canvas id="lineChart" width="300" height="300"></canvas>
+  </div>
+</div>
+
+<!-- Tablas divididas ocultas -->
+<div class="table-dual-column d-none">
   <table class="table table-striped mt-4">
     <thead>
       <tr>
@@ -305,37 +314,206 @@
   </table>
 </div>
 
-        <div id="compoundResult" class="compound-result" style="display:none;">
-          <h3 id="resultText"></h3>
-          <div class="compound-charts">
-            <canvas id="pieChart"></canvas>
-            <canvas id="barChart"></canvas>
+
+    <!-- Gráficos ocultos al inicio -->
+    <div class="charts-container d-none">
+      <div class="chart-box">
+        <canvas id="pieChart" width="300" height="300"></canvas>
+      </div>
+      <div class="chart-box">
+        <canvas id="lineChart" width="300" height="300"></canvas>
+      </div>
+    </div>
+
+    <!-- Tablas divididas ocultas -->
+<div class="table-dual-column d-none">
+  <div class="table-wrapper">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Año</th>
+          <th>Aportación</th>
+          <th>Interés</th>
+          <th>Balance</th>
+        </tr>
+      </thead>
+      <tbody id="tableBodyLeft"></tbody>
+    </table>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Año</th>
+          <th>Aportación</th>
+          <th>Interés</th>
+          <th>Balance</th>
+        </tr>
+      </thead>
+      <tbody id="tableBodyRight"></tbody>
+    </table>
+  </div>
+</div>
+
+</section>
+
+
+    <!-- PROTECCIÓN PATRIMONIAL -->
+    <section id="proteccion" class="section section-proteccion">
+      <div class="container">
+        <h2 class="text-center mb-4">🛡️ Protección Patrimonial</h2>
+        <p class="lead text-center fs-5 mb-4" style="max-width: 700px; margin: 0 auto;">
+          Descubre qué tipo de plan de protección patrimonial es más adecuado para ti.
+        </p>
+    
+        <!-- Botón para mostrar test -->
+        <div class="text-center mb-5">
+          <button id="mostrar-test-btn" class="btn btn-primary btn-lg">
+            ¡Sí! Quiero descubrir el tipo de plan que mejor me venga
+          </button>
+        </div>
+    
+        <!-- Test oculto -->
+        <div class="test-wrapper mt-4 mb-5" style="display: none;">
+          <div id="step-counter-patrimonio" class="step-counter">1 de 6</div>
+          <form id="test-patrimonio">
+            <div class="centered-content">
+              <!-- Preguntas -->
+              <div class="step active">
+                <p>1. ¿Tienes un fondo de emergencia para al menos 3 meses?</p>
+                <label><input type="radio" name="q1" value="sí"> Sí</label>
+                <label><input type="radio" name="q1" value="no"> No</label>
+              </div>
+              <div class="step">
+                <p>2. ¿Tienes seguro de vida o incapacidad?</p>
+                <label><input type="radio" name="q2" value="sí"> Sí</label>
+                <label><input type="radio" name="q2" value="no"> No</label>
+              </div>
+              <div class="step">
+                <p>3. ¿Diversificas tus inversiones?</p>
+                <label><input type="radio" name="q3" value="sí"> Sí</label>
+                <label><input type="radio" name="q3" value="no"> No</label>
+              </div>
+              <div class="step">
+                <p>4. ¿Has hecho testamento o planificación hereditaria?</p>
+                <label><input type="radio" name="q4" value="sí"> Sí</label>
+                <label><input type="radio" name="q4" value="no"> No</label>
+              </div>
+              <div class="step">
+                <p>5. ¿Conoces tus obligaciones fiscales como inversor?</p>
+                <label><input type="radio" name="q5" value="sí"> Sí</label>
+                <label><input type="radio" name="q5" value="no"> No</label>
+              </div>
+              <div class="step">
+                <p>6. ¿Has recibido asesoramiento legal o financiero en el último año?</p>
+                <label><input type="radio" name="q6" value="sí"> Sí</label>
+                <label><input type="radio" name="q6" value="no"> No</label>
+              </div>
+            </div>
+            <div class="buttons">
+              <button type="button" id="prev-btn-patrimonio" class="btn-primary" disabled>Anterior</button>
+              <button type="button" id="next-btn-patrimonio" class="btn-primary">Siguiente</button>
+            </div>
+          </form>
+          <div id="diagnostico-final" class="test-result" style="display:none;">
+            <h3 class="mt-4">Gracias por completar el diagnóstico</h3>
+            <p style="margin-bottom: 1.5rem;">
+              ¿Quieres que analicemos juntos tu situación patrimonial y te dé una primera orientación gratuita?
+            </p>
+            <a href="#contacto" class="btn btn-success">Solicitar revisión personalizada</a>
           </div>
-          <div class="compound-table">
-            <table id="resultTable">
+        </div>
+    
+        <!-- Conceptos Clave -->
+        <div class="proteccion-intro mt-5 mb-5" style="max-width: 850px; margin: 0 auto; text-align: center;">
+          <h3 class="mb-4">🔎 Conceptos Clave</h3>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+            <div style="flex: 1 1 250px; min-width: 250px; max-width: 300px;">
+              <p><strong>Plan de Jubilación:</strong> Un buen plan asegura ingresos estables cuando dejes de trabajar. Usa fondos indexados y planes pensionales. 💼</p>
+            </div>
+            <div style="flex: 1 1 250px; min-width: 250px; max-width: 300px;">
+              <p><strong>Diversificación:</strong> Distribuye tus inversiones entre ETFs, acciones y real estate para minimizar riesgos. 🌍</p>
+            </div>
+            <div style="flex: 1 1 250px; min-width: 250px; max-width: 300px;">
+              <p><strong>Objetivos Financieros:</strong> Define metas claras a corto, medio y largo plazo para tener un rumbo seguro. 📊</p>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Pilares del Plan de Protección Patrimonial -->
+        <div class="mt-5 text-center">
+          <h3 class="mb-4" style="margin-top: 5rem;">🧱 Pilares del Plan de Protección Patrimonial</h3>
+          <div class="grid-points" style="max-width: 1100px; margin: 0 auto;">
+            <div class="point-box">
+              <h4>Análisis Patrimonial</h4>
+              <p>Inventario detallado de tus activos, ingresos, deudas, situación fiscal y legal. Es el punto de partida para cualquier estrategia.</p>
+            </div>
+            <div class="point-box">
+              <h4>Coberturas Clave</h4>
+              <p>Contratación adecuada de seguros de vida, incapacidad, salud y responsabilidad civil para proteger tu núcleo familiar y patrimonial.</p>
+            </div>
+            <div class="point-box">
+              <h4>Diversificación</h4>
+              <p>Distribuir tus inversiones entre ETFs, inmuebles, liquidez, commodities y tecnología para reducir el riesgo sin perder rentabilidad.</p>
+            </div>
+            <div class="point-box">
+              <h4>Blindaje Legal</h4>
+              <p>Uso estratégico de testamentos, donaciones, sociedades o pactos familiares para asegurar la continuidad de tu legado.</p>
+            </div>
+            <div class="point-box">
+              <h4>Planificación Familiar</h4>
+              <p>Organizar el traspaso patrimonial pensando en la estabilidad de tus herederos, integrando educación financiera intergeneracional.</p>
+            </div>
+            <div class="point-box">
+              <h4>Revisión Anual</h4>
+              <p>Actualización periódica de tus estructuras de protección según la evolución normativa, económica y personal.</p>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Ejemplo de Estrategia -->
+        <div class="mt-5 text-center">
+          <h3 class="mb-3" style="margin-top: 5rem;">📊 Ejemplo de Distribución Patrimonial</h3>
+          <p class="text-muted">Así podrías distribuir tus ahorros:</p>
+          <div class="table-responsive mt-3" style="max-width: 900px; margin-left: auto; margin-right: auto;">
+            <table class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>Año</th>
-                  <th>Depósitos periódicos</th>
-                  <th>Depósitos totales</th>
-                  <th>Interés total</th>
-                  <th>Balance</th>
+                  <th>Categoría</th>
+                  <th>% Recomendado</th>
+                  <th>Descripción</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                <tr>
+                  <td>Activo Seguro (Bonos, CDTs)</td>
+                  <td>30%</td>
+                  <td>Preserva capital y genera rendimientos estables.</td>
+                </tr>
+                <tr>
+                  <td>Activo Moderado (ETFs, Acciones)</td>
+                  <td>50%</td>
+                  <td>Balance entre seguridad y crecimiento.</td>
+                </tr>
+                <tr>
+                  <td>Activo Arriesgado (Criptomonedas, Startups)</td>
+                  <td>20%</td>
+                  <td>Mayor riesgo pero potencial de crecimiento alto.</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
+    
+        <!-- Botón Redirigir a Calculadora -->
+        <div class="text-center mt-5 mb-5">
+          <button type="button" class="btn btn-primary btn-lg" style="padding-left: 2rem; padding-right: 2rem;" onclick="window.location.href='#simulador'">Ir a la Calculadora de Interés Compuesto</button>
+        </div>
       </div>
     </section>
-
-    <!-- PROTECCIÓN PATRIMONIAL -->
-    <section id="proteccion" class="section">
-      <div class="container">
-        <h2>Protección Patrimonial</h2>
-        <p>Plan de jubilación, diversificación y objetivos.</p>
-      </div>
-    </section>
+    
+       
 
     <!-- NEWSLETTER -->
     <section id="newsletter" class="section">
@@ -368,7 +546,7 @@
     document.querySelector('.nav-toggle').onclick = () => {
       document.querySelector('nav ul').classList.toggle('show');
     };
-  </script>
+    </script>
 
   <!-- Test de Perfil -->
   <script>
@@ -447,9 +625,9 @@
   document.addEventListener('DOMContentLoaded', () => showStep(0));
 })();
 
-  </script>
+    </script>
 
-  <!-- Calculadora de Interés Compuesto -->
+<!-- CALCULADORA DE INTERES COMPUESTO -->
 <!-- CDN de Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- CDN de jsPDF -->
@@ -501,19 +679,20 @@
     };
 }
 
-    function displayResults(result) {
-      document.getElementById('totalSaved').textContent = `€${result.finalTotal.toFixed(2)}`;
-      document.getElementById('totalDeposited').textContent = `€${result.totalDeposits.toFixed(2)} (Anual)`;
-      document.getElementById('totalInterest').textContent = `€${result.totalInterest.toFixed(2)}`;
+function displayResults(result) {
+    // Mostrar resultados numéricos
+    document.getElementById('totalSaved').textContent = `€${result.finalTotal.toFixed(2)}`;
+    document.getElementById('totalDeposited').textContent = `€${result.totalDeposits.toFixed(2)} (Anual)`;
+    document.getElementById('totalInterest').textContent = `€${result.totalInterest.toFixed(2)}`;
 
-        document.getElementById('results').classList.remove('d-none');
+    // Limpiar las tablas antes de agregar nuevas filas
+    const tbodyLeft = document.getElementById('tableBodyLeft');
+    const tbodyRight = document.getElementById('tableBodyRight');
+    tbodyLeft.innerHTML = '';
+    tbodyRight.innerHTML = '';
 
-        const tbodyLeft = document.getElementById('tableBodyLeft');
-const tbodyRight = document.getElementById('tableBodyRight');
-tbodyLeft.innerHTML = '';
-tbodyRight.innerHTML = '';
-
-result.data.forEach((row, index) => {
+    // Dividir las filas entre las dos tablas
+    result.data.forEach((row, index) => {
   const tr = document.createElement('tr');
   tr.innerHTML = `
     <td>${row.year}</td>
@@ -529,27 +708,53 @@ result.data.forEach((row, index) => {
 });
 
 
-        if (chartLine) chartLine.destroy();
-        chartLine = new Chart(document.getElementById('lineChart'), {
-            type: 'line',
-            data: {
-                labels: result.data.map(d => d.year),
-                datasets: [{
-                    label: 'Balance acumulado',
-                    data: result.data.map(d => d.balance),
-                    borderColor: '#0d6efd',
-                    backgroundColor: 'rgba(13, 110, 253, 0.2)',
-                    fill: true,
-                    tension: 0.3
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: { beginAtZero: true }
-                }
+    // Mostrar los resultados, gráficos y tablas
+    document.getElementById('results').classList.remove('d-none');
+    document.querySelector('.charts-container').classList.remove('d-none');
+    document.querySelector('.table-dual-column').classList.remove('d-none');
+
+    // Generar gráficos (si es necesario)
+    if (chartLine) chartLine.destroy();
+    if (chartPie) chartPie.destroy();
+
+    chartLine = new Chart(document.getElementById('lineChart'), {
+        type: 'line',
+        data: {
+            labels: result.data.map(d => d.year),
+            datasets: [{
+                label: 'Balance acumulado',
+                data: result.data.map(d => d.balance),
+                borderColor: '#0d6efd',
+                backgroundColor: 'rgba(13, 110, 253, 0.2)',
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
             }
-        });
+        }
+    });
+
+    chartPie = new Chart(document.getElementById('pieChart'), {
+        type: 'pie',
+        data: {
+            labels: ['Aportaciones', 'Intereses'],
+            datasets: [{
+                data: [
+                    result.totalDeposits,
+                    result.totalInterest
+                ],
+                backgroundColor: ['#0d6efd', '#6f42c1']
+              }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+}
 
         if (chartPie) chartPie.destroy();
         chartPie = new Chart(document.getElementById('pieChart'), {
@@ -568,7 +773,7 @@ result.data.forEach((row, index) => {
                 responsive: true
             }
         });
-    }
+
 
     function exportPDF() {
         const { jsPDF } = window.jspdf;
@@ -594,6 +799,133 @@ result.data.forEach((row, index) => {
     function toggleDarkMode() {
         document.body.classList.toggle('dark-mode');
     }
-</script>
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("calculatorForm");
+    const results = document.getElementById("results");
+    const chartsContainer = document.querySelector(".charts-container");
+    const tableDualColumn = document.querySelector(".table-dual-column");
+  
+    // Mostrar resultados al calcular
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      // Aquí va tu lógica de cálculo y displayResults()
+  
+      results.classList.remove("d-none");
+      chartsContainer.classList.remove("d-none");
+      tableDualColumn.classList.remove("d-none");
+    });
+  
+    // Cerrar cálculo y ocultar resultados
+    const cerrarBtn = document.getElementById("cerrarCalculoBtn");
+    if (cerrarBtn) {
+      cerrarBtn.addEventListener("click", function () {
+        results.classList.add("d-none");
+        chartsContainer.classList.add("d-none");
+        tableDualColumn.classList.add("d-none");
+  
+        document.getElementById("calculatorForm").scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    }
+  });
+  </script>
+  
+  
+  
+
+<script>
+  (function () {
+    const steps = Array.from(document.querySelectorAll('#test-patrimonio .step'));
+    const prevBtn = document.getElementById('prev-btn-patrimonio');
+    const nextBtn = document.getElementById('next-btn-patrimonio');
+    const form = document.getElementById('test-patrimonio');
+    const result = document.getElementById('diagnostico-final');
+    const counterElem = document.getElementById('step-counter-patrimonio');
+    const total = steps.length;
+    let current = 0;
+  
+    function showStep(i) {
+      steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      prevBtn.disabled = i === 0;
+      nextBtn.textContent = i === total - 1 ? 'Terminar' : 'Siguiente';
+      counterElem.textContent = `${i + 1} de ${total}`;
+    }
+  
+    prevBtn.addEventListener('click', () => {
+      if (current > 0) showStep(--current);
+    });
+  
+    nextBtn.addEventListener('click', () => {
+      const checked = [...steps[current].querySelectorAll('input')].some(i => i.checked);
+      if (!checked) return alert('Por favor, selecciona una opción.');
+  
+      if (current < total - 1) {
+        showStep(++current);
+      } else {
+        result.style.display = 'block';
+        form.style.display = 'none';
+        result.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  
+    document.addEventListener('DOMContentLoaded', () => showStep(0));
+  })();
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const mostrarBtn = document.getElementById("mostrar-test-btn");
+    const testWrapper = document.querySelector("#proteccion .test-wrapper");
+
+    if (mostrarBtn && testWrapper) {
+      mostrarBtn.addEventListener("click", function () {
+        testWrapper.style.display = "flex";
+        mostrarBtn.style.display = "none";
+
+        const yOffset = -150; // ajusta esto para centrarlo mejor
+        const y = testWrapper.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+      });
+    }
+  });
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("nav a");
+  
+    function activateMenu() {
+      let current = "";
+  
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+  
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    }
+  
+    window.addEventListener("scroll", activateMenu);
+  });
+  </script>
+  
+  
+
+
+
 </body>
 </html>
