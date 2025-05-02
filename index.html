@@ -232,131 +232,88 @@
     </section>
 
     <!-- CALCADORA DE INTERÉS COMPUESTO -->
-<!-- CALCULADORA DE INTERÉS COMPUESTO -->
-<section id="simulador" class="section section-compound">
-  <div class="calculator-container">
-    <h2>Calculadora de Interés Compuesto</h2>
-    <form id="calculatorForm">
-      <div class="input-row">
-        <div class="input-group">
-          <label for="initialAmount">Capital Inicial</label>
-          <input type="number" step="0.01" id="initialAmount" value="1000" required>
+    <section id="simulador" class="section-compound">
+      <div class="simulador-wrapper">
+        <h2>Calculadora de Interés Compuesto</h2>
+    
+        <form id="calculatorForm">
+          <div class="input-row">
+            <div class="input-group">
+              <label for="initialAmount">Capital Inicial</label>
+              <input type="number" step="0.01" id="initialAmount" value="1000" required />
+            </div>
+            <div class="input-group">
+              <label for="periodicDeposit">Aportación Mensual</label>
+              <input type="number" step="0.01" id="periodicDeposit" value="200" required />
+            </div>
+            <div class="input-group">
+              <label for="interestRate">Tasa Anual (%)</label>
+              <input type="number" step="0.01" id="interestRate" value="5" required />
+            </div>
+            <div class="input-group">
+              <label for="years">Duración (años)</label>
+              <input type="number" id="years" value="20" required />
+            </div>
+          </div>
+    
+          <div class="button-group">
+            <button type="submit" class="btn-primary">Calcular</button>
+            <button type="button" class="btn-secondary" onclick="exportPDF()">Exportar a PDF</button>
+            <button type="button" class="btn-info" onclick="toggleDarkMode()">Modo Oscuro</button>
+          </div>
+        </form>
+    
+        <div id="results" class="result-box">
+          <h3>Resultado Final</h3>
+          <p><strong>Total Acumulado:</strong> <span id="totalSaved"></span></p>
+          <p><strong>Total Aportado:</strong> <span id="totalDeposited"></span></p>
+          <p><strong>Intereses Ganados:</strong> <span id="totalInterest"></span></p>
+          <button type="button" id="cerrarCalculoBtn" class="btn-secondary">Cerrar cálculo</button>
         </div>
-        <div class="input-group">
-          <label for="periodicDeposit">Aportación Mensual</label>
-          <input type="number" step="0.01" id="periodicDeposit" value="200" required>
+    
+    <!-- RESULTADOS GRÁFICOS Y TABLAS -->
+    <div id="resultadosGrid" class="resultados-grid">
+      <!-- GRÁFICOS: arriba en horizontal -->
+      <div class="graficos-box">
+        <!-- PIE CHART -->
+        <div class="grafico grafico-tarta">
+          <canvas id="pieChart" width="400" height="400"></canvas>
+          <div class="leyenda-pie" id="leyendaPieChart"></div>
         </div>
-        <div class="input-group">
-          <label for="interestRate">Tasa Anual (%)</label>
-          <input type="number" step="0.01" id="interestRate" value="5" required>
-        </div>
-        <div class="input-group">
-          <label for="years">Duración (años)</label>
-          <input type="number" id="years" value="20" required>
+      
+        <!-- BAR CHART -->
+        <div class="grafico grafico-barras">
+          <canvas id="barChart" width="600" height="400"></canvas>
         </div>
       </div>
-
-      <div class="button-group">
-        <button type="submit" class="btn-primary">Calcular</button>
-        <button type="button" class="btn-secondary" onclick="exportPDF()">Exportar a PDF</button>
-        <button type="button" class="btn-info" onclick="toggleDarkMode()">Modo Oscuro</button>
-      </div>
-    </form>
-
-    <!-- Resultado numérico -->
-<!-- Resultado numérico -->
-<div id="results" class="mt-4 d-none">
-  <h3>Resultado Final</h3>
-  <p><strong>Total Acumulado:</strong> <span id="totalSaved"></span></p>
-  <p><strong>Total Aportado:</strong> <span id="totalDeposited"></span></p>
-  <p><strong>Intereses Ganados:</strong> <span id="totalInterest"></span></p>
-
-  <!-- Botón para cerrar -->
-  <div class="text-center mt-4">
-    <button type="button" class="btn-secondary" id="cerrarCalculoBtn">Cerrar cálculo</button>
-  </div>
-</div>
-
-<!-- Gráficos ocultos al inicio -->
-<div class="charts-container d-none">
-  <div class="chart-box">
-    <canvas id="pieChart" width="300" height="300"></canvas>
-  </div>
-  <div class="chart-box">
-    <canvas id="lineChart" width="300" height="300"></canvas>
-  </div>
-</div>
-
-<!-- Tablas divididas ocultas -->
-<div class="table-dual-column d-none">
-  <table class="table table-striped mt-4">
-    <thead>
-      <tr>
-        <th>Año</th>
-        <th>Aportación</th>
-        <th>Interés</th>
-        <th>Balance</th>
-      </tr>
-    </thead>
-    <tbody id="tableBodyLeft"></tbody>
-  </table>
-
-  <table class="table table-striped mt-4">
-    <thead>
-      <tr>
-        <th>Año</th>
-        <th>Aportación</th>
-        <th>Interés</th>
-        <th>Balance</th>
-      </tr>
-    </thead>
-    <tbody id="tableBodyRight"></tbody>
-  </table>
-</div>
-
-
-    <!-- Gráficos ocultos al inicio -->
-    <div class="charts-container d-none">
-      <div class="chart-box">
-        <canvas id="pieChart" width="300" height="300"></canvas>
-      </div>
-      <div class="chart-box">
-        <canvas id="lineChart" width="300" height="300"></canvas>
+      
+      <!-- TABLAS: abajo en dos columnas -->
+      <div class="tablas-box">
+        <div class="tabla">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Año</th><th>Aportación</th><th>Interés</th><th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="tableBodyLeft"></tbody>
+          </table>
+        </div>
+        <div class="tabla">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Año</th><th>Aportación</th><th>Interés</th><th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="tableBodyRight"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
-    <!-- Tablas divididas ocultas -->
-<div class="table-dual-column d-none">
-  <div class="table-wrapper">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Año</th>
-          <th>Aportación</th>
-          <th>Interés</th>
-          <th>Balance</th>
-        </tr>
-      </thead>
-      <tbody id="tableBodyLeft"></tbody>
-    </table>
-  </div>
-
-  <div class="table-wrapper">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Año</th>
-          <th>Aportación</th>
-          <th>Interés</th>
-          <th>Balance</th>
-        </tr>
-      </thead>
-      <tbody id="tableBodyRight"></tbody>
-    </table>
-  </div>
-</div>
-
-</section>
+    </section>
+    
 
 
     <!-- PROTECCIÓN PATRIMONIAL -->
@@ -416,13 +373,21 @@
               <button type="button" id="next-btn-patrimonio" class="btn-primary">Siguiente</button>
             </div>
           </form>
-          <div id="diagnostico-final" class="test-result" style="display:none;">
-            <h3 class="mt-4">Gracias por completar el diagnóstico</h3>
-            <p style="margin-bottom: 1.5rem;">
-              ¿Quieres que analicemos juntos tu situación patrimonial y te dé una primera orientación gratuita?
-            </p>
-            <a href="#contacto" class="btn btn-success">Solicitar revisión personalizada</a>
-          </div>
+          <div id="diagnostico-final" class="test-result d-none">
+            <h3 class="mt-4">🛡️ Diagnóstico de tu Protección Patrimonial</h3>
+            <p class="lead"><strong>Resultado:</strong> <span id="nivel-proteccion" class="highlight"></span></p>
+            <p id="mensaje-proteccion" class="mb-4"></p>
+          
+            <form id="envio-email" class="email-form">
+              <label for="emailUsuario">¿Quieres recibir tu diagnóstico por email?</label>
+              <input type="email" id="emailUsuario" name="emailUsuario" placeholder="tu@email.com" required>
+              <button type="submit" class="btn-primary mt-2">Enviar</button>
+            </form>
+          
+            <p id="confirmacion-envio" style="display:none;" class="mt-3 text-success">✅ Tu diagnóstico ha sido enviado.</p>
+          
+            <a href="#contacto" class="btn btn-success" style="margin-top: 1rem;">Solicitar revisión personalizada</a>
+          </div>                   
         </div>
     
         <!-- Conceptos Clave -->
@@ -634,210 +599,240 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <!-- Script de la calculadora -->
 <script>
-    let chartLine = null;
-    let chartPie = null;
-
-    document.getElementById('calculatorForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const initial = parseFloat(document.getElementById('initialAmount').value);
-        const deposit = parseFloat(document.getElementById('periodicDeposit').value);
-        const rate = parseFloat(document.getElementById('interestRate').value) / 100;
-        const years = parseInt(document.getElementById('years').value);
-
-        const result = calculateCompoundInterest(initial, deposit, rate, years);
-
-        displayResults(result);
+  let chartPie = null;
+  let chartBar = null;
+  let chartLine = null;
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("calculatorForm");
+    const resultsBox = document.getElementById("results");
+    const gridBox = document.getElementById("resultadosGrid");
+    const cerrarBtn = document.getElementById("cerrarCalculoBtn");
+  
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const initial = parseFloat(document.getElementById("initialAmount").value);
+      const deposit = parseFloat(document.getElementById("periodicDeposit").value);
+      const rate = parseFloat(document.getElementById("interestRate").value) / 100;
+      const years = parseInt(document.getElementById("years").value);
+  
+      const result = calculateCompoundInterest(initial, deposit, rate, years);
+      displayResults(result, initial);
+  
+      // Mostrar resultados
+      resultsBox.classList.add("show");
+      gridBox.classList.add("show");
     });
-
-    function calculateCompoundInterest(initial, monthlyDeposit, rate, years) {
+  
+    cerrarBtn.addEventListener("click", function () {
+      resultsBox.classList.remove("show");
+      gridBox.classList.remove("show");
+      form.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+  
+  function calculateCompoundInterest(initial, monthlyDeposit, rate, years) {
     let total = initial;
     let totalDeposits = initial;
     let totalInterest = 0;
     let data = [];
-
+  
     for (let year = 1; year <= years; year++) {
-        let yearlyDeposit = monthlyDeposit * 12;
-        let interest = total * rate;
-        total += yearlyDeposit + interest;
-        totalDeposits += yearlyDeposit;
-        totalInterest += interest;
-
-        data.push({
-            year,
-            deposit: yearlyDeposit,
-            interest,
-            balance: total
-        });
+      let yearlyDeposit = monthlyDeposit * 12;
+      let interest = total * rate;
+      total += yearlyDeposit + interest;
+      totalDeposits += yearlyDeposit;
+      totalInterest += interest;
+  
+      data.push({
+        year,
+        deposit: yearlyDeposit,
+        interest,
+        balance: total
+      });
     }
-
+  
     return {
-        finalTotal: total,
-        totalDeposits,
-        totalInterest,
-        data
+      finalTotal: total,
+      totalDeposits,
+      totalInterest,
+      data
     };
+  }
+  
+  function displayResults(result, initial) {
+    // Números
+    document.getElementById("totalSaved").textContent = `€${result.finalTotal.toFixed(2)}`;
+    document.getElementById("totalDeposited").textContent = `€${result.totalDeposits.toFixed(2)} (Anual)`;
+    document.getElementById("totalInterest").textContent = `€${result.totalInterest.toFixed(2)}`;
+  
+    // Tablas
+    const tbodyLeft = document.getElementById("tableBodyLeft");
+    const tbodyRight = document.getElementById("tableBodyRight");
+    tbodyLeft.innerHTML = "";
+    tbodyRight.innerHTML = "";
+  
+    result.data.forEach((row, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${row.year}</td>
+        <td>€${row.deposit.toFixed(2)}</td>
+        <td>€${row.interest.toFixed(2)}</td>
+        <td>€${row.balance.toFixed(2)}</td>
+      `;
+      if (index < 13) {
+        tbodyLeft.appendChild(tr);
+      } else {
+        tbodyRight.appendChild(tr);
+      }
+    });
+  
+    // Destruir anteriores
+    if (chartPie) chartPie.destroy();
+    if (chartBar) chartBar.destroy();
+    if (chartLine) chartLine.destroy();
+  
+    // Pie chart
+    chartPie = new Chart(document.getElementById("pieChart"), {
+  type: "pie",
+  data: {
+    labels: ["Aportaciones", "Intereses"],
+    datasets: [{
+      data: [result.totalDeposits, result.totalInterest],
+      backgroundColor: ["#0d6efd", "#6f42c1"]
+    }]
+  },
+  options: {
+  responsive: true,
+  maintainAspectRatio: false, // 👈 ¡Esto es clave!
+  plugins: {
+    legend: {
+      display: false
+    }
+  }
 }
 
-function displayResults(result) {
-    // Mostrar resultados numéricos
-    document.getElementById('totalSaved').textContent = `€${result.finalTotal.toFixed(2)}`;
-    document.getElementById('totalDeposited').textContent = `€${result.totalDeposits.toFixed(2)} (Anual)`;
-    document.getElementById('totalInterest').textContent = `€${result.totalInterest.toFixed(2)}`;
-
-    // Limpiar las tablas antes de agregar nuevas filas
-    const tbodyLeft = document.getElementById('tableBodyLeft');
-    const tbodyRight = document.getElementById('tableBodyRight');
-    tbodyLeft.innerHTML = '';
-    tbodyRight.innerHTML = '';
-
-    // Dividir las filas entre las dos tablas
-    result.data.forEach((row, index) => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `
-    <td>${row.year}</td>
-    <td>€${row.deposit.toFixed(2)}</td>
-    <td>€${row.interest.toFixed(2)}</td>
-    <td>€${row.balance.toFixed(2)}</td>
-  `;
-  if (index < 13) {
-    tbodyLeft.appendChild(tr);
-  } else {
-    tbodyRight.appendChild(tr);
-  }
 });
 
+// ✅ Leyenda personalizada centrada
+document.getElementById("leyendaPieChart").innerHTML = `
+  <div style="display:flex; justify-content:center; gap:1.5rem; margin-top:1rem;">
+    <span style="display:flex; align-items:center; gap:0.5rem;">
+      <span style="width:14px; height:14px; background:#0d6efd; border-radius:3px;"></span> Aportaciones
+    </span>
+    <span style="display:flex; align-items:center; gap:0.5rem;">
+      <span style="width:14px; height:14px; background:#6f42c1; border-radius:3px;"></span> Intereses
+    </span>
+  </div>
+`;
 
-    // Mostrar los resultados, gráficos y tablas
-    document.getElementById('results').classList.remove('d-none');
-    document.querySelector('.charts-container').classList.remove('d-none');
-    document.querySelector('.table-dual-column').classList.remove('d-none');
 
-    // Generar gráficos (si es necesario)
-    if (chartLine) chartLine.destroy();
-    if (chartPie) chartPie.destroy();
-
-    chartLine = new Chart(document.getElementById('lineChart'), {
-        type: 'line',
-        data: {
-            labels: result.data.map(d => d.year),
-            datasets: [{
-                label: 'Balance acumulado',
-                data: result.data.map(d => d.balance),
-                borderColor: '#0d6efd',
-                backgroundColor: 'rgba(13, 110, 253, 0.2)',
-                fill: true,
-                tension: 0.3
-            }]
+  
+    // Bar chart apilado
+    chartBar = new Chart(document.getElementById("barChart"), {
+      type: "bar",
+      data: {
+        labels: result.data.map(d => d.year),
+        datasets: [
+          {
+            label: "Balance Inicial",
+            data: result.data.map((_, i) => i === 0 ? initial : 0),
+            backgroundColor: "#b96cc3",
+            stack: "stack1"
+          },
+          {
+            label: "Depósitos",
+            data: result.data.map(d => d.deposit),
+            backgroundColor: "#4f81bd",
+            stack: "stack1"
+          },
+          {
+            label: "Intereses",
+            data: result.data.map(d => d.interest),
+            backgroundColor: "#76c477",
+            stack: "stack1"
+          }
+        ]
+      },
+      options: {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'bottom',
+      labels: {
+        font: {
+          size: 14,
+          weight: 'bold'
         },
-        options: {
-            responsive: true,
-            scales: {
-                y: { beginAtZero: true }
-            }
-        }
-    });
-
-    chartPie = new Chart(document.getElementById('pieChart'), {
-        type: 'pie',
-        data: {
-            labels: ['Aportaciones', 'Intereses'],
-            datasets: [{
-                data: [
-                    result.totalDeposits,
-                    result.totalInterest
-                ],
-                backgroundColor: ['#0d6efd', '#6f42c1']
-              }]
-        },
-        options: {
-            responsive: true
-        }
-    });
+        color: '#333'
+      }
+    }
+  }
 }
 
-        if (chartPie) chartPie.destroy();
-        chartPie = new Chart(document.getElementById('pieChart'), {
-            type: 'pie',
-            data: {
-                labels: ['Aportaciones', 'Intereses'],
-                datasets: [{
-                    data: [
-                        result.totalDeposits,
-                        result.totalInterest
-                    ],
-                    backgroundColor: ['#4CAF50', '#FF9800']
-                }]
-            },
-            options: {
-                responsive: true
-            }
-        });
-
-
-    function exportPDF() {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-
-        doc.setFontSize(16);
-        doc.text("Resultado de la Calculadora de Interés Compuesto", 10, 10);
-
-        const lines = [
-            `Capital Inicial: €${parseFloat(document.getElementById('initialAmount').value).toFixed(2)}`,
-            `Aportación Anual: €${parseFloat(document.getElementById('periodicDeposit').value).toFixed(2)}`,
-            `Tasa Anual: ${parseFloat(document.getElementById('interestRate').value)}%`,
-            `Duración: ${parseInt(document.getElementById('years').value)} años`
-        ];
-
-        lines.forEach((line, index) => {
-            doc.text(line, 10, 20 + index * 10);
-        });
-
-        doc.save("resultado-calculadora.pdf");
-    }
-
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-    }
+    });
+  
+    // Línea de balance acumulado
+    chartLine = new Chart(document.getElementById("lineChart"), {
+      type: "line",
+      data: {
+        labels: result.data.map(d => d.year),
+        datasets: [{
+          label: "Balance Acumulado",
+          data: result.data.map(d => d.balance),
+          borderColor: "#0d6efd",
+          backgroundColor: "rgba(13, 110, 253, 0.15)",
+          fill: true,
+          tension: 0.3,
+          pointRadius: 3,
+          pointHoverRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        animation: {
+          duration: 1000,
+          easing: "easeOutQuart"
+        }
+      }
+    });
+  }
   </script>
+  
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("calculatorForm");
     const results = document.getElementById("results");
-    const chartsContainer = document.querySelector(".charts-container");
-    const tableDualColumn = document.querySelector(".table-dual-column");
+    const grid = document.getElementById("resultadosGrid");
+    const cerrarBtn = document.getElementById("cerrarCalculoBtn");
   
-    // Mostrar resultados al calcular
     form.addEventListener("submit", function (e) {
       e.preventDefault();
   
-      // Aquí va tu lógica de cálculo y displayResults()
+      const initial = parseFloat(document.getElementById('initialAmount').value);
+      const deposit = parseFloat(document.getElementById('periodicDeposit').value);
+      const rate = parseFloat(document.getElementById('interestRate').value) / 100;
+      const years = parseInt(document.getElementById('years').value);
   
-      results.classList.remove("d-none");
-      chartsContainer.classList.remove("d-none");
-      tableDualColumn.classList.remove("d-none");
+      const result = calculateCompoundInterest(initial, deposit, rate, years);
+      displayResults(result, initial);
+      mostrarGraficoBarras(result, initial);
+  
+      // Mostrar bloques
+      results.classList.add("show");
+      grid.classList.add("show");
     });
   
-    // Cerrar cálculo y ocultar resultados
-    const cerrarBtn = document.getElementById("cerrarCalculoBtn");
-    if (cerrarBtn) {
-      cerrarBtn.addEventListener("click", function () {
-        results.classList.add("d-none");
-        chartsContainer.classList.add("d-none");
-        tableDualColumn.classList.add("d-none");
-  
-        document.getElementById("calculatorForm").scrollIntoView({
-          behavior: "smooth"
-        });
-      });
-    }
+    cerrarBtn.addEventListener("click", function () {
+      results.classList.remove("show");
+      grid.classList.remove("show");
+      form.scrollIntoView({ behavior: "smooth" });
+    });
   });
   </script>
   
-  
-  
-
 <script>
   (function () {
     const steps = Array.from(document.querySelectorAll('#test-patrimonio .step'));
@@ -861,17 +856,44 @@ function displayResults(result) {
     });
   
     nextBtn.addEventListener('click', () => {
-      const checked = [...steps[current].querySelectorAll('input')].some(i => i.checked);
-      if (!checked) return alert('Por favor, selecciona una opción.');
-  
-      if (current < total - 1) {
-        showStep(++current);
-      } else {
-        result.style.display = 'block';
-        form.style.display = 'none';
-        result.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+  const checked = [...steps[current].querySelectorAll('input')].some(i => i.checked);
+  if (!checked) return alert('Por favor, selecciona una opción.');
+
+  if (current < total - 1) {
+    showStep(++current);
+  } else {
+    const respuestas = new FormData(form);
+    let siCount = 0;
+    for (let value of respuestas.values()) {
+      if (value === 'sí') siCount++;
+    }
+
+    const resultadoElem = document.getElementById("nivel-proteccion");
+    const mensajeElem = document.getElementById("mensaje-proteccion");
+
+    let nivel = "", mensaje = "";
+
+    if (siCount <= 2) {
+      nivel = "Baja";
+      mensaje = "Tu nivel de protección es limitado. Te recomendamos revisar tus seguros, fondo de emergencia y estructura legal básica.";
+    } else if (siCount <= 4) {
+      nivel = "Media";
+      mensaje = "Vas por buen camino. Aún puedes mejorar en diversificación y anticiparte legalmente a posibles imprevistos.";
+    } else {
+      nivel = "Alta";
+      mensaje = "Enhorabuena. Tu protección patrimonial cubre aspectos esenciales y refleja una buena planificación.";
+    }
+
+    resultadoElem.textContent = nivel;
+    mensajeElem.textContent = mensaje;
+
+    form.style.display = 'none';
+    result.style.display = 'block';
+    document.getElementById('diagnostico-final').classList.remove('d-none');
+    document.getElementById('diagnostico-final').scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
   
     document.addEventListener('DOMContentLoaded', () => showStep(0));
   })();
