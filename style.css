@@ -1052,6 +1052,13 @@ canvas {
   margin-bottom: 2rem;
 }
 
+canvas#pieChart {
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  background: white;
+}
+
+
 /* PIE CHART BOX */
 .grafico-tarta {
   width: 400px;
