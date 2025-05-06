@@ -281,11 +281,12 @@
           <div class="leyenda-pie" id="leyendaPieChart"></div>
         </div>
       
-        <!-- BAR CHART -->
-        <div class="grafico grafico-barras">
-          <canvas id="barChart" width="600" height="400"></canvas>
-        </div>
-      </div>
+
+<!-- NUEVO GRÁFICO DE BARRAS ACUMULADAS -->
+<div class="grafico grafico-barras">
+  <canvas id="barChartAcumulado" width="700" height="400"></canvas>
+</div>
+
       
       <!-- TABLAS: abajo en dos columnas -->
       <div class="tablas-box">
@@ -589,8 +590,7 @@
   // Mostrar el primer paso al cargar la página
   document.addEventListener('DOMContentLoaded', () => showStep(0));
 })();
-
-    </script>
+</script>
 
 <!-- CALCULADORA DE INTERES COMPUESTO -->
 <!-- CDN de Chart.js -->
@@ -633,33 +633,38 @@
   });
   
   function calculateCompoundInterest(initial, monthlyDeposit, rate, years) {
-    let total = initial;
-    let totalDeposits = initial;
-    let totalInterest = 0;
-    let data = [];
-  
-    for (let year = 1; year <= years; year++) {
-      let yearlyDeposit = monthlyDeposit * 12;
-      let interest = total * rate;
-      total += yearlyDeposit + interest;
-      totalDeposits += yearlyDeposit;
-      totalInterest += interest;
-  
-      data.push({
-        year,
-        deposit: yearlyDeposit,
-        interest,
-        balance: total
-      });
-    }
-  
-    return {
-      finalTotal: total,
-      totalDeposits,
-      totalInterest,
-      data
-    };
-  }
+  let total = initial;
+  let totalDeposits = initial;
+  let totalInterest = 0;
+  let depositTotal = 0; // fuera del bucle
+  let data = [];
+
+  for (let year = 1; year <= years; year++) {
+  let yearlyDeposit = monthlyDeposit * 12;
+  let interest = total * rate;
+  total += yearlyDeposit + interest;
+  depositTotal += yearlyDeposit; // acumulamos aportaciones
+  totalDeposits += yearlyDeposit;
+  totalInterest += interest;
+
+  data.push({
+    year,
+    deposit: yearlyDeposit,
+    depositTotal,       // nuevo campo
+    interest,
+    interestTotal: totalInterest,
+    balance: total
+  });
+}
+
+  return {
+    finalTotal: total,
+    totalDeposits,
+    totalInterest,
+    data
+  };
+}
+
   
   function displayResults(result, initial) {
     // Números
@@ -693,27 +698,50 @@
     if (chartBar) chartBar.destroy();
     if (chartLine) chartLine.destroy();
   
-    // Pie chart
     chartPie = new Chart(document.getElementById("pieChart"), {
   type: "pie",
   data: {
-    labels: ["Aportaciones", "Intereses"],
+    labels: ["Capital Inicial", "Aportaciones Mensuales", "Intereses"],
     datasets: [{
-      data: [result.totalDeposits, result.totalInterest],
-      backgroundColor: ["#0d6efd", "#6f42c1"]
+      data: [initial, result.totalDeposits - initial, result.totalInterest],
+      backgroundColor: [
+        "rgba(192, 132, 252, 0.85)",  // lila (capital inicial)
+        "rgba(13, 110, 253, 0.85)",   // azul (aportaciones)
+        "rgba(111, 66, 193, 0.85)"    // púrpura (intereses)
+      ],
+      borderColor: "#ffffff",
+      borderWidth: 2,
+      hoverOffset: 18
     }]
   },
   options: {
-  responsive: true,
-  maintainAspectRatio: false, // 👈 ¡Esto es clave!
-  plugins: {
-    legend: {
-      display: false
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      animateRotate: true,
+      duration: 1000,
+      easing: "easeOutQuart"
+    },
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            const label = context.label || '';
+            const value = context.parsed || 0;
+            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+            const percentage = ((value / total) * 100).toFixed(1);
+            return `${label}: €${value.toLocaleString()} (${percentage}%)`;
+          }
+        }
+      }
     }
   }
-}
-
 });
+
+
 
 // ✅ Leyenda personalizada centrada
 document.getElementById("leyendaPieChart").innerHTML = `
@@ -729,49 +757,88 @@ document.getElementById("leyendaPieChart").innerHTML = `
 
 
   
-    // Bar chart apilado
-    chartBar = new Chart(document.getElementById("barChart"), {
-      type: "bar",
-      data: {
-        labels: result.data.map(d => d.year),
-        datasets: [
-          {
-            label: "Balance Inicial",
-            data: result.data.map((_, i) => i === 0 ? initial : 0),
-            backgroundColor: "#b96cc3",
-            stack: "stack1"
-          },
-          {
-            label: "Depósitos",
-            data: result.data.map(d => d.deposit),
-            backgroundColor: "#4f81bd",
-            stack: "stack1"
-          },
-          {
-            label: "Intereses",
-            data: result.data.map(d => d.interest),
-            backgroundColor: "#76c477",
-            stack: "stack1"
-          }
-        ]
+// 🔢 Calcular el máximo del año para escalar el eje Y
+const maxYAcumulado = Math.ceil(
+  Math.max(...result.data.map(d =>
+    initial + d.depositTotal + d.interestTotal
+  )) * 1.05
+);
+
+// 📊 Gráfico de barras acumuladas por año
+const ctxAcumulado = document.getElementById("barChartAcumulado");
+if (window.chartAcumulado) window.chartAcumulado.destroy(); // Destruir si ya existe
+
+window.chartAcumulado = new Chart(ctxAcumulado, {
+  type: "bar",
+  data: {
+    labels: result.data.map(d => d.year),
+    datasets: [
+      {
+        label: "Capital Inicial",
+        data: result.data.map(() => initial),
+        backgroundColor: "#c084fc", // lila
+        stack: "stack2"
       },
-      options: {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'bottom',
-      labels: {
-        font: {
-          size: 14,
-          weight: 'bold'
+      {
+        label: "Aportaciones Acumuladas",
+        data: result.data.map(d => d.depositTotal),
+        backgroundColor: "#4f81bd", // azul
+        stack: "stack2"
+      },
+      {
+        label: "Intereses Acumulados",
+        data: result.data.map(d => d.interestTotal),
+        backgroundColor: "#76c477", // verde
+        stack: "stack2"
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          font: { size: 14, weight: "bold" },
+          color: "#333"
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: ctx => `€${ctx.raw.toLocaleString()}`
+        }
+      }
+    },
+    scales: {
+      x: {
+        stacked: true,
+        grid: { display: false },
+        ticks: {
+          color: "#555",
+          font: { size: 12 }
         },
-        color: '#333'
+        barPercentage: 0.7,
+        categoryPercentage: 0.6
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+        max: maxYAcumulado,
+        grid: { color: "#e0e0e0" },
+        ticks: {
+          callback: value => `€${value.toLocaleString()}`,
+          color: "#555",
+          font: { size: 12 }
+        }
       }
     }
   }
-}
+});
 
-    });
+
+
+    };
   
     // Línea de balance acumulado
     chartLine = new Chart(document.getElementById("lineChart"), {
@@ -797,7 +864,7 @@ document.getElementById("leyendaPieChart").innerHTML = `
         }
       }
     });
-  }
+  
   </script>
   
 
