@@ -1,4 +1,4 @@
-/* ==============================
+``/* ==============================
    Variables y Reset Globales 
    ============================== */
 
@@ -638,30 +638,165 @@ font-weight: 600;
      Modelos de Inversión
      ============================== */
   
-  .modelos-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-  }
-  
-  .modelo-card {
-    background: var(--light);
-    border-radius: var(--radius);
-    padding: 2rem;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-  }
-  
-  .modelo-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .modelo-card img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1rem;
-  }
+.section-modelos-objetivo {
+  background-color: #f8f9fa;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.section-modelos-objetivo .subtitulo {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+.objetivo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem
+  ;}
+
+.objetivo-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  text-align: left;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  text-align: left;
+  height: 100%; /* importante para igualarlas */
+}
+
+.objetivo-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.objetivo-card p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.objetivo-card:hover {
+  transform: translateY(-6px);
+}
+
+.modelo-extra-desc {
+  margin-top: 3rem;
+  font-size: 1.05rem;
+  color: #444;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  text-align: center;
+  font-style: italic;
+}
+
+.filas-dos-niveles {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.fila {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.fila-1 .objetivo-card,
+.fila-2 .objetivo-card {
+  width: 280px;
+  max-width: 90%;
+  align-items: stretch;
+}
+
+.modelo-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #e9f2ff;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.modelo-btn:hover {
+  background-color: #cde4ff;
+}
+
+.modelo-btn {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+/* Base hover */
+.modelo-btn:hover {
+  transform: scale(1.03);
+}
+
+/* Estilos por modelo */
+.modelo-vivienda {
+  background-color: #e9f2ff;
+  color: #0d6efd;
+}
+.modelo-vivienda:hover {
+  background-color: #d4e8ff;
+}
+
+.modelo-jubilacion {
+  background-color: #f1e9ff;
+  color: #8c52ff;
+}
+.modelo-jubilacion:hover {
+  background-color: #e5d5fc;
+}
+
+.modelo-ingresos {
+  background-color: #e6fbe9;
+  color: #198754;
+}
+.modelo-ingresos:hover {
+  background-color: #d3f6db;
+}
+
+.modelo-crecimiento {
+  background-color: #ffe9f3;
+  color: #d63384;
+}
+.modelo-crecimiento:hover {
+  background-color: #ffd2e4;
+}
+
+.modelo-patrimonial {
+  background-color: #f6f2eb;
+  color: #795548;
+}
+.modelo-patrimonial:hover {
+  background-color: #eee6d9;
+}
   
 /* ==============================
    Test de Perfil Inversor
@@ -915,6 +1050,30 @@ h3 {
   line-height: 1.4;
 }
 
+.contacto-wrapper > *:not(:last-child) {
+  margin-bottom: 1.2rem;
+}
+
+.contacto-wrapper {
+  background: #fcfcfc; /* o #fefefe */
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contacto-wrapper {
+  animation: fadeInSlide 0.6s ease;
+}
+
+
     
     .result-box {
       display: none;
@@ -1008,6 +1167,184 @@ h3 {
   margin-top: 2rem;
 }
 
+  /* ==============================
+     CONTACTO
+     ============================== */
+
+.section-contacto {
+  background-color: #f8f9fa;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.contacto-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+.contact-form {
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.modelo-aviso {
+  background-color: #e9f2ff;
+  border-left: 4px solid var(--primary);
+  color: #333;
+  padding: 1rem;
+  border-radius: 8px;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.confianza-texto {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #666;
+  text-align: center;
+  font-style: italic;
+}
+
+.contacto-wrapper {
+  animation: fadeInUp 0.6s ease;
+}
+
+.frase-final-contacto {
+  margin-top: 2.5rem;
+  font-size: 1.1rem;
+  color: #444;
+  text-align: center;
+  font-style: italic;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+
+.firma-contacto {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-style: italic;
+  color: #555;
+}
+.firma-contacto span {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+
+.contacto-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.subtitulo {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.confianza-texto {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.frase-final-contacto {
+  text-align: center;
+  font-style: italic;
+  margin-top: 2.5rem;
+  font-size: 1.05rem;
+  color: #444;
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contenedor más estrecho */
+.contacto-wrapper {
+  max-width: 500px;
+  padding: 2rem;
+}
+
+/* Inputs más compactos */
+.form-group input,
+.form-group textarea {
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 10px;
+}
+
+/* Botón más estilizado */
+.btn-primary {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 25px;
+}
+
+/* Títulos y frases más compactas */
+.section-contacto h2 {
+  font-size: 1.7rem;
+}
+
+.subtitulo,
+.confianza-texto,
+.frase-final-contacto {
+  font-size: 0.95rem;
+}
+
 
  
   /* ==============================
@@ -1020,7 +1357,7 @@ h3 {
     text-align: center;
     padding: 1.5rem 0;
     margin-top: 3rem;
-  }ç
+  }
 
   .footer-social {
     display: flex;
@@ -1179,20 +1516,190 @@ h3 {
         color: #ffffff;
     }
 
-/* Sección base */
+
+
+  /* ==============================
+     PROTECCION PATRIMONIAL
+
+     ============================== */
+
 .section-proteccion {
   background-color: var(--light);
   padding: 4rem 0;
   scroll-margin-top: 100px;
 }
 
-/* Títulos */
-.section-proteccion h2 {
-  font-size: 2.2rem;
+/* Contenedor del test */
+.test-wrapper {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  max-width: 650px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease;
+}
+
+/* Preguntas */
+.step {
+  display: none;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.step.active {
+  display: block;
+}
+
+.step p {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
   color: var(--primary);
-  font-weight: 700;
+}
+
+.step label {
+  display: block;
+  background: #f5f7fa;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 0.8rem;
+}
+
+.step label:hover {
+  background-color: #e9f2ff;
+}
+
+.step input[type="radio"] {
+  margin-right: 0.6rem;
+}
+
+/* Contador de paso */
+.step-counter {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.buttons button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: #094c9c;
+}
+
+/* Resultado final */
+.test-result {
+  margin-top: 3rem;
+  background: #f0f8ff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
+
+.test-result h3 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.test-result p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Email form */
+.email-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.email-form input[type="email"] {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 0.5rem;
+}
+
+.email-form button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.email-form button:hover {
+  background-color: #094c9c;
+}
+
+/* Animación entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Títulos */
+.section-proteccion h2 {
+  margin-bottom: 1rem;
+}
+
+.section-proteccion .subtitulo {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  color: #555;
+  font-style: italic;
+}
+
+.section-proteccion .cta-plan {
+  margin-top: 2.5rem;
+  margin-bottom: 5rem;
+  font-size: 1.05rem;
+  border-radius: 40px;
+  font-weight: 600;
+}
+
+.proteccion-intro {
+  margin-top: 6rem !important;
+}
+
+
 
 .section-proteccion h3 {
   font-size: 1.5rem;
@@ -1262,13 +1769,36 @@ h3 {
   margin-right: auto;
 }
 
-/* Conceptos clave */
-.proteccion-intro {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+.conceptos-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
+
+.concepto {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+  padding: 2rem;
+  max-width: 320px;
+  flex: 1 1 280px;
+  text-align: center;
+}
+
+.concepto h4 {
+  font-size: 1.15rem;
+  color: var(--primary);
+  margin-bottom: 0.7rem;
+}
+
+.concepto p {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 
 /* Grid Pilares */
 .grid-points {
@@ -1304,29 +1834,34 @@ h3 {
 }
 
 /* Tabla estrategia */
-.table-responsive {
+
+.distribucion-patrimonial {
+  margin-top: 3rem;
   overflow-x: auto;
 }
 
-.table-bordered {
-  border: 1px solid var(--gray);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.table-bordered th,
-.table-bordered td {
-  text-align: center;
-  vertical-align: middle;
-  padding: 1rem;
+.distribucion-patrimonial table {
+  width: 100%;
+  border-collapse: collapse;
   font-size: 0.95rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
 }
 
-.table-bordered thead th {
-  background-color: #e9f5ff;
-  color: var(--primary);
-  font-weight: bold;
+.distribucion-patrimonial th {
+  background-color: #f0f4fa;
+  color: #0d6efd;
+  padding: 1rem;
+  text-align: left;
 }
+
+.distribucion-patrimonial td {
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  color: #333;
+}
+
 
 /* Botones */
 .btn-primary,
