@@ -147,38 +147,63 @@
         </div>
       </div>
     </section>
-    
-      
-    </section>
 
-    <!-- MODELOS DE INVERSIÓN -->
-    <section id="modelos" class="section section-modelos">
-      <div class="container">
-        <h2>Modelos de Inversión</h2>
-        <div class="modelos-cards">
-          <div class="modelo-card">
-            <img src="https://via.placeholder.com/80?text=ETFs" alt="Gestión de ETFs" />
-            <h4>Gestión de ETFs</h4>
-            <p>Diversifica tu cartera con fondos cotizados de bajo coste y expónte a mercados globales.</p>
-          </div>
-          <div class="modelo-card">
-            <img src="https://via.placeholder.com/80?text=Acciones" alt="Inversión en Acciones" />
-            <h4>Inversión en Acciones</h4>
-            <p>Selecciona empresas de calidad para beneficiarte de su crecimiento a largo plazo.</p>
-          </div>
-          <div class="modelo-card">
-            <img src="https://via.placeholder.com/80?text=Real+Estate" alt="Real Estate" />
-            <h4>Real Estate</h4>
-            <p>Accede al sector inmobiliario a través de REITs y plataformas de crowdlending.</p>
-          </div>
-          <div class="modelo-card">
-            <img src="https://via.placeholder.com/80?text=Ahorro" alt="Planes de Ahorro" />
-            <h4>Planes de Ahorro</h4>
-            <p>Construye tu colchón financiero con planes de jubilación y productos de ahorro programado.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- MODELOS DE INVERSIÓN POR OBJETIVO -->
+<section class="section section-modelos-objetivo">
+  <div class="container">
+    <h2>Modelos de Inversión por Objetivo</h2>
+    <p class="subtitulo">Diseño de carteras personalizadas según tus metas financieras</p>
+    <p class="modelo-extra-desc">
+  Todos estos modelos se adaptan a tu situación actual y evolucionan contigo.  
+  Analizamos tus ingresos, objetivos y tolerancia al riesgo para ofrecerte una estrategia realista y sostenible.
+</p>
+
+
+<div class="objetivo-grid filas-dos-niveles">
+
+  <div class="fila fila-1">
+    <div class="objetivo-card">
+      <h3>🏡 Comprar una vivienda</h3>
+      <p>Ahorro planificado + inversión conservadora a 3–5 años. Ideal para alcanzar una entrada sin depender del banco.</p>
+      <a href="#contacto" class="modelo-btn modelo-vivienda" data-modelo="Comprar una vivienda">Quiero este modelo</a>
+    </div>
+
+    <div class="objetivo-card">
+      <h3>💼 Plan de jubilación</h3>
+      <p>Carteras a largo plazo con ETFs globales, baja rotación y efecto compuesto progresivo.</p>
+      <a href="#contacto" class="modelo-btn modelo-jubilacion" data-modelo="Plan de jubilación">Quiero este modelo</a>
+    </div>
+
+    <div class="objetivo-card">
+      <h3>💸 Ingresos mensuales</h3>
+      <p>REITs, dividendos y activos defensivos para generar flujo sin necesidad de vender.</p>
+      <a href="#contacto" class="modelo-btn modelo-ingresos" data-modelo="Ingresos mensuales">Quiero este modelo</a>
+    </div>
+  </div>
+
+  <div class="fila fila-2">
+    <div class="objetivo-card">
+      <h3>🚀 Crecimiento agresivo</h3>
+      <p>Estrategias con alto potencial, volatilidad controlada y sectores emergentes.</p>
+      <a href="#contacto" class="modelo-btn modelo-crecimiento" data-modelo="Crecimiento agresivo">Quiero este modelo</a>
+    </div>
+
+    <div class="objetivo-card">
+      <h3>🧱 Protección patrimonial</h3>
+      <p>Inversión diversificada, refugios de valor y asesoría estructural para tu tranquilidad.</p>
+      <a href="#contacto" class="modelo-btn modelo-patrimonial" data-modelo="Protección patrimonial">Quiero este modelo</a>
+    </div>
+  </div>
+
+</div>
+
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="#contacto" class="btn-primary">Solicita tu asesoría personalizada</a>
+    </div>
+  </div>
+</section>
+
 
     <!-- TEST DE INVERSION -->
     <section id="test-perfil" class="section section-test">
@@ -393,87 +418,94 @@
           Descubre qué tipo de plan de protección patrimonial es más adecuado para ti.
         </p>
     
-        <!-- Botón para mostrar test -->
+        <!-- BOTÓN PARA MOSTRAR TEST -->
         <div class="text-center mb-5">
-          <button id="mostrar-test-btn" class="btn btn-primary btn-lg">
+          <button id="mostrar-test-patrimonial" class="btn btn-primary btn-lg">
             ¡Sí! Quiero descubrir el tipo de plan que mejor me venga
           </button>
         </div>
-    
-        <!-- Test oculto -->
-        <div class="test-wrapper mt-4 mb-5" style="display: none;">
+
+        <!-- TEST OCULTO -->
+        <div class="test-wrapper mt-4 mb-5" style="display: none; flex-direction: column; align-items: center;">
           <div id="step-counter-patrimonio" class="step-counter">1 de 6</div>
+
           <form id="test-patrimonio">
             <div class="centered-content">
-              <!-- Preguntas -->
+              <!-- PREGUNTAS -->
               <div class="step active">
                 <p>1. ¿Tienes un fondo de emergencia para al menos 3 meses?</p>
-                <label><input type="radio" name="q1" value="sí"> Sí</label>
-                <label><input type="radio" name="q1" value="no"> No</label>
+                <label><input type="radio" name="q1" value="1" required> Sí</label>
+                <label><input type="radio" name="q1" value="0"> No</label>
               </div>
               <div class="step">
                 <p>2. ¿Tienes seguro de vida o incapacidad?</p>
-                <label><input type="radio" name="q2" value="sí"> Sí</label>
-                <label><input type="radio" name="q2" value="no"> No</label>
+                <label><input type="radio" name="q2" value="1" required> Sí</label>
+                <label><input type="radio" name="q2" value="0"> No</label>
               </div>
               <div class="step">
                 <p>3. ¿Diversificas tus inversiones?</p>
-                <label><input type="radio" name="q3" value="sí"> Sí</label>
-                <label><input type="radio" name="q3" value="no"> No</label>
+                <label><input type="radio" name="q3" value="1" required> Sí</label>
+                <label><input type="radio" name="q3" value="0"> No</label>
               </div>
               <div class="step">
                 <p>4. ¿Has hecho testamento o planificación hereditaria?</p>
-                <label><input type="radio" name="q4" value="sí"> Sí</label>
-                <label><input type="radio" name="q4" value="no"> No</label>
+                <label><input type="radio" name="q4" value="1" required> Sí</label>
+                <label><input type="radio" name="q4" value="0"> No</label>
               </div>
               <div class="step">
                 <p>5. ¿Conoces tus obligaciones fiscales como inversor?</p>
-                <label><input type="radio" name="q5" value="sí"> Sí</label>
-                <label><input type="radio" name="q5" value="no"> No</label>
+                <label><input type="radio" name="q5" value="1" required> Sí</label>
+                <label><input type="radio" name="q5" value="0"> No</label>
               </div>
               <div class="step">
                 <p>6. ¿Has recibido asesoramiento legal o financiero en el último año?</p>
-                <label><input type="radio" name="q6" value="sí"> Sí</label>
-                <label><input type="radio" name="q6" value="no"> No</label>
+                <label><input type="radio" name="q6" value="1" required> Sí</label>
+                <label><input type="radio" name="q6" value="0"> No</label>
               </div>
             </div>
+
+            <!-- BOTONES -->
             <div class="buttons">
               <button type="button" id="prev-btn-patrimonio" class="btn-primary" disabled>Anterior</button>
               <button type="button" id="next-btn-patrimonio" class="btn-primary">Siguiente</button>
             </div>
           </form>
+
+          <!-- RESULTADO FINAL -->
           <div id="diagnostico-final" class="test-result d-none">
             <h3 class="mt-4">🛡️ Diagnóstico de tu Protección Patrimonial</h3>
             <p class="lead"><strong>Resultado:</strong> <span id="nivel-proteccion" class="highlight"></span></p>
             <p id="mensaje-proteccion" class="mb-4"></p>
-          
+
             <form id="envio-email" class="email-form">
               <label for="emailUsuario">¿Quieres recibir tu diagnóstico por email?</label>
               <input type="email" id="emailUsuario" name="emailUsuario" placeholder="tu@email.com" required>
               <button type="submit" class="btn-primary mt-2">Enviar</button>
             </form>
-          
+
             <p id="confirmacion-envio" style="display:none;" class="mt-3 text-success">✅ Tu diagnóstico ha sido enviado.</p>
-          
+
             <a href="#contacto" class="btn btn-success" style="margin-top: 1rem;">Solicitar revisión personalizada</a>
-          </div>                   
-        </div>
-    
-        <!-- Conceptos Clave -->
-        <div class="proteccion-intro mt-5 mb-5" style="max-width: 850px; margin: 0 auto; text-align: center;">
-          <h3 class="mb-4">🔎 Conceptos Clave</h3>
-          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-            <div style="flex: 1 1 250px; min-width: 250px; max-width: 300px;">
-              <p><strong>Plan de Jubilación:</strong> Un buen plan asegura ingresos estables cuando dejes de trabajar. Usa fondos indexados y planes pensionales. 💼</p>
-            </div>
-            <div style="flex: 1 1 250px; min-width: 250px; max-width: 300px;">
-              <p><strong>Diversificación:</strong> Distribuye tus inversiones entre ETFs, acciones y real estate para minimizar riesgos. 🌍</p>
-            </div>
-            <div style="flex: 1 1 250px; min-width: 250px; max-width: 300px;">
-              <p><strong>Objetivos Financieros:</strong> Define metas claras a corto, medio y largo plazo para tener un rumbo seguro. 📊</p>
-            </div>
           </div>
         </div>
+
+    
+        <!-- Conceptos Clave -->
+        <div class="conceptos-box">
+          <div class="concepto">
+            <h4>📅 Plan de Jubilación</h4>
+            <p>Un buen plan asegura ingresos estables cuando dejes de trabajar. Usa fondos indexados y planes de pensiones.</p>
+          </div>
+          <div class="concepto">
+            <h4>📊 Diversificación</h4>
+            <p>Distribuye tus inversiones entre ETFs, inmuebles y real estate para minimizar riesgos.</p>
+          </div>
+          <div class="concepto">
+            <h4>🎯 Objetivos Financieros</h4>
+            <p>Define metas claras a corto, medio y largo plazo para tener un rumbo seguro.</p>
+          </div>
+        </div>
+
     
         <!-- Pilares del Plan de Protección Patrimonial -->
         <div class="mt-5 text-center">
@@ -509,7 +541,6 @@
         <!-- Ejemplo de Estrategia -->
         <div class="mt-5 text-center">
           <h3 class="mb-3" style="margin-top: 5rem;">📊 Ejemplo de Distribución Patrimonial</h3>
-          <p class="text-muted">Así podrías distribuir tus ahorros:</p>
           <div class="table-responsive mt-3" style="max-width: 900px; margin-left: auto; margin-right: auto;">
             <table class="table table-bordered table-striped">
               <thead>
@@ -558,12 +589,56 @@
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="section section-bg-dark">
-      <div class="container">
-        <h2>Contacto</h2>
-        <p>Formulario y datos de contacto.</p>
+<!-- SECCIÓN DE CONTACTO -->
+<section id="contacto" class="section section-contacto">
+  <div class="container contacto-wrapper">
+
+    <h2>Solicita tu asesoría personalizada</h2>
+
+    <!-- Intro compacta -->
+    <div class="contacto-intro">
+      <p class="subtitulo">Completa este formulario y me pondré en contacto contigo lo antes posible</p>
+      <p class="confianza-texto">🔒 Tus datos están seguros. Te responderé personalmente en menos de 48h.</p>
+    </div>
+
+    <!-- Aviso modelo -->
+    <div id="modelo-aviso" style="display: none;" class="modelo-aviso"></div>
+
+    <!-- Formulario -->
+    <form class="contact-form">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
       </div>
-    </section>
+
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Enviar mensaje</button>
+
+      <!-- Frase inspiradora debajo -->
+      <p class="frase-final-contacto">
+        No hay inversión más rentable que tomar decisiones con claridad.  
+        <br>Estoy aquí para ayudarte.
+      </p>
+
+      <!-- Firma -->
+      <div class="firma-contacto">
+        <p><strong>Carlos</strong><br><span>Asesor financiero</span></p>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+
 
   </main>
 
@@ -1005,90 +1080,6 @@ window.chartAcumulado = new Chart(ctxAcumulado, {
   });
   </script>
   
-<script>
-  (function () {
-    const steps = Array.from(document.querySelectorAll('#test-patrimonio .step'));
-    const prevBtn = document.getElementById('prev-btn-patrimonio');
-    const nextBtn = document.getElementById('next-btn-patrimonio');
-    const form = document.getElementById('test-patrimonio');
-    const result = document.getElementById('diagnostico-final');
-    const counterElem = document.getElementById('step-counter-patrimonio');
-    const total = steps.length;
-    let current = 0;
-  
-    function showStep(i) {
-      steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
-      prevBtn.disabled = i === 0;
-      nextBtn.textContent = i === total - 1 ? 'Terminar' : 'Siguiente';
-      counterElem.textContent = `${i + 1} de ${total}`;
-    }
-  
-    prevBtn.addEventListener('click', () => {
-      if (current > 0) showStep(--current);
-    });
-  
-    nextBtn.addEventListener('click', () => {
-  const checked = [...steps[current].querySelectorAll('input')].some(i => i.checked);
-  if (!checked) return alert('Por favor, selecciona una opción.');
-
-  if (current < total - 1) {
-    showStep(++current);
-  } else {
-    const respuestas = new FormData(form);
-    let siCount = 0;
-    for (let value of respuestas.values()) {
-      if (value === 'sí') siCount++;
-    }
-
-    const resultadoElem = document.getElementById("nivel-proteccion");
-    const mensajeElem = document.getElementById("mensaje-proteccion");
-
-    let nivel = "", mensaje = "";
-
-    if (siCount <= 2) {
-      nivel = "Baja";
-      mensaje = "Tu nivel de protección es limitado. Te recomendamos revisar tus seguros, fondo de emergencia y estructura legal básica.";
-    } else if (siCount <= 4) {
-      nivel = "Media";
-      mensaje = "Vas por buen camino. Aún puedes mejorar en diversificación y anticiparte legalmente a posibles imprevistos.";
-    } else {
-      nivel = "Alta";
-      mensaje = "Enhorabuena. Tu protección patrimonial cubre aspectos esenciales y refleja una buena planificación.";
-    }
-
-    resultadoElem.textContent = nivel;
-    mensajeElem.textContent = mensaje;
-
-    form.style.display = 'none';
-    result.style.display = 'block';
-    document.getElementById('diagnostico-final').classList.remove('d-none');
-    document.getElementById('diagnostico-final').scrollIntoView({ behavior: 'smooth' });
-  }
-});
-
-  
-    document.addEventListener('DOMContentLoaded', () => showStep(0));
-  })();
-  </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const mostrarBtn = document.getElementById("mostrar-test-btn");
-    const testWrapper = document.querySelector("#proteccion .test-wrapper");
-
-    if (mostrarBtn && testWrapper) {
-      mostrarBtn.addEventListener("click", function () {
-        testWrapper.style.display = "flex";
-        mostrarBtn.style.display = "none";
-
-        const yOffset = -150; // ajusta esto para centrarlo mejor
-        const y = testWrapper.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-        window.scrollTo({ top: y, behavior: "smooth" });
-      });
-    }
-  });
-  </script>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -1130,6 +1121,143 @@ window.chartAcumulado = new Chart(ctxAcumulado, {
     });
   </script>
   
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".modelo-btn");
+    const contacto = document.querySelector("#contacto");
+
+    links.forEach(link => {
+      link.addEventListener("click", function () {
+        const modelo = this.getAttribute("data-modelo");
+        localStorage.setItem("modeloSolicitado", modelo);
+      });
+    });
+
+    // Rellenar el campo si se llega al formulario
+    const modeloGuardado = localStorage.getItem("modeloSolicitado");
+    if (modeloGuardado && contacto) {
+      const textarea = contacto.querySelector("textarea, input[name='mensaje']");
+      if (textarea) {
+        textarea.value = `Hola Carlos, me interesa el modelo de inversión: ${modeloGuardado}`;
+      }
+      localStorage.removeItem("modeloSolicitado");
+    }
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const contacto = document.querySelector("#contacto");
+    const aviso = document.getElementById("modelo-aviso");
+    const mensaje = document.getElementById("mensaje");
+
+    const modelo = localStorage.getItem("modeloSolicitado");
+    if (modelo && contacto) {
+      aviso.textContent = `📝 Has solicitado el modelo: ${modelo}`;
+      aviso.style.display = "block";
+
+      if (mensaje) {
+        mensaje.value = `Hola Carlos, me interesa el modelo de inversión: ${modelo}`;
+      }
+
+      localStorage.removeItem("modeloSolicitado");
+    }
+  });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Mostrar el test al hacer clic en el botón
+  const mostrarBtn = document.getElementById("mostrar-test-patrimonial");
+  const testWrapper = document.querySelector("#proteccion .test-wrapper");
+
+  if (mostrarBtn && testWrapper) {
+    mostrarBtn.addEventListener("click", function () {
+      testWrapper.style.display = "flex";
+      mostrarBtn.style.display = "none";
+
+      const yOffset = -100;
+      const y = testWrapper.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    });
+  }
+
+  // Lógica del test
+  const form = document.getElementById("test-patrimonio");
+  const steps = Array.from(form.querySelectorAll(".step"));
+  const nextBtn = document.getElementById("next-btn-patrimonio");
+  const prevBtn = document.getElementById("prev-btn-patrimonio");
+  const counter = document.getElementById("step-counter-patrimonio");
+  const result = document.getElementById("diagnostico-final");
+  const mensaje = document.getElementById("mensaje-proteccion");
+  const nivel = document.getElementById("nivel-proteccion");
+
+  let current = 0;
+
+  function showStep(i) {
+    steps.forEach((step, idx) => {
+      step.classList.toggle("active", idx === i);
+    });
+    prevBtn.disabled = i === 0;
+    nextBtn.textContent = i === steps.length - 1 ? "Ver resultado" : "Siguiente";
+    counter.textContent = `${i + 1} de ${steps.length}`;
+  }
+
+  function calcularResultado() {
+    const formData = new FormData(form);
+    let score = 0;
+    for (const val of formData.values()) {
+      score += parseInt(val, 10);
+    }
+
+    if (score >= 5) {
+      nivel.textContent = "Alta";
+      mensaje.textContent = "✅ ¡Estás bastante bien cubierto! Tu protección patrimonial es sólida. Puedes optimizar algunos puntos.";
+    } else if (score >= 3) {
+      nivel.textContent = "Media";
+      mensaje.textContent = "⚠️ Estás en el camino, pero aún hay áreas clave por reforzar en tu estrategia patrimonial.";
+    } else {
+      nivel.textContent = "Baja";
+      mensaje.textContent = "🚨 Necesitas estructurar urgentemente tu protección patrimonial. Podemos ayudarte paso a paso.";
+    }
+
+    form.style.display = "none";
+    counter.style.display = "none";
+    result.classList.remove("d-none");
+  }
+
+  function goNext() {
+    if (current < steps.length - 1) {
+      current++;
+      showStep(current);
+    } else {
+      calcularResultado();
+    }
+  }
+
+  nextBtn.addEventListener("click", goNext);
+
+  prevBtn.addEventListener("click", () => {
+    if (current > 0) {
+      current--;
+      showStep(current);
+    }
+  });
+
+  // Avance automático al seleccionar una opción
+  form.querySelectorAll("input[type=radio]").forEach(input => {
+    input.addEventListener("change", () => {
+      setTimeout(() => {
+        if (!nextBtn.disabled) nextBtn.click();
+      }, 200);
+    });
+  });
+
+  showStep(0);
+});
+</script>
+
+
 
 
 
