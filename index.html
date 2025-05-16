@@ -206,7 +206,9 @@
 <section id="diagnostico" class="section section-bg-light">
   <div class="container">
     <h2>🧠 Diagnóstico Financiero Inteligente</h2>
-    <p class="subtitulo">Descubre tu perfil inversor y el estado de tu protección patrimonial.</p>
+    <p class="subtitulo" style="text-align: center; max-width: 720px; margin: 0 auto;">
+    Descubre tu perfil inversor y el estado de tu protección patrimonial.
+    </p>
     <div style="text-align:center; margin-top:2rem;">
       <button id="empezar-btn" >✨ Empezar diagnóstico</button>
     </div>
@@ -219,6 +221,10 @@
     <!-- === TEST DE INVERSOR === -->
       <div class="test-column" id="bloque-inversor">
       <h3>🔹 Test de Perfil Inversor</h3>
+        <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="progress-inv"></div>
+       </div>
+
          <form id="test-inversor">
         <div id="inversor-steps"></div>
         <div class="buttons">
@@ -235,6 +241,10 @@
     <!-- === TEST PATRIMONIAL === -->
       <div class="test-column" id="bloque-patrimonio">
       <h3>🔸 Test de Protección Patrimonial</h3>
+      <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progress-pat"></div>
+      </div>
+
       <form id="test-patrimonio">
         <div id="patrimonio-steps"></div>
         <div class="buttons">
@@ -248,11 +258,14 @@
       </div>
     </div>
 
-    <!-- === RESULTADO COMBINADO === -->
-      <div class="test-result destacado" id="bloque-combinado" style="display:none; margin-top:3rem;">
+    <!-- RESULTADO COMBINADO -->
+    <div id="bloque-combinado" class="test-result destacado" style="display: none; margin-top: 3rem;">
       <h3>🧬 Resultado Combinado</h3>
-        <p id="texto-combinado">Completa ambos tests para ver tu resultado.</p>
+      <p id="resultado-combinado">
+        Completa ambos tests para ver tu diagnóstico global.
+      </p>
     </div>
+
   </div>
 </section>
 
@@ -260,8 +273,10 @@
 <!--HERRAMIENTAS-->
     <section id="herramientas" class="section section-bg-light">
   <div class="container">
-    <h2>🔧 Herramientas Financieras</h2>
-    <p class="subtitulo">Recursos prácticos para transformar tu relación con el dinero</p>
+    <h2>🧰 Herramientas Financieras</h2>
+    <p class="subtitulo" style="text-align:center; max-width:720px; margin: 0 auto;">
+      Recursos prácticos para transformar tu relación con el dinero.
+    </p>
 
     <div class="grid-herramientas">
       <!-- Pack Starter -->
@@ -269,7 +284,7 @@
         <h3>📦 Pack Starter</h3>
         <p class="precio">3,99 €</p>
         <p>Temario básico + Mi Excel Financiero versión personal. Ideal para empezar a tomar control real de tus finanzas por menos que un menú del McDonald’s 🍔📈.</p>
-        <a href="#" class="btn-estrecho">Descargar Pack</a>
+        <button class="btn-estrecho" onclick="mostrarPackStarter()">Ver detalles</button>
       </div>
 
       <!-- Mi Excel Financiero -->
@@ -277,7 +292,7 @@
         <h3>📊 Mi Excel Financiero</h3>
         <p class="precio">2,99 €</p>
         <p>Plantilla profesional para controlar tus ingresos, gastos, metas y ahorro. Fácil de usar, con gráficos automáticos.</p>
-        <a href="#" class="btn-estrecho">Ver detalles</a>
+        <button class="btn-estrecho" onclick="mostrarExcelFinanciero()">Ver detalles</button>
       </div>
 
       <!-- Excel Empresarial -->
@@ -285,7 +300,7 @@
         <h3>💼 Excel Empresarial</h3>
         <p class="precio">6,99 €</p>
         <p>Control de facturación, beneficios, IRPF/IVA y gastos. Diseñado para autónomos, freelancers y pequeños negocios.</p>
-        <a href="#" class="btn-estrecho">Ver detalles</a>
+        <button class="btn-estrecho" onclick="mostrarExcelEmpresarial()">Ver detalles</button>
       </div>
 
       <!-- Temario por bloques -->
@@ -293,7 +308,7 @@
         <h3>📘 Temario por Bloques</h3>
         <p class="precio">Desde 0,99 €</p>
         <p>Aprende paso a paso cómo dominar tus finanzas. Desde educación básica hasta estrategias de inversión, protección y optimización fiscal.</p>
-        <a href="#" class="btn-estrecho">Explorar temario</a>
+        <button class="btn-estrecho" onclick="mostrarTemarioPorBloques()">Ver detalles</button>
       </div>
 
       <!-- Tests imprimibles -->
@@ -301,7 +316,7 @@
         <h3>🧠 Tests Imprimibles</h3>
         <p class="precio">Gratis</p>
         <p>Autodiagnósticos para saber si estás listo para invertir, emprender o blindar tu patrimonio.</p>
-        <a href="#" class="btn-estrecho">Descargar ahora</a>
+        <button class="btn-estrecho" onclick="mostrarTestsImprimibles()">Ver detalles</button>
       </div>
     </div>
   </div>
@@ -522,10 +537,12 @@
         </p>
     
         <!-- BOTÓN PARA MOSTRAR TEST -->
-        <div class="text-center mb-5">
-        <button id="mostrar-test-patrimonio" class="btn btn-estrecho">
-          ¡Sí! Quiero descubrir el tipo de plan que mejor me venga
-        </button>
+        <div class="cta-scroll-container">
+          <button class="btn-scroll-diagnostico" onclick="document.getElementById('diagnostico').scrollIntoView({ behavior: 'smooth' })">
+            🌍 Sí, quiero descubrir mi diagnóstico completo
+          </button>
+        </div>
+
         </div>
 
         <!-- TEST OCULTO -->
@@ -870,7 +887,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "#modelos"; // Modelos de inversión
   }
 });
-      result.scrollIntoView({ behavior: "smooth" });
     }
   }
 
@@ -1276,7 +1292,6 @@ window.chartAcumulado = new Chart(ctxAcumulado, {
     if (btnMostrarTest && bloqueTest) {
       btnMostrarTest.addEventListener("click", () => {
         bloqueTest.style.display = "block";
-        bloqueTest.scrollIntoView({ behavior: "smooth" });
       });
     }
   });
@@ -1366,7 +1381,6 @@ window.chartAcumulado = new Chart(ctxAcumulado, {
 
       resultado.classList.remove("d-none");
       form.style.display = "none";
-      resultado.scrollIntoView({ behavior: "smooth" });
     }
 
     nextBtn.addEventListener("click", avanzar);
@@ -1434,66 +1448,100 @@ window.chartAcumulado = new Chart(ctxAcumulado, {
   crearSteps(preguntasPatrimoniales, "patrimonio-steps", "p");
 
   // === Navegación general
-  function setupTest(prefix, total, nextBtnId, prevBtnId, formId, resultId, textoId, descId, tipo) {
-    let current = 0;
-    const next = document.getElementById(nextBtnId);
-    const prev = document.getElementById(prevBtnId);
-    const steps = Array.from(document.querySelectorAll(`#${formId} .step`));
-    const resultBox = document.getElementById(resultId);
-    const texto = document.getElementById(textoId);
-    const desc = document.getElementById(descId);
+    function setupTest(prefix, total, nextBtnId, prevBtnId, formId, resultId, textoId, descId, tipo) {
+      let current = 0;
+      const next = document.getElementById(nextBtnId);
+      const prev = document.getElementById(prevBtnId);
+      const steps = Array.from(document.querySelectorAll(`#${formId} .step`));
+      const resultBox = document.getElementById(resultId);
+      const texto = document.getElementById(textoId);
+      const desc = document.getElementById(descId);
 
-    function showStep(i) {
-      steps.forEach((s, idx) => s.classList.toggle("active", idx === i));
-      prev.disabled = i === 0;
-      next.textContent = i === steps.length - 1 ? "Terminar" : "Siguiente";
-    }
+      function showStep(i) {
+        steps.forEach((s, idx) => s.classList.toggle("active", idx === i));
+        prev.disabled = i === 0;
+        next.textContent = i === steps.length - 1 ? "Terminar" : "Siguiente";
 
-    next.onclick = () => {
-      const radios = steps[current].querySelectorAll("input[type='radio']");
-      if ([...radios].some(r => r.checked)) {
+        // Barra de progreso
+        const progressId = tipo === "inversor" ? "progress-inv" : "progress-pat";
+        const progress = document.getElementById(progressId);
+        if (progress) {
+          const porcentaje = Math.round(((i + 1) / total) * 100);
+          progress.style.width = `${porcentaje}%`;
+        }
+      }
+
+      function evaluar() {
+        const formData = new FormData(document.getElementById(formId));
+        let totalPunt = 0;
+        for (let val of formData.values()) totalPunt += parseInt(val);
+        const media = totalPunt / total;
+
+        if (tipo === "inversor") {
+          let perfil = media <= 2 ? "Conservador" : media <= 3.5 ? "Moderado" : "Agresivo";
+          texto.textContent = perfil;
+          desc.textContent = perfil === "Conservador"
+            ? "Buscas estabilidad y seguridad, incluso si implica menor rentabilidad."
+            : perfil === "Moderado"
+            ? "Buscas equilibrio entre crecimiento y riesgo controlado."
+            : "Estás dispuesto a asumir riesgos altos a cambio de mayor rentabilidad.";
+          localStorage.setItem("perfilInversor", perfil);
+        } else {
+          let nivel = media <= 2 ? "Bajo" : media <= 3.5 ? "Medio" : "Alto";
+          texto.textContent = nivel;
+          desc.textContent = nivel === "Bajo"
+            ? "Tienes carencias importantes en protección financiera."
+            : nivel === "Medio"
+            ? "Vas por buen camino, pero puedes reforzar áreas clave."
+            : "Tu blindaje patrimonial es sólido.";
+          localStorage.setItem("proteccionPatrimonial", nivel);
+        }
+
+        resultBox.style.display = "block";
+
+        // Oculta solo el formulario, no el resultado
+        document.querySelector(`#${formId}`).style.display = "none";
+
+        // Actualizar el diagnóstico combinado
+        actualizarDiagnosticoCombinado();
+        document.getElementById("sticky-cta").style.display = "none";
+
+
+        // Ocultar el test cuando finaliza
+        if (tipo === "inversor") {
+          document.getElementById("bloque-inversor").style.display = "none";
+        } else {
+          document.getElementById("bloque-patrimonio").style.display = "none";
+        }
+      }
+
+      next.onclick = avanzar;
+      prev.onclick = () => {
+        if (current > 0) current--;
+        showStep(current);
+      };
+
+      function avanzar() {
         if (current < total - 1) {
           current++;
           showStep(current);
         } else {
-          const formData = new FormData(document.getElementById(formId));
-          let totalPunt = 0;
-          for (let val of formData.values()) totalPunt += parseInt(val);
-          const media = totalPunt / total;
-
-          if (tipo === "inversor") {
-            let perfil = media <= 2 ? "Conservador" : media <= 3.5 ? "Moderado" : "Agresivo";
-            texto.textContent = perfil;
-            desc.textContent = perfil === "Conservador"
-              ? "Buscas estabilidad y seguridad, incluso si implica menor rentabilidad."
-              : perfil === "Moderado"
-              ? "Buscas equilibrio entre crecimiento y riesgo controlado."
-              : "Estás dispuesto a asumir riesgos altos a cambio de mayor rentabilidad.";
-            localStorage.setItem("perfilInversor", perfil);
-          } else {
-            let nivel = media <= 2 ? "Bajo" : media <= 3.5 ? "Medio" : "Alto";
-            texto.textContent = nivel;
-            desc.textContent = nivel === "Bajo"
-              ? "Tienes carencias importantes en protección financiera."
-              : nivel === "Medio"
-              ? "Vas por buen camino, pero puedes reforzar áreas clave."
-              : "Tu blindaje patrimonial es sólido.";
-            localStorage.setItem("proteccionPatrimonial", nivel);
-          }
-
-          resultBox.style.display = "block";
-          actualizarDiagnosticoCombinado();
+          evaluar();
         }
       }
-    };
 
-    prev.onclick = () => {
-      if (current > 0) current--;
-      showStep(current);
-    };
+  // AVANCE AUTOMÁTICO al seleccionar
+  steps.forEach((step, index) => {
+    step.querySelectorAll("input[type='radio']").forEach(radio => {
+      radio.addEventListener("change", () => {
+        setTimeout(() => avanzar(), 400); // 400ms para que no se vea brusco
+      });
+    });
+  });
 
-    showStep(current);
-  }
+  showStep(current);
+}
+
 
   setupTest("q", preguntasInversor.length, "next-inv", "prev-inv", "test-inversor", "resultado-inversor", "perfil-texto", "perfil-desc", "inversor");
   setupTest("p", preguntasPatrimoniales.length, "next-pat", "prev-pat", "test-patrimonio", "resultado-patrimonio", "proteccion-texto", "proteccion-desc", "patrimonial");
@@ -1505,15 +1553,102 @@ window.chartAcumulado = new Chart(ctxAcumulado, {
     const out = document.getElementById("resultado-combinado");
 
     if (perfil && proteccion) {
-      let mensaje = `Eres un inversor <strong>${perfil.toLowerCase()}</strong> con una protección patrimonial <strong>${proteccion.toLowerCase()}</strong>.<br><br>`;
-      if (perfil === "Agresivo" && proteccion === "Bajo") {
-        mensaje += "⚠️ Antes de asumir riesgos altos, refuerza tu base financiera.";
-      } else if (perfil === "Moderado" && proteccion === "Alto") {
-        mensaje += "🚀 Estás en posición ideal para crecer con control.";
-      } else {
-        mensaje += "💡 Puedes equilibrar tu perfil reforzando lo que te falta.";
-      }
-      out.innerHTML = mensaje;
+let mensaje = `
+<p>
+  Eres un inversor <strong>${perfil.toLowerCase()}</strong> con una protección patrimonial <strong>${proteccion.toLowerCase()}</strong>.
+</p>
+`;
+
+// Diagnóstico específico por combinación
+if (perfil === "Conservador" && proteccion === "Bajo") {
+  mensaje += `
+    <p>🔎 <strong>Interpretación:</strong> Estás en una situación vulnerable y conservadora. Es clave empezar por construir una base sólida.</p>
+    <ul>
+      <li>💰 Establece un fondo de emergencia de al menos 3–6 meses.</li>
+      <li>🛡️ Contrata un seguro de vida o salud si no lo tienes.</li>
+      <li>📚 Aprende conceptos básicos de inversión segura (bonos, depósitos...)</li>
+      <li>📥 Descarga el <a href="#excel">Excel Financiero Personal</a> para controlar tu día a día.</li>
+    </ul>
+  `;
+} else if (perfil === "Conservador" && proteccion === "Medio") {
+  mensaje += `
+    <p>🔎 <strong>Interpretación:</strong> Tienes cierta protección, pero tu perfil inversor es aún muy prudente.</p>
+    <ul>
+      <li>📈 Explora productos de bajo riesgo (fondos indexados defensivos, renta fija).</li>
+      <li>🧩 Evalúa si tu protección legal (testamento, seguros) es suficiente.</li>
+      <li>🧠 Revisa nuestro <a href="#herramientas">bloque básico del temario</a>.</li>
+    </ul>
+  `;
+} else if (perfil === "Conservador" && proteccion === "Alto") {
+  mensaje += `
+    <p>🔎 <strong>Interpretación:</strong> Excelente protección, pero tu dinero podría estar sin aprovechar.</p>
+    <ul>
+      <li>🚀 Aprende a invertir poco a poco sin miedo.</li>
+      <li>💼 Considera trabajar con un planificador para optimizar tus ahorros.</li>
+      <li>📘 Empieza por el temario intermedio y el Excel Personal Pro.</li>
+    </ul>
+  `;
+} else if (perfil === "Moderado" && proteccion === "Bajo") {
+  mensaje += `
+    <p>🔎 <strong>Interpretación:</strong> Estás dispuesto a asumir algo de riesgo, pero tu protección no te respalda.</p>
+    <ul>
+      <li>📉 Cuidado con asumir riesgos sin base. Refuerza tu colchón financiero.</li>
+      <li>🧠 Evalúa tus seguros actuales y tu estructura familiar.</li>
+      <li>📥 Descarga el <a href="#excel">Excel Financiero</a> y revisa gastos fijos.</li>
+    </ul>
+  `;
+} else if (perfil === "Moderado" && proteccion === "Medio") {
+  mensaje += `
+    <p>🔎 <strong>Interpretación:</strong> Estás en equilibrio, pero aún puedes reforzar tu estructura financiera.</p>
+    <ul>
+      <li>📊 Define metas de inversión a 3–5 años.</li>
+      <li>🧾 Evalúa tu fondo de emergencia: ¿cubre al menos 6 meses?</li>
+      <li>📘 Revisa nuestro <a href="#herramientas">temario intermedio</a>.</li>
+    </ul>
+  `;
+} else if (perfil === "Moderado" && proteccion === "Alto") {
+  mensaje += `
+    <p>🔎 <strong>Interpretación:</strong> Estás en posición ideal para crecer con seguridad.</p>
+    <ul>
+      <li>📈 Empieza a diversificar: ETFs, fondos temáticos, dividendos.</li>
+      <li>🏛️ Analiza ventajas fiscales de planes de pensiones o PIAS.</li>
+      <li>📘 Descarga nuestro Excel Empresarial si gestionas un negocio.</li>
+    </ul>
+  `;
+} else if (perfil === "Agresivo" && proteccion === "Bajo") {
+  mensaje += `
+    <p>⚠️ <strong>Interpretación:</strong> Mucho riesgo con poca protección. Es una combinación peligrosa.</p>
+    <ul>
+      <li>🛑 Refuerza tu seguridad antes de invertir agresivamente.</li>
+      <li>💡 No pongas en juego el futuro de tu familia.</li>
+      <li>📘 Haz primero el bloque de protección patrimonial.</li>
+    </ul>
+  `;
+} else if (perfil === "Agresivo" && proteccion === "Medio") {
+  mensaje += `
+    <p>🔎 <strong>Interpretación:</strong> Estás en un punto de impulso, pero asegúrate de cubrir riesgos personales.</p>
+    <ul>
+      <li>🧠 Mantén tu apetito inversor, pero con control.</li>
+      <li>📊 Estudia carteras balanceadas para agresivos.</li>
+      <li>📘 Apóyate en el Excel de control + temario avanzado.</li>
+    </ul>
+  `;
+} else if (perfil === "Agresivo" && proteccion === "Alto") {
+  mensaje += `
+    <p>🚀 <strong>Interpretación:</strong> Tienes la protección y el empuje: estás listo para escalar.</p>
+    <ul>
+      <li>💼 Evalúa montar una cartera a largo plazo diversificada.</li>
+      <li>🧬 Estudia fiscalidad avanzada para optimizar beneficios.</li>
+      <li>📘 Consigue el Excel Empresarial + mentoría personalizada.</li>
+    </ul>
+  `;
+}
+
+// Mostrar resultado
+out.innerHTML = mensaje;
+document.getElementById("bloque-combinado").style.display = "block";
+    } else {
+      out.innerHTML = "<p>Por favor, completa ambos tests para ver el diagnóstico combinado.</p>";
     }
   
   }
@@ -1525,6 +1660,116 @@ document.getElementById("empezar-btn").addEventListener("click", () => {
 
 </script>
 
+<!--SCRIPTS PARA ABRIR Y CERRAR MODAL-->
+
+<!-- BLOQUE MODAL GLOBAL PARA PRODUCTOS FINANCIEROS -->
+<div id="modal-detalle" class="modal-overlay" style="display: none;">
+  <div class="modal-content">
+    <button class="cerrar-modal" onclick="cerrarModal()">✖</button>
+    <div id="modal-texto">
+      <!-- Aquí se insertará el contenido dinámico del producto al hacer clic -->
+    </div>
+  </div>
+</div>
+
+<script>
+  // Cierre del modal al hacer clic fuera del contenido
+  window.onclick = function(event) {
+    const modals = document.querySelectorAll(".modal-overlay");
+    modals.forEach(modal => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  };
+
+  function abrirModal(contenidoHTML) {
+    const modal = document.getElementById("modal-detalle");
+    const texto = document.getElementById("modal-texto");
+    texto.innerHTML = contenidoHTML;
+    modal.style.display = "flex";
+  }
+
+  function cerrarModal() {
+    document.getElementById("modal-detalle").style.display = "none";
+    const sticky = document.getElementById("sticky-cta");
+    if (sticky) sticky.style.display = "block";
+  }
+
+  function mostrarPackStarter() {
+    abrirModal(`
+      <h3>📦 Pack Starter</h3>
+      <p>Incluye el <strong>Temario Básico</strong> + <strong>Excel Financiero versión personal</strong>.</p>
+      <ul>
+        <li>📘 Educación financiera desde cero</li>
+        <li>📊 Excel para ingresos, gastos y metas</li>
+        <li>✅ Ideal para empezar sin complicaciones</li>
+      </ul>
+      <button class='btn-estrecho' onclick='window.location.href="#pack-starter"'>Comprar (3,99 €)</button>
+    `);
+  }
+
+  function mostrarExcelFinanciero() {
+    abrirModal(`
+      <h3>📊 Mi Excel Financiero</h3>
+      <p>Plantilla profesional para controlar tus ingresos, gastos, metas y ahorro. Fácil de usar, con gráficos automáticos.</p>
+      <ul>
+        <li>📈 Gráficos automáticos</li>
+        <li>📅 Control mensual y anual</li>
+        <li>🧠 Versión editable y visual</li>
+      </ul>
+      <button class='btn-estrecho' onclick='window.location.href="#excel-financiero"'>Comprar (2,99 €)</button>
+    `);
+  }
+
+  function mostrarExcelEmpresarial() {
+    abrirModal(`
+      <h3>💼 Excel Empresarial</h3>
+      <p>Control de facturación, beneficios, IRPF/IVA y gastos para autónomos y negocios.</p>
+      <ul>
+        <li>📑 Facturación e impuestos</li>
+        <li>📊 Análisis mensual</li>
+        <li>🧾 Declaración trimestral</li>
+      </ul>
+      <button class='btn-estrecho' onclick='window.location.href="#excel-empresarial"'>Comprar (6,99 €)</button>
+    `);
+  }
+
+  function mostrarTemarioPorBloques() {
+    abrirModal(`
+      <h3>📘 Temario por Bloques</h3>
+      <p>Contenido educativo progresivo: básico, intermedio y avanzado.</p>
+      <ul>
+        <li>📖 Aprende a tu ritmo</li>
+        <li>🧠 Educación + inversión + fiscalidad</li>
+        <li>📥 Descargable y práctico</li>
+      </ul>
+      <button class='btn-estrecho' onclick='window.location.href="#temario-bloques"'>Ver desde 0,99 €</button>
+    `);
+  }
+
+  function mostrarTestsImprimibles() {
+    abrirModal(`
+      <h3>🧠 Tests Imprimibles</h3>
+      <p>Autodiagnósticos para saber si estás listo para invertir, emprender o blindar tu patrimonio.</p>
+      <ul>
+        <li>🔍 Test de perfil inversor</li>
+        <li>🛡️ Diagnóstico patrimonial</li>
+        <li>🖨️ Formato imprimible y gratuito</li>
+      </ul>
+      <button class='btn-estrecho' onclick='window.location.href="#tests-imprimibles"'>Descargar (Gratis)</button>
+    `);
+  }
+</script>
+
+
+
+<!--CTAS-->
+<div class="cta-scroll-container">
+  <button class="btn-scroll-diagnostico" onclick="document.getElementById('diagnostico').scrollIntoView({ behavior: 'smooth' })">
+    🌍 Sí, quiero descubrir mi diagnóstico completo
+  </button>
+</div>
 
 
 </body>
