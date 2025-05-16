@@ -1124,6 +1124,22 @@ label:hover {
   box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
 }
 
+.progress-bar-outer {
+  background: #e5e7eb;
+  border-radius: 30px;
+  overflow: hidden;
+  height: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar-inner {
+  background: linear-gradient(90deg, #4f46e5, #3b82f6);
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease-in-out;
+  border-radius: 30px;
+}
+
 
 /* ==============================
     HERRAMIENTAS 
@@ -1168,6 +1184,75 @@ label:hover {
   border-top: 6px solid #0d6efd;
 }
 
+
+.grid-herramientas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.herramienta-card {
+  background: #ffffff;
+  padding: 1.8rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  position: relative;
+}
+
+.herramienta-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+.herramienta-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #1d4ed8;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.herramienta-card .precio {
+  color: #10b981;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.herramienta-card p {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.herramienta-card .btn-estrecho {
+  margin-top: 1.2rem;
+  align-self: start;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  color: white;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.herramienta-card .btn-estrecho:hover {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+
+.destacado {
+  border-top: 6px solid #3b82f6;
+}
 
 /* ==============================
     Calculadora de Interés Compuesto 
@@ -1329,8 +1414,6 @@ h3 {
   animation: fadeInSlide 0.6s ease;
 }
 
-
-    
     .result-box {
       display: none;
       margin-bottom: 2rem;
@@ -2231,6 +2314,33 @@ h3 {
   margin-bottom: 1.5rem;
 }
 
+.cta-scroll-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 1.5rem;
+}
+
+.btn-scroll-diagnostico {
+  background: linear-gradient(90deg, #4f46e5, #3b82f6);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  letter-spacing: 0.4px;
+}
+
+.btn-scroll-diagnostico:hover {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.25);
+}
+
+
 /* === CONTENEDOR GENERAL DE RESULTADOS === */
 .resultados-grid {
   display: none;
@@ -2408,4 +2518,101 @@ canvas#pieChart {
   border-left: 4px solid var(--primary);
   border-radius: 6px;
   margin-bottom: 1.5rem;
+}
+
+
+/* ==============================
+    ZONAS OCULTAS
+    ============================== */ 
+
+#test-perfil {
+  display: none !important;
+}
+
+
+/* ==============================
+    CTAS
+    ============================== */ 
+
+/* Sticky CTA (solo visible en móvil) */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 0.7rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  display: none; /* oculto por defecto */
+  z-index: 1000;
+}
+
+.sticky-cta button {
+  background: linear-gradient(90deg, #4f46e5, #3b82f6);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 50px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.sticky-cta button:hover {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .sticky-cta {
+    display: block;
+  }
+}
+
+
+ /* ==============================
+   MODAL
+   ============================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 24, 39, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  max-width: 480px;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
