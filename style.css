@@ -92,6 +92,8 @@ h2, h3 {
     margin: auto;
     padding: 0 1rem;
   }
+
+
 /* ==============================  
           NUEVO HEADER
  ============================== */
@@ -2615,4 +2617,270 @@ canvas#pieChart {
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
+}
+
+
+/* ==============================
+   whatsapp CTA
+   ============================== */
+
+   .whatsapp-cta {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #25d366;
+  color: white;
+  font-size: 1.7rem;
+  padding: 0.7rem 1rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 999;
+  display: none;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-cta:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .whatsapp-cta {
+    display: block;
+  }
+}
+
+/* ==============================
+   HEADER DEL SITIO DE SIMULADOR
+   ============================== */
+
+
+/* ==============================
+   CSS DEL TEST INVERSOR
+   ============================== */
+
+    .test-form {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .test-form h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .pregunta {
+      margin-bottom: 1.5rem;
+    }
+
+    .pregunta label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .respuestas {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .respuestas label {
+      font-weight: normal;
+    }
+
+    #resultado-test {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .btn-calcular {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn-calcular:hover {
+      background-color: #0b5ed7;
+    }
+
+.test-wizard {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.pregunta-actual {
+  margin-bottom: 2rem;
+}
+
+.opciones-wizard {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.opciones-wizard button {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.opciones-wizard button:hover {
+  background-color: #0b5ed7;
+}
+
+#resultado-test {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.pregunta-texto {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.botones-nav {
+  margin-top: 2rem;
+}
+
+.btn-secundario {
+  background: transparent;
+  border: 2px solid #ccc;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.btn-secundario:hover {
+  border-color: #0d6efd;
+  color: #0d6efd;
+}
+
+#resultado-test h3 {
+  font-size: 1.5rem;
+  color: #0d6efd;
+  margin-bottom: 0.5rem;
+}
+
+#resultado-test p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#resultado-test {
+  margin-top: 3rem;
+  background: #f9f9ff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+#resultado-test h3 {
+  font-size: 1.6rem;
+  color: #0d6efd;
+  margin-bottom: 0.7rem;
+}
+
+#resultado-test p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  max-width: 650px;
+  margin: 0 auto 1.5rem auto;
+}
+
+#resultado-test .btn-cta {
+  margin-top: 1.5rem;
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(90deg, #0d6efd, #0a58ca);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+  transition: all 0.3s ease;
+}
+
+#resultado-test .btn-cta:hover {
+  background: linear-gradient(90deg, #0a58ca, #084298);
+  box-shadow: 0 6px 18px rgba(13, 110, 253, 0.3);
+  transform: scale(1.03);
+}
+
+#resultado-test {
+  text-align: center;
+}
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botón “Atrás” mejorado */
+.btn-secundario {
+  background: #fff;
+  border: 2px solid #dee2e6;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.25s ease;
+}
+
+.btn-secundario:hover {
+  border-color: #0d6efd;
+  background: #e7f1ff;
+  color: #0d6efd;
+}
+
+.escala-info {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.escala-info .escala {
+  font-weight: bold;
+  color: #0d6efd;
 }
