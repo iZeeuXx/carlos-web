@@ -2,10 +2,19 @@
 <html lang="es">
 <head>
 
+  <!-- ✅ SEO BÁSICO SIN RRSS -->
+<meta name="description" content="Asesoría financiera personalizada en ETFs, acciones y real estate. Aprende a invertir sin tecnicismos y con acompañamiento real.">
+<link rel="canonical" href="https://carlosinc.netlify.app/" />
+<meta name="robots" content="index, follow">
+<title>Carlos • Asesoría Financiera Personalizada</title>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Carlos • Asesoría Financiera</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS Animations -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <!-- Librerías externas -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -13,36 +22,41 @@
 </head>
 <body>
 
-  <!-- HEADER Y MENÚ DE NAVEGACIÓN -->
-  <header role="banner" class="header-elevado">
-    <div class="container header-content">
-      <div class="logo-area">
+<!-- ✅ HEADER MEJORADO Y FUNCIONAL -->
+<header role="banner" class="header-elevado">
+  <div class="container header-content">
+    <div class="logo-area">
+      <a href="#inicio" class="logo-link" aria-label="Inicio">
         <h1 class="logo">Carlos<span> • Asesoría Financiera</span></h1>
-      </div>
-      <button class="nav-toggle" aria-label="Abrir menú móvil">☰</button>
-      <nav role="navigation" aria-label="Menú principal">
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#quien-soy">Quién Soy</a></li>
-          <li><a href="#casos-exito">Casos de Éxito</a></li>
-          <li><a href="#asesorias">Asesorías</a></li>
-          <li><a href="#modelos">Modelos</a></li>
-          <li><a href="#test-perfil">Test Perfil</a></li>
-          <li><a href="#simulador">Simulador</a></li>
-          <li><a href="#proteccion">Protección</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+      </a>
     </div>
-  </header>
+
+    <button class="nav-toggle" aria-label="Abrir menú móvil" aria-expanded="false">☰</button>
+
+    <nav role="navigation" aria-label="Menú principal">
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#quien-soy">Quién Soy</a></li>
+        <li><a href="#casos-exito">Casos de Éxito</a></li>
+        <li><a href="#modelos">Modelos</a></li>
+        <li><a href="#asesorias">Asesorías</a></li>
+        <li><a href="#herramientas">Herramientas</a></li>
+        <li><a href="#simulador">Simulador</a></li>
+        <li><a href="#test combinados">Tests</a></li>
+        <li><a href="#proteccion">Protección</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
   
 
   <!-- CONTENIDO PRINCIPAL -->
   <main>
 
     <!-- HERO SECTION -->
-    <section id="inicio" class="hero">
+<section id="inicio" class="hero" data-aos="fade-up">
       <div class="container hero-content">
         <h2>Bienvenido a tu libertad financiera</h2>
         <p>Asesoría personalizada en ETFs, acciones y real estate para que tomes el control de tu dinero.</p>
@@ -51,7 +65,7 @@
     </section>
 
     <!-- QUIÉN SOY -->
-    <section id="quien-soy" class="section section-personal section-bg-light">
+      <section id="quien-soy" class="section section-personal section-bg-light" data-aos="fade-up">
       <div class="quien-soy-box">
         <h2>Quién soy</h2>
         <p>
@@ -75,9 +89,8 @@
 </div>    
     </section>    
     
-
     <!-- CASOS DE ÉXITO -->
-    <section id="casos-exito" class="section section-casos-exito">
+<section id="casos-exito" class="section section-casos-exito" data-aos="fade-up">
       <div class="container">
         <h2>Casos de Éxito</h2>
         <div class="casos-grid">
@@ -100,55 +113,8 @@
       </div>
     </section>
 
-    <!-- ASESORÍAS -->
-    <section id="asesorias" class="section section-asesorias section-bg-dark zoom-pequeno">
-        <h2>Elige tu plan de asesoría</h2>
-        <div class="planes-grid">
-    
-          <!-- Plan Accesible -->
-          <div class="plan-card accesible">
-            <h3>🟦 Accesible</h3>
-            <p class="precio">9 €/mes</p>
-            <p class="descripcion-accesible">
-              Servicio dedicado a quienes ingresan menos de 1500 €/mes o no tienen formación financiera.  
-              Accede a asesoramiento real por una cuota asequible.
-            </p>
-            <ul>
-              <li>✔️ Asesoría básica mensual</li>
-              <li>✔️ Revisión de cartera cada 45 días</li>
-              <li>✔️ Acceso a grupo privado básico</li>
-              <li>✔️ Suscripción a newsletter</li>
-            </ul>
-            <a href="#contacto" class="btn-primary">Quiero este plan</a>
-          </div>
-
-          <!-- Plan Premium -->
-          <div class="plan-card premium">
-            <h3>🔶 Premium</h3>
-            <p class="precio">29 €/mes</p>
-            <p class="descripcion-premium">
-              Pensado para quienes quieren dar un salto real en su educación financiera.  
-              Ideal si ya inviertes o quieres empezar con una estrategia clara,  
-              seguimiento personalizado y contenido exclusivo cada semana.
-            </p>
-            <ul>
-              <li>✨ Todo lo del plan Accesible</li>
-              <li>📊 Revisión mensual de cartera</li>
-              <li>📞 Llamada 1:1 mensual (30 min)</li>
-              <li>📰 Blog privado con análisis semanal</li>
-              <li>⚡ Soporte prioritario</li>
-              <li>📬 Newsletter extendida</li>
-            </ul>
-            <a href="#contacto" class="btn-primary">Quiero el Premium</a>
-          </div>
-
-    
-        </div>
-      </div>
-    </section>
-
-<!-- MODELOS DE INVERSIÓN POR OBJETIVO -->
-    <section id="modelos" class="section section-modelos-objetivo zoom-pequeno">
+    <!-- MODELOS DE INVERSIÓN POR OBJETIVO -->
+<section id="modelos" class="section section-modelos-objetivo zoom-pequeno" data-aos="fade-up">
       <div class="container">
         <h2>Modelos de Inversión por Objetivo</h2>
         <p class="subtitulo">Diseño de carteras personalizadas según tus metas financieras</p>
@@ -202,8 +168,192 @@
       </div>
     </section>
 
+    <!-- ASESORÍAS -->
+<section id="asesorias" class="section section-asesorias section-bg-dark zoom-pequeno" data-aos="fade-up">
+        <h2>Elige tu plan de asesoría</h2>
+        <div class="planes-grid">
+    
+          <!-- Plan Accesible -->
+          <div class="plan-card accesible">
+            <h3>🟦 Accesible</h3>
+            <p class="precio">9 €/mes</p>
+            <p class="descripcion-accesible">
+              Servicio dedicado a quienes ingresan menos de 1500 €/mes o no tienen formación financiera.  
+              Accede a asesoramiento real por una cuota asequible.
+            </p>
+            <ul>
+              <li>✔️ Asesoría básica mensual</li>
+              <li>✔️ Revisión de cartera cada 45 días</li>
+              <li>✔️ Acceso a grupo privado básico</li>
+              <li>✔️ Suscripción a newsletter</li>
+            </ul>
+            <a href="#contacto" class="btn-primary">Quiero este plan</a>
+          </div>
+
+          <!-- Plan Premium -->
+          <div class="plan-card premium">
+            <h3>🔶 Premium</h3>
+            <p class="precio">29 €/mes</p>
+            <p class="descripcion-premium">
+              Pensado para quienes quieren dar un salto real en su educación financiera.  
+              Ideal si ya inviertes o quieres empezar con una estrategia clara,  
+              seguimiento personalizado y contenido exclusivo cada semana.
+            </p>
+            <ul>
+              <li>✨ Todo lo del plan Accesible</li>
+              <li>📊 Revisión mensual de cartera</li>
+              <li>📞 Llamada 1:1 mensual (30 min)</li>
+              <li>📰 Blog privado con análisis semanal</li>
+              <li>⚡ Soporte prioritario</li>
+              <li>📬 Newsletter extendida</li>
+            </ul>
+            <a href="#contacto" class="btn-primary">Quiero el Premium</a>
+          </div>
+
+    
+        </div>
+      </div>
+    </section>
+
+    <!--HERRAMIENTAS-->
+<section id="herramientas" class="section section-bg-light" data-aos="fade-up">
+  <div class="container">
+    <h2>🧰 Herramientas Financieras</h2>
+    <p class="subtitulo" style="text-align:center; max-width:720px; margin: 0 auto;">
+      Recursos prácticos para transformar tu relación con el dinero.
+    </p>
+
+    <div class="grid-herramientas">
+      <!-- Pack Starter -->
+      <div class="herramienta-card destacado">
+        <h3>📦 Pack Starter</h3>
+        <p class="precio">3,99 €</p>
+        <p>Temario básico + Mi Excel Financiero versión personal. Ideal para empezar a tomar control real de tus finanzas por menos que un menú del McDonald’s 🍔📈.</p>
+        <button class="btn-estrecho" onclick="mostrarPackStarter()">Ver detalles</button>
+      </div>
+
+      <!-- Mi Excel Financiero -->
+      <div class="herramienta-card">
+        <h3>📊 Mi Excel Financiero</h3>
+        <p class="precio">2,99 €</p>
+        <p>Plantilla profesional para controlar tus ingresos, gastos, metas y ahorro. Fácil de usar, con gráficos automáticos.</p>
+        <button class="btn-estrecho" onclick="mostrarExcelFinanciero()">Ver detalles</button>
+      </div>
+
+      <!-- Excel Empresarial -->
+      <div class="herramienta-card">
+        <h3>💼 Excel Empresarial</h3>
+        <p class="precio">6,99 €</p>
+        <p>Control de facturación, beneficios, IRPF/IVA y gastos. Diseñado para autónomos, freelancers y pequeños negocios.</p>
+        <button class="btn-estrecho" onclick="mostrarExcelEmpresarial()">Ver detalles</button>
+      </div>
+
+      <!-- Temario por bloques -->
+      <div class="herramienta-card">
+        <h3>📘 Temario por Bloques</h3>
+        <p class="precio">Desde 0,99 €</p>
+        <p>Aprende paso a paso cómo dominar tus finanzas. Desde educación básica hasta estrategias de inversión, protección y optimización fiscal.</p>
+        <button class="btn-estrecho" onclick="mostrarTemarioPorBloques()">Ver detalles</button>
+      </div>
+
+      <!-- Tests imprimibles -->
+      <div class="herramienta-card">
+        <h3>🧠 Tests Imprimibles</h3>
+        <p class="precio">Gratis</p>
+        <p>Autodiagnósticos para saber si estás listo para invertir, emprender o blindar tu patrimonio.</p>
+        <button class="btn-estrecho" onclick="mostrarTestsImprimibles()">Ver detalles</button>
+      </div>
+    </div>
+  </div>
+    </section>
+
+    <!-- CALCADORA DE INTERÉS COMPUESTO -->
+<section id="simulador" class="section-compound section-bg-dark" data-aos="fade-up">
+      <div class="simulador-wrapper">
+        <h2>Calculadora de Interés Compuesto</h2>
+    
+        <form id="calculatorForm">
+          <div class="input-row">
+            <div class="input-group">
+              <label for="initialAmount">Capital Inicial</label>
+              <input type="number" step="0.01" id="initialAmount" value="1000" required />
+            </div>
+            <div class="input-group">
+              <label for="periodicDeposit">Aportación Mensual</label>
+              <input type="number" step="0.01" id="periodicDeposit" value="200" required />
+            </div>
+            <div class="input-group">
+              <label for="interestRate">Tasa Anual (%)</label>
+              <input type="number" step="0.01" id="interestRate" value="5" required />
+            </div>
+            <div class="input-group">
+              <label for="years">Duración (años)</label>
+              <input type="number" id="years" value="20" required />
+            </div>
+          </div>
+    
+          <div class="button-group">
+            <button type="submit" class="btn-primary">Calcular</button>
+            <button type="button" class="btn-secondary" onclick="exportPDF()">Exportar a PDF</button>
+            <button type="button" class="btn-info" onclick="toggleDarkMode()">Modo Oscuro</button>
+          </div>
+        </form>
+    
+        <div id="results" class="result-box">
+          <h3>Resultado Final</h3>
+          <p><strong>Total Acumulado:</strong> <span id="totalSaved"></span></p>
+          <p><strong>Total Aportado:</strong> <span id="totalDeposited"></span></p>
+          <p><strong>Intereses Ganados:</strong> <span id="totalInterest"></span></p>
+          <button type="button" id="cerrarCalculoBtn" class="btn-secondary">Cerrar cálculo</button>
+        </div>
+    
+    <!-- RESULTADOS GRÁFICOS Y TABLAS -->
+    <div id="resultadosGrid" class="resultados-grid">
+      <!-- GRÁFICOS: arriba en horizontal -->
+      <div class="graficos-box">
+        <!-- PIE CHART -->
+        <div class="grafico grafico-tarta">
+          <canvas id="pieChart" width="400" height="400"></canvas>
+          <div class="leyenda-pie" id="leyendaPieChart"></div>
+        </div>
+      
+
+<!-- NUEVO GRÁFICO DE BARRAS ACUMULADAS -->
+    <div class="grafico grafico-barras">
+  <canvas id="barChartAcumulado" width="700" height="400"></canvas>
+   </div>
+
+      
+   <!-- TABLAS: abajo en dos columnas -->
+       <div class="tablas-box">
+        <div class="tabla">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Año</th><th>Aportación</th><th>Interés</th><th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="tableBodyLeft"></tbody>
+          </table>
+        </div>
+        <div class="tabla">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Año</th><th>Aportación</th><th>Interés</th><th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="tableBodyRight"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    </section>
+
+
     <!--TEST COMBINADOS-->
-<section id="diagnostico" class="section section-bg-light">
+<section id="test combinados" class="section section-bg-light">
   <div class="container">
     <h2>🧠 Diagnóstico Financiero Inteligente</h2>
     <p class="subtitulo" style="text-align: center; max-width: 720px; margin: 0 auto;">
@@ -268,59 +418,6 @@
 
   </div>
 </section>
-
-
-<!--HERRAMIENTAS-->
-    <section id="herramientas" class="section section-bg-light">
-  <div class="container">
-    <h2>🧰 Herramientas Financieras</h2>
-    <p class="subtitulo" style="text-align:center; max-width:720px; margin: 0 auto;">
-      Recursos prácticos para transformar tu relación con el dinero.
-    </p>
-
-    <div class="grid-herramientas">
-      <!-- Pack Starter -->
-      <div class="herramienta-card destacado">
-        <h3>📦 Pack Starter</h3>
-        <p class="precio">3,99 €</p>
-        <p>Temario básico + Mi Excel Financiero versión personal. Ideal para empezar a tomar control real de tus finanzas por menos que un menú del McDonald’s 🍔📈.</p>
-        <button class="btn-estrecho" onclick="mostrarPackStarter()">Ver detalles</button>
-      </div>
-
-      <!-- Mi Excel Financiero -->
-      <div class="herramienta-card">
-        <h3>📊 Mi Excel Financiero</h3>
-        <p class="precio">2,99 €</p>
-        <p>Plantilla profesional para controlar tus ingresos, gastos, metas y ahorro. Fácil de usar, con gráficos automáticos.</p>
-        <button class="btn-estrecho" onclick="mostrarExcelFinanciero()">Ver detalles</button>
-      </div>
-
-      <!-- Excel Empresarial -->
-      <div class="herramienta-card">
-        <h3>💼 Excel Empresarial</h3>
-        <p class="precio">6,99 €</p>
-        <p>Control de facturación, beneficios, IRPF/IVA y gastos. Diseñado para autónomos, freelancers y pequeños negocios.</p>
-        <button class="btn-estrecho" onclick="mostrarExcelEmpresarial()">Ver detalles</button>
-      </div>
-
-      <!-- Temario por bloques -->
-      <div class="herramienta-card">
-        <h3>📘 Temario por Bloques</h3>
-        <p class="precio">Desde 0,99 €</p>
-        <p>Aprende paso a paso cómo dominar tus finanzas. Desde educación básica hasta estrategias de inversión, protección y optimización fiscal.</p>
-        <button class="btn-estrecho" onclick="mostrarTemarioPorBloques()">Ver detalles</button>
-      </div>
-
-      <!-- Tests imprimibles -->
-      <div class="herramienta-card">
-        <h3>🧠 Tests Imprimibles</h3>
-        <p class="precio">Gratis</p>
-        <p>Autodiagnósticos para saber si estás listo para invertir, emprender o blindar tu patrimonio.</p>
-        <button class="btn-estrecho" onclick="mostrarTestsImprimibles()">Ver detalles</button>
-      </div>
-    </div>
-  </div>
-    </section>
 
 
     <!-- TEST DE INVERSION -->
@@ -442,94 +539,8 @@
     </section>
 
 
-    <!-- CALCADORA DE INTERÉS COMPUESTO -->
-    <section id="simulador" class="section-compound section-bg-dark">
-      <div class="simulador-wrapper">
-        <h2>Calculadora de Interés Compuesto</h2>
-    
-        <form id="calculatorForm">
-          <div class="input-row">
-            <div class="input-group">
-              <label for="initialAmount">Capital Inicial</label>
-              <input type="number" step="0.01" id="initialAmount" value="1000" required />
-            </div>
-            <div class="input-group">
-              <label for="periodicDeposit">Aportación Mensual</label>
-              <input type="number" step="0.01" id="periodicDeposit" value="200" required />
-            </div>
-            <div class="input-group">
-              <label for="interestRate">Tasa Anual (%)</label>
-              <input type="number" step="0.01" id="interestRate" value="5" required />
-            </div>
-            <div class="input-group">
-              <label for="years">Duración (años)</label>
-              <input type="number" id="years" value="20" required />
-            </div>
-          </div>
-    
-          <div class="button-group">
-            <button type="submit" class="btn-primary">Calcular</button>
-            <button type="button" class="btn-secondary" onclick="exportPDF()">Exportar a PDF</button>
-            <button type="button" class="btn-info" onclick="toggleDarkMode()">Modo Oscuro</button>
-          </div>
-        </form>
-    
-        <div id="results" class="result-box">
-          <h3>Resultado Final</h3>
-          <p><strong>Total Acumulado:</strong> <span id="totalSaved"></span></p>
-          <p><strong>Total Aportado:</strong> <span id="totalDeposited"></span></p>
-          <p><strong>Intereses Ganados:</strong> <span id="totalInterest"></span></p>
-          <button type="button" id="cerrarCalculoBtn" class="btn-secondary">Cerrar cálculo</button>
-        </div>
-    
-    <!-- RESULTADOS GRÁFICOS Y TABLAS -->
-    <div id="resultadosGrid" class="resultados-grid">
-      <!-- GRÁFICOS: arriba en horizontal -->
-      <div class="graficos-box">
-        <!-- PIE CHART -->
-        <div class="grafico grafico-tarta">
-          <canvas id="pieChart" width="400" height="400"></canvas>
-          <div class="leyenda-pie" id="leyendaPieChart"></div>
-        </div>
-      
-
-<!-- NUEVO GRÁFICO DE BARRAS ACUMULADAS -->
-    <div class="grafico grafico-barras">
-  <canvas id="barChartAcumulado" width="700" height="400"></canvas>
-   </div>
-
-      
-   <!-- TABLAS: abajo en dos columnas -->
-       <div class="tablas-box">
-        <div class="tabla">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Año</th><th>Aportación</th><th>Interés</th><th>Balance</th>
-              </tr>
-            </thead>
-            <tbody id="tableBodyLeft"></tbody>
-          </table>
-        </div>
-        <div class="tabla">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Año</th><th>Aportación</th><th>Interés</th><th>Balance</th>
-              </tr>
-            </thead>
-            <tbody id="tableBodyRight"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    </section>
-    
-
-
     <!-- PROTECCIÓN PATRIMONIAL -->
-    <section id="proteccion" class="section section-proteccion">
+<section id="proteccion" class="section section-proteccion" data-aos="fade-up">
       <div class="container">
         <h2 class="text-center mb-4">🛡️ Protección Patrimonial</h2>
         <p class="lead text-center fs-5 mb-4" style="max-width: 700px; margin: 0 auto;">
@@ -538,7 +549,7 @@
     
         <!-- BOTÓN PARA MOSTRAR TEST -->
         <div class="cta-scroll-container">
-          <button class="btn-scroll-diagnostico" onclick="document.getElementById('diagnostico').scrollIntoView({ behavior: 'smooth' })">
+          <button class="btn-scroll-diagnostico" onclick="document.getElementById('test combinados').scrollIntoView({ behavior: 'smooth' })">
             🌍 Sí, quiero descubrir mi diagnóstico completo
           </button>
         </div>
@@ -702,10 +713,8 @@
       </div>
     </section>
     
-       
-
 <!-- CONTACTO Y NEWSLETTER -->
-<section id="contacto" class="section section-contacto section-bg-dark">
+<section id="contacto" class="section section-contacto section-bg-dark" data-aos="fade-up">
   <div class="container contacto-newsletter-grid">
 
     <!-- Título compartido -->
@@ -770,8 +779,6 @@
 
   </div>
 </section>
-
-
 
   </main>
 
@@ -1762,14 +1769,41 @@ document.getElementById("empezar-btn").addEventListener("click", () => {
   }
 </script>
 
+<!--cripts para mejor funcionamiento en movil-->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".nav-toggle");
+    const menu = document.querySelector("nav ul");
 
+    toggle.addEventListener("click", function () {
+      const expanded = this.getAttribute("aria-expanded") === "true";
+      this.setAttribute("aria-expanded", !expanded);
+      menu.classList.toggle("show");
+    });
+  });
+</script>
+
+<!--script de Activacion de AOS-->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+    });
+  });
+</script>
 
 <!--CTAS-->
 <div class="cta-scroll-container">
-  <button class="btn-scroll-diagnostico" onclick="document.getElementById('diagnostico').scrollIntoView({ behavior: 'smooth' })">
+  <button class="btn-scroll-test combinado" onclick="document.getElementById('diagnostico').scrollIntoView({ behavior: 'smooth' })">
     🌍 Sí, quiero descubrir mi diagnóstico completo
   </button>
 </div>
+<!--el CTA DE WAS-->
+<a href="https://wa.me/34696067113" class="whatsapp-cta" target="_blank" aria-label="WhatsApp de contacto">💬</a>
+
 
 
 </body>
