@@ -8,8 +8,10 @@
   --dark: #212529;
   --light: #ffffff;
   --bg: #f8f9fa;
+  --bg-dark: #1e1e1e;
   --gray: #ced4da;
   --text: #212529;
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --radius: 0.5rem;
   --shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease-in-out;
@@ -42,7 +44,7 @@
   }
   
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-main);
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
@@ -269,13 +271,13 @@ section[id] {
   }
 
   .hero h1 {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
     text-shadow: 0 2px 4px rgba(0,0,0,0.6);
     font-weight: 700;
   }
   
   .hero p {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     max-width: 700px;
     margin: 0 auto 20px auto;
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
@@ -1870,13 +1872,13 @@ h3 {
 
     /* --- Modo Oscuro --- */
     .dark-mode {
-        background-color: #1e1e1e;
-        color: #ffffff;
+        background-color: var(--bg-dark);
+        color: var(--light);
     }
 
     .dark-mode .table {
         background-color: #2d2d2d;
-        color: #ffffff;
+        color: var(--light);
     }
 
     .dark-mode .table thead {
@@ -1890,7 +1892,7 @@ h3 {
 
     .dark-mode .chart-box {
         background-color: #2d2d2d;
-        color: #ffffff;
+        color: var(--light);
     }
 
 

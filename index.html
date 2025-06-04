@@ -803,10 +803,23 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Menú responsive
-    document.querySelector('.nav-toggle').onclick = () => {
-      document.querySelector('nav ul').classList.toggle('show');
-    };
+    // Menú responsive con cierre automático en móvil
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('nav ul');
+
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+      menu.classList.toggle('show');
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     // Scroll a top si hacen clic en "Inicio"
     document.querySelectorAll('a[href="#inicio"]').forEach(link => {
       link.addEventListener('click', function (e) {
@@ -1765,20 +1778,6 @@ document.getElementById("empezar-btn").addEventListener("click", () => {
   }
 </script>
 
-<!--cripts para mejor funcionamiento en movil-->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.querySelector(".nav-toggle");
-    const menu = document.querySelector("nav ul");
-
-    toggle.addEventListener("click", function () {
-      const expanded = this.getAttribute("aria-expanded") === "true";
-      this.setAttribute("aria-expanded", !expanded);
-      menu.classList.toggle("show");
-    });
-  });
-</script>
-
 <!--script de Activacion de AOS-->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -1789,6 +1788,14 @@ document.getElementById("empezar-btn").addEventListener("click", () => {
       once: true,
     });
   });
+</script>
+
+<!-- Modo oscuro para la calculadora -->
+<script>
+  function toggleDarkMode() {
+    const section = document.getElementById('simulador');
+    section.classList.toggle('dark-mode');
+  }
 </script>
 
 <!--CTAS-->
