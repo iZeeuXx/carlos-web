@@ -175,7 +175,9 @@ nav ul li a {
 }
 
 nav ul {
+  list-style: none;
   display: flex;
+  align-items: center;
   gap: 1.8rem;
 }
 
@@ -218,7 +220,6 @@ nav a:hover::after {
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 1rem;
   color: var(--primary);
 }
 
@@ -262,6 +263,10 @@ nav a:hover::after {
     padding: 0.8rem 0;
     border-bottom: 1px solid #eee;
   }
+
+  .theme-item {
+    margin-left: 0;
+  }
 }
 
 nav a.active {
@@ -270,6 +275,15 @@ nav a.active {
 
 nav a.active::after {
   width: 100%;
+}
+
+/* Item para el botón de tema */
+.theme-item {
+  margin-left: auto;
+}
+
+.theme-item .mode-toggle {
+  margin-left: 0;
 }
 
 /* --- Scroll limpio y con separación desde el header fijo --- */

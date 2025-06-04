@@ -24,14 +24,10 @@
 <!-- ✅ HEADER MEJORADO Y FUNCIONAL -->
 <header class="header-elevado">
   <div class="container header-content">
-    <div class="logo-area">
-      <a href="#inicio" class="logo-link" aria-label="Inicio">
-        <h1 class="logo">Carlos<span> • Asesoría Financiera</span></h1>
-      </a>
-    </div>
-
+    <a href="#inicio" class="logo-link" aria-label="Inicio">
+      <h1 class="logo">Carlos<span> • Asesoría Financiera</span></h1>
+    </a>
     <button class="nav-toggle" aria-label="Abrir menú móvil" aria-controls="nav-menu" aria-expanded="false">☰</button>
-
     <nav aria-label="Menú principal">
       <ul id="nav-menu" class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
@@ -44,9 +40,9 @@
         <li><a href="#test-combinados">Tests</a></li>
         <li><a href="#proteccion">Protección</a></li>
         <li><a href="#contacto">Contacto</a></li>
+        <li class="theme-item"><button id="mode-toggle" class="mode-toggle" aria-label="Activar modo oscuro" aria-pressed="false">🌙</button></li>
       </ul>
     </nav>
-    <button id="mode-toggle" class="mode-toggle" aria-label="Activar modo oscuro" aria-pressed="false">🌙</button>
   </div>
 </header>
 
@@ -815,8 +811,8 @@
       menu.classList.toggle('show');
     });
 
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+    menu.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('click', () => {
         menu.classList.remove('show');
         toggle.setAttribute('aria-expanded', 'false');
       });
