@@ -19,6 +19,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
 <body>
+  <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
 
 <!-- ✅ HEADER MEJORADO Y FUNCIONAL -->
 <header role="banner" class="header-elevado">
@@ -45,6 +46,7 @@
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
+    <button id="mode-toggle" class="mode-toggle" aria-label="Activar modo oscuro" aria-pressed="false">🌙</button>
   </div>
 </header>
 
@@ -826,6 +828,19 @@
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+    });
+
+    // Dark mode toggle con persistencia
+    const modeToggle = document.getElementById('mode-toggle');
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      document.body.classList.add('dark-theme');
+      modeToggle.setAttribute('aria-pressed', 'true');
+    }
+    modeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark-theme');
+      modeToggle.setAttribute('aria-pressed', isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
     </script>
