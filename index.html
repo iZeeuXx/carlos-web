@@ -10,14 +10,12 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carlos • Asesoría Financiera</title>
   <link rel="stylesheet" href="style.css" />
 
   <!-- AOS Animations -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <!-- Librerías externas -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
 <body>
@@ -57,12 +55,12 @@
 
     <!-- HERO SECTION -->
 <section id="inicio" class="hero" data-aos="fade-up">
-      <div class="container hero-content">
-        <h2>Bienvenido a tu libertad financiera</h2>
-        <p>Asesoría personalizada en ETFs, acciones y real estate para que tomes el control de tu dinero.</p>
-        <a href="#newsletter" class="btn-primary">Suscríbete al Newsletter</a>
-      </div>
-    </section>
+  <div class="container hero-content">
+    <h2>Bienvenido a tu libertad financiera</h2>
+    <p>Asesoría personalizada en ETFs, acciones y real estate para que tomes el control de tu dinero.</p>
+    <a href="#newsletter" class="btn-primary">Suscríbete al Newsletter</a>
+  </div>
+      </section>
 
     <!-- QUIÉN SOY -->
       <section id="quien-soy" class="section section-personal section-bg-light" data-aos="fade-up">
@@ -86,8 +84,8 @@
       <span class="rol">Asesor financiero</span>
     </div>
   </div>
-</div>    
-    </section>    
+  </div>
+  </section>
     
     <!-- CASOS DE ÉXITO -->
 <section id="casos-exito" class="section section-casos-exito" data-aos="fade-up">
@@ -110,7 +108,7 @@
             <p>“Como familia con ingresos bajos, no pensábamos que podíamos invertir. Ahora tenemos un fondo común que crece cada mes.”</p>
           </div>
         </div>
-      </div>
+        </div>
     </section>
 
     <!-- MODELOS DE INVERSIÓN POR OBJETIVO -->
@@ -164,9 +162,9 @@
         <!-- BOTÓN CENTRAL -->
         <div style="text-align: center; margin-top: 2rem;">
           <a href="#contacto" class="btn-primary btn-estrecho">Solicita tu asesoría personalizada</a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <!-- ASESORÍAS -->
 <section id="asesorias" class="section section-asesorias section-bg-dark zoom-pequeno" data-aos="fade-up">
@@ -209,10 +207,7 @@
             </ul>
             <a href="#contacto" class="btn-primary">Quiero el Premium</a>
           </div>
-
-    
         </div>
-      </div>
     </section>
 
     <!--HERRAMIENTAS-->
@@ -320,11 +315,11 @@
 
 <!-- NUEVO GRÁFICO DE BARRAS ACUMULADAS -->
     <div class="grafico grafico-barras">
-  <canvas id="barChartAcumulado" width="700" height="400"></canvas>
-   </div>
+    <canvas id="barChartAcumulado" width="700" height="400"></canvas>
+    </div>
+    </div>
 
-      
-   <!-- TABLAS: abajo en dos columnas -->
+    <!-- TABLAS: abajo en dos columnas -->
        <div class="tablas-box">
         <div class="tabla">
           <table class="table">
@@ -347,9 +342,9 @@
           </table>
         </div>
       </div>
+      </div>
     </div>
-
-    </section>
+  </section>
 
 
     <!--TEST COMBINADOS-->
@@ -414,8 +409,10 @@
       <p id="resultado-combinado">
         Completa ambos tests para ver tu diagnóstico global.
       </p>
-    </div>
+  </div>
 
+  </div>
+  </div>
   </div>
 </section>
 
@@ -525,8 +522,8 @@
       <!-- Resultado -->
       <div id="test-result" class="test-result" style="display:none;">
         <div id="emoji-perfil" style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
-        <h3>Tu perfil de riesgo es: <span id="perfil-texto"></span></h3>
-        <p id="perfil-desc"></p>
+        <h3>Tu perfil de riesgo es: <span id="perfil-texto-long"></span></h3>
+        <p id="perfil-desc-long"></p>
         <p>📊 Rendimiento anual estimado: <strong id="perfil-return"></strong></p>
 
         <button id="btn-plan-recomendado" class="btn-primary" style="margin-top: 2rem;">Ver plan recomendado</button>
@@ -560,7 +557,7 @@
         <div class="test-wrapper mt-4 mb-5" style="display: none; flex-direction: column; align-items: center;">
           <div id="step-counter-patrimonio" class="step-counter">1 de 6</div>
 
-          <form id="test-patrimonio">
+          <form id="test-patrimonio-avanzado">
             <div class="centered-content">
               <!-- PREGUNTAS -->
               <div class="step active">
@@ -710,7 +707,6 @@
           Ir a la Calculadora de Interés Compuesto
         </button>
         </div>
-      </div>
     </section>
     
 <!-- CONTACTO Y NEWSLETTER -->
@@ -830,8 +826,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevBtn = document.getElementById("prev-btn");
   const counter = document.getElementById("step-counter");
   const result = document.getElementById("test-result");
-  const txt = document.getElementById("perfil-texto");
-  const desc = document.getElementById("perfil-desc");
+  const txt = document.getElementById("perfil-texto-long");
+  const desc = document.getElementById("perfil-desc-long");
   const retElem = document.getElementById("perfil-return");
   let current = 0;
 
@@ -1320,8 +1316,8 @@ window.chartAcumulado = new Chart(ctxAcumulado, {
 
 <!--funcionamiento del avance autoamtico en el Test.P y funcionamiento del "siguiente y anterior"-->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("test-patrimonio");
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("test-patrimonio-avanzado");
     const steps = form.querySelectorAll(".step");
     const nextBtn = document.getElementById("next-btn-patrimonio");
     const prevBtn = document.getElementById("prev-btn-patrimonio");
