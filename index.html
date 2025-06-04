@@ -10,20 +10,19 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carlos • Asesoría Financiera</title>
   <link rel="stylesheet" href="style.css" />
 
   <!-- AOS Animations -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <!-- Librerías externas -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
 <body>
+  <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
 
 <!-- ✅ HEADER MEJORADO Y FUNCIONAL -->
-<header role="banner" class="header-elevado">
+<header class="header-elevado">
   <div class="container header-content">
     <div class="logo-area">
       <a href="#inicio" class="logo-link" aria-label="Inicio">
@@ -31,10 +30,10 @@
       </a>
     </div>
 
-    <button class="nav-toggle" aria-label="Abrir menú móvil" aria-expanded="false">☰</button>
+    <button class="nav-toggle" aria-label="Abrir menú móvil" aria-controls="nav-menu" aria-expanded="false">☰</button>
 
-    <nav role="navigation" aria-label="Menú principal">
-      <ul class="nav-links">
+    <nav aria-label="Menú principal">
+      <ul id="nav-menu" class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#quien-soy">Quién Soy</a></li>
         <li><a href="#casos-exito">Casos de Éxito</a></li>
@@ -42,11 +41,12 @@
         <li><a href="#asesorias">Asesorías</a></li>
         <li><a href="#herramientas">Herramientas</a></li>
         <li><a href="#simulador">Simulador</a></li>
-        <li><a href="#test combinados">Tests</a></li>
+        <li><a href="#test-combinados">Tests</a></li>
         <li><a href="#proteccion">Protección</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
+    <button id="mode-toggle" class="mode-toggle" aria-label="Activar modo oscuro" aria-pressed="false">🌙</button>
   </div>
 </header>
 
@@ -57,12 +57,12 @@
 
     <!-- HERO SECTION -->
 <section id="inicio" class="hero" data-aos="fade-up">
-      <div class="container hero-content">
-        <h2>Bienvenido a tu libertad financiera</h2>
-        <p>Asesoría personalizada en ETFs, acciones y real estate para que tomes el control de tu dinero.</p>
-        <a href="#newsletter" class="btn-primary">Suscríbete al Newsletter</a>
-      </div>
-    </section>
+  <div class="container hero-content">
+    <h2>Bienvenido a tu libertad financiera</h2>
+    <p>Asesoría personalizada en ETFs, acciones y real estate para que tomes el control de tu dinero.</p>
+    <a href="#newsletter" class="btn-primary">Suscríbete al Newsletter</a>
+  </div>
+      </section>
 
     <!-- QUIÉN SOY -->
       <section id="quien-soy" class="section section-personal section-bg-light" data-aos="fade-up">
@@ -86,8 +86,8 @@
       <span class="rol">Asesor financiero</span>
     </div>
   </div>
-</div>    
-    </section>    
+  </div>
+  </section>
     
     <!-- CASOS DE ÉXITO -->
 <section id="casos-exito" class="section section-casos-exito" data-aos="fade-up">
@@ -110,7 +110,7 @@
             <p>“Como familia con ingresos bajos, no pensábamos que podíamos invertir. Ahora tenemos un fondo común que crece cada mes.”</p>
           </div>
         </div>
-      </div>
+        </div>
     </section>
 
     <!-- MODELOS DE INVERSIÓN POR OBJETIVO -->
@@ -164,9 +164,9 @@
         <!-- BOTÓN CENTRAL -->
         <div style="text-align: center; margin-top: 2rem;">
           <a href="#contacto" class="btn-primary btn-estrecho">Solicita tu asesoría personalizada</a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <!-- ASESORÍAS -->
 <section id="asesorias" class="section section-asesorias section-bg-dark zoom-pequeno" data-aos="fade-up">
@@ -209,10 +209,7 @@
             </ul>
             <a href="#contacto" class="btn-primary">Quiero el Premium</a>
           </div>
-
-    
         </div>
-      </div>
     </section>
 
     <!--HERRAMIENTAS-->
@@ -320,11 +317,11 @@
 
 <!-- NUEVO GRÁFICO DE BARRAS ACUMULADAS -->
     <div class="grafico grafico-barras">
-  <canvas id="barChartAcumulado" width="700" height="400"></canvas>
-   </div>
+    <canvas id="barChartAcumulado" width="700" height="400"></canvas>
+    </div>
+    </div>
 
-      
-   <!-- TABLAS: abajo en dos columnas -->
+    <!-- TABLAS: abajo en dos columnas -->
        <div class="tablas-box">
         <div class="tabla">
           <table class="table">
@@ -347,13 +344,13 @@
           </table>
         </div>
       </div>
+      </div>
     </div>
-
-    </section>
+  </section>
 
 
     <!--TEST COMBINADOS-->
-<section id="test combinados" class="section section-bg-light">
+<section id="test-combinados" class="section section-bg-light">
   <div class="container">
     <h2>🧠 Diagnóstico Financiero Inteligente</h2>
     <p class="subtitulo" style="text-align: center; max-width: 720px; margin: 0 auto;">
@@ -414,8 +411,10 @@
       <p id="resultado-combinado">
         Completa ambos tests para ver tu diagnóstico global.
       </p>
-    </div>
+  </div>
 
+  </div>
+  </div>
   </div>
 </section>
 
@@ -525,8 +524,8 @@
       <!-- Resultado -->
       <div id="test-result" class="test-result" style="display:none;">
         <div id="emoji-perfil" style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
-        <h3>Tu perfil de riesgo es: <span id="perfil-texto"></span></h3>
-        <p id="perfil-desc"></p>
+        <h3>Tu perfil de riesgo es: <span id="perfil-texto-long"></span></h3>
+        <p id="perfil-desc-long"></p>
         <p>📊 Rendimiento anual estimado: <strong id="perfil-return"></strong></p>
 
         <button id="btn-plan-recomendado" class="btn-primary" style="margin-top: 2rem;">Ver plan recomendado</button>
@@ -549,7 +548,7 @@
     
         <!-- BOTÓN PARA MOSTRAR TEST -->
         <div class="cta-scroll-container">
-          <button class="btn-scroll-diagnostico" onclick="document.getElementById('test combinados').scrollIntoView({ behavior: 'smooth' })">
+          <button class="btn-scroll-diagnostico" onclick="document.getElementById('test-combinados').scrollIntoView({ behavior: 'smooth' })">
             🌍 Sí, quiero descubrir mi diagnóstico completo
           </button>
         </div>
@@ -560,7 +559,7 @@
         <div class="test-wrapper mt-4 mb-5" style="display: none; flex-direction: column; align-items: center;">
           <div id="step-counter-patrimonio" class="step-counter">1 de 6</div>
 
-          <form id="test-patrimonio">
+          <form id="test-patrimonio-avanzado">
             <div class="centered-content">
               <!-- PREGUNTAS -->
               <div class="step active">
@@ -710,7 +709,6 @@
           Ir a la Calculadora de Interés Compuesto
         </button>
         </div>
-      </div>
     </section>
     
 <!-- CONTACTO Y NEWSLETTER -->
@@ -783,7 +781,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer role="contentinfo">
+  <footer>
     <div class="container">
       <div class="footer-social">
         <a href="https://www.linkedin.com/in/tuusuario" target="_blank" aria-label="LinkedIn">
@@ -807,16 +805,42 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Menú responsive
-    document.querySelector('.nav-toggle').onclick = () => {
-      document.querySelector('nav ul').classList.toggle('show');
-    };
+    // Menú responsive con cierre automático en móvil
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('nav-menu');
+
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+      menu.classList.toggle('show');
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     // Scroll a top si hacen clic en "Inicio"
     document.querySelectorAll('a[href="#inicio"]').forEach(link => {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+    });
+
+    // Dark mode toggle con persistencia
+    const modeToggle = document.getElementById('mode-toggle');
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      document.body.classList.add('dark-theme');
+      modeToggle.setAttribute('aria-pressed', 'true');
+    }
+    modeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark-theme');
+      modeToggle.setAttribute('aria-pressed', isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
     </script>
@@ -830,8 +854,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevBtn = document.getElementById("prev-btn");
   const counter = document.getElementById("step-counter");
   const result = document.getElementById("test-result");
-  const txt = document.getElementById("perfil-texto");
-  const desc = document.getElementById("perfil-desc");
+  const txt = document.getElementById("perfil-texto-long");
+  const desc = document.getElementById("perfil-desc-long");
   const retElem = document.getElementById("perfil-return");
   let current = 0;
 
@@ -1320,8 +1344,8 @@ window.chartAcumulado = new Chart(ctxAcumulado, {
 
 <!--funcionamiento del avance autoamtico en el Test.P y funcionamiento del "siguiente y anterior"-->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("test-patrimonio");
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("test-patrimonio-avanzado");
     const steps = form.querySelectorAll(".step");
     const nextBtn = document.getElementById("next-btn-patrimonio");
     const prevBtn = document.getElementById("prev-btn-patrimonio");
@@ -1769,20 +1793,6 @@ document.getElementById("empezar-btn").addEventListener("click", () => {
   }
 </script>
 
-<!--cripts para mejor funcionamiento en movil-->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.querySelector(".nav-toggle");
-    const menu = document.querySelector("nav ul");
-
-    toggle.addEventListener("click", function () {
-      const expanded = this.getAttribute("aria-expanded") === "true";
-      this.setAttribute("aria-expanded", !expanded);
-      menu.classList.toggle("show");
-    });
-  });
-</script>
-
 <!--script de Activacion de AOS-->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -1795,9 +1805,17 @@ document.getElementById("empezar-btn").addEventListener("click", () => {
   });
 </script>
 
+<!-- Modo oscuro para la calculadora -->
+<script>
+  function toggleDarkMode() {
+    const section = document.getElementById('simulador');
+    section.classList.toggle('dark-mode');
+  }
+</script>
+
 <!--CTAS-->
 <div class="cta-scroll-container">
-  <button class="btn-scroll-diagnostico" onclick="document.getElementById('test combinados').scrollIntoView({ behavior: 'smooth' })">
+  <button class="btn-scroll-diagnostico" onclick="document.getElementById('test-combinados').scrollIntoView({ behavior: 'smooth' })">
     🌍 Sí, quiero descubrir mi diagnóstico completo
   </button>
 </div>
