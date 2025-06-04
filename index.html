@@ -30,10 +30,10 @@
       </a>
     </div>
 
-    <button class="nav-toggle" aria-label="Abrir menú móvil" aria-expanded="false">☰</button>
+    <button class="nav-toggle" aria-label="Abrir menú móvil" aria-controls="nav-menu" aria-expanded="false">☰</button>
 
     <nav role="navigation" aria-label="Menú principal">
-      <ul class="nav-links">
+      <ul id="nav-menu" class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#quien-soy">Quién Soy</a></li>
         <li><a href="#casos-exito">Casos de Éxito</a></li>
@@ -41,7 +41,7 @@
         <li><a href="#asesorias">Asesorías</a></li>
         <li><a href="#herramientas">Herramientas</a></li>
         <li><a href="#simulador">Simulador</a></li>
-        <li><a href="#test combinados">Tests</a></li>
+        <li><a href="#test-combinados">Tests</a></li>
         <li><a href="#proteccion">Protección</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
@@ -350,7 +350,7 @@
 
 
     <!--TEST COMBINADOS-->
-<section id="test combinados" class="section section-bg-light">
+<section id="test-combinados" class="section section-bg-light">
   <div class="container">
     <h2>🧠 Diagnóstico Financiero Inteligente</h2>
     <p class="subtitulo" style="text-align: center; max-width: 720px; margin: 0 auto;">
@@ -548,7 +548,7 @@
     
         <!-- BOTÓN PARA MOSTRAR TEST -->
         <div class="cta-scroll-container">
-          <button class="btn-scroll-diagnostico" onclick="document.getElementById('test combinados').scrollIntoView({ behavior: 'smooth' })">
+          <button class="btn-scroll-diagnostico" onclick="document.getElementById('test-combinados').scrollIntoView({ behavior: 'smooth' })">
             🌍 Sí, quiero descubrir mi diagnóstico completo
           </button>
         </div>
@@ -807,7 +807,7 @@
   <script>
     // Menú responsive con cierre automático en móvil
     const toggle = document.querySelector('.nav-toggle');
-    const menu = document.querySelector('nav ul');
+    const menu = document.getElementById('nav-menu');
 
     toggle.addEventListener('click', () => {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
@@ -1815,7 +1815,7 @@ document.getElementById("empezar-btn").addEventListener("click", () => {
 
 <!--CTAS-->
 <div class="cta-scroll-container">
-  <button class="btn-scroll-diagnostico" onclick="document.getElementById('test combinados').scrollIntoView({ behavior: 'smooth' })">
+  <button class="btn-scroll-diagnostico" onclick="document.getElementById('test-combinados').scrollIntoView({ behavior: 'smooth' })">
     🌍 Sí, quiero descubrir mi diagnóstico completo
   </button>
 </div>
